@@ -5,12 +5,12 @@ namespace ConnectFour
     public class Player
     {
         private string name;
-        private string disc;
+        private Disc colour;
 
-        public Player(string name, string disc)
+        public Player(string name, Disc colour)
         {
             this.name = name;
-            this.disc = disc;
+            this.colour = colour;
         }
 
         public string Name
@@ -19,10 +19,10 @@ namespace ConnectFour
             get { return this.name; }
         }
 
-        public string Disc
+        public Disc Colour
         {
-            set { this.disc = value; }
-            get { return this.disc; }
+            set { this.colour = value; }
+            get { return this.colour; }
         }
 
     }

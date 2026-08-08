@@ -6,7 +6,7 @@
         [Fact]
         public void Player_SetsName()
         {
-            var player = new Player("playerOne", "Red");
+            var player = new Player("playerOne", Disc.Red);
 
             Assert.Equal("playerOne", player.Name);
         }
@@ -15,26 +15,26 @@
         [Fact]
         public void Player_SetsDisc()
         {
-            var player = new Player("playerOne", "Red");
+            var player = new Player("playerOne", Disc.Red);
 
-            Assert.Equal("Red", player.Disc);
+            Assert.Equal(Disc.Red, player.Colour);
         }
 
         // Test both name and disc set correctly
         [Fact]
         public void Player_SetsBothIndependently()
         {
-            var player = new Player("playerTwo", "Yellow");
+            var player = new Player("playerTwo", Disc.Yellow);
 
             Assert.Equal("playerTwo", player.Name);
-            Assert.Equal("Yellow", player.Disc);
+            Assert.Equal(Disc.Yellow, player.Colour);
         }
 
         // Check name gets updated
         [Fact]
         public void Player_UpdateName()
         {
-            var player = new Player("playerOne", "Red");
+            var player = new Player("playerOne", Disc.Red);
 
             player.Name = "playerTwo";
 
@@ -45,69 +45,66 @@
         [Fact]
         public void Player_DiscRemainsSame()
         {
-            var player = new Player("playerOne", "Red");
+            var player = new Player("playerOne", Disc.Red);
 
             player.Name = "playerTwo";
 
-            Assert.Equal("Red", player.Disc);
+            Assert.Equal(Disc.Red, player.Colour);
         }
 
         // Check disc gets updated
         [Fact]
         public void Player_UpdateDisc()
         {
-            var player = new Player("playerOne", "Red");
+            var player = new Player("playerOne", Disc.Red);
 
-            player.Disc = "Yellow";
+            player.Colour = Disc.Yellow;
 
-            Assert.Equal("Yellow", player.Disc);
+            Assert.Equal(Disc.Yellow, player.Colour);
         }
 
         // Check disc update doesn't affect name
         [Fact]
         public void Player_NameRemainsSame()
         {
-            var player = new Player("playerOne", "Red");
+            var player = new Player("playerOne", Disc.Red);
 
-            player.Disc = "Yellow";
+            player.Colour = Disc.Yellow;
 
             Assert.Equal("playerOne", player.Name);
         }
 
-        // Check player accepts null values
+        // Name is still a reference type, so null is allowed
         [Fact]
-        public void Player_AllowsNullValues()
+        public void Player_AllowsNullName()
         {
-            var player = new Player(null, null);
+            var player = new Player(null, Disc.Red);
 
             Assert.Null(player.Name);
-            Assert.Null(player.Disc);
         }
 
-        // Test multiple strings
+        // Test multiple name/disc combinations (enums are valid in InlineData)
         [Theory]
-        [InlineData("", "")]
-        [InlineData("playerOne", "Yellow")]
-        [InlineData("playerTwo", "Red")]
-        public void Player_PreservesVariousStrings(string name, string disc)
+        [InlineData("", Disc.Empty)]
+        [InlineData("playerOne", Disc.Yellow)]
+        [InlineData("playerTwo", Disc.Red)]
+        public void Player_PreservesValues(string name, Disc disc)
         {
             var player = new Player(name, disc);
 
             Assert.Equal(name, player.Name);
-            Assert.Equal(disc, player.Disc);
+            Assert.Equal(disc, player.Colour);
         }
 
-        // Check we can reassign nulls
+        // Name can be reassigned to null
         [Fact]
-        public void Player_ReassignNulls()
+        public void Player_ReassignNullName()
         {
-            var player = new Player("playerOne", "Red");
+            var player = new Player("playerOne", Disc.Red);
 
             player.Name = null;
-            player.Disc = null;
 
             Assert.Null(player.Name);
-            Assert.Null(player.Disc);
         }
     }
 }
