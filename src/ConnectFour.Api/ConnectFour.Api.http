@@ -1,0 +1,6 @@
+@ConnectFour.Api_HostAddress = http://localhost:5291
+
+GET {{ConnectFour.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
