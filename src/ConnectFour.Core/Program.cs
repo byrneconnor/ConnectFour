@@ -46,6 +46,23 @@ namespace ConnectFour.Core
             Console.WriteLine("Has Red won yet...? - " + board.CheckWin(Disc.Red));
             PrintBoard(board);
 
+            // Play a game
+            Console.WriteLine("Play a game...");
+            Game game = new(playerOne, playerTwo);
+            Console.WriteLine("Turn 1 - PlayerOne: " + playerOne.Colour + " - Column 3");
+            game.PlayMove(3);
+            PrintBoard(game.Board);
+            Console.WriteLine("Turn 2 - PlayerTwo: " + playerTwo.Colour + " - Column 4");
+            game.PlayMove(4);
+            PrintBoard(game.Board);
+            Console.WriteLine("Turn 3 - PlayerOne: " + playerOne.Colour + " - Column 4");
+            game.PlayMove(4);
+            PrintBoard(game.Board);
+            Console.WriteLine("Turn 4 - PlayerTwo: " + playerTwo.Colour + " - Column 2");
+            game.PlayMove(2);
+            PrintBoard(game.Board);
+
+
 
         }
 
