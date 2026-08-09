@@ -9,60 +9,55 @@ namespace ConnectFour.Core
         static void Main(string[] args)
         {
 
-            Player playerOne = new Player("Human", Disc.Red);
-            Player playerTwo = new Player("AI", Disc.Yellow);
-            Player noPlayer = new Player("...", Disc.Empty);
+            // Define players
+            Player human = new Player("Human", Disc.Red);
+            Player ai = new Player("AI", Disc.Yellow);
 
-            Console.WriteLine("Player 1: " + playerOne.Name + " - " + playerOne.Colour);
-            Console.WriteLine("Player 2: " + playerTwo.Name + " - " + playerTwo.Colour);
-            Console.WriteLine("Blank player: " + noPlayer.Name + " - " + noPlayer.Colour);
+            // Define game
+            Game game = new(human, ai);
 
-            Board board = new Board();
+            while (game.IsOver == false)
+            {
+                
+                Console.WriteLine("Let's play Connect Four!");
 
-            bool validMove = board.IsValidMove(0);
-            bool invalidMove = board.IsValidMove(7);
+                // Print board
+                PrintBoard(game.Board);
 
-            Console.WriteLine("validMove = " + validMove + ", invalidMove = " + invalidMove);
+                int move;
 
-            // test we can drop some discs and print board out
-            Console.WriteLine("Red to column 3...");
-            board.DropDisc(3, Disc.Red);
-            PrintBoard(board);
-            Console.WriteLine("Yellow to column 3...");
-            board.DropDisc(3, Disc.Yellow);
-            PrintBoard(board);
-            Console.WriteLine("Red to column 4...");
-            board.DropDisc(4, Disc.Red);
-            PrintBoard(board);
-            Console.WriteLine("Yellow to column 400 (shouldn't work)...");
-            board.DropDisc(400, Disc.Yellow);
-            PrintBoard(board);
+                // every time it is the human player, ask for an input
+                if (game.CurrentPlayer.Name == "Human")
+                {
+                    move = AskForColumn(game);
+                }
+                else
+                // AI's turn
+                {
+                    // Set up a list of possible moves for the AI
+                    List<int> possibleMoves = new();
+                    
+                    // Loop through columns
+                    for (int c = 0; c < Board.Columns; c++)
+                    {
+                        // check if a move is valid
+                        if (game.Board.IsValidMove(c))
+                        {
+                            // Add to list of possible moves
+                            possibleMoves.Add(c);
+                        }
+                    }
 
-            Console.WriteLine("Has Red won yet...? - " + board.CheckWin(Disc.Red));
-            Console.WriteLine("Add some more goes...Red to coulmn 4 three times...");
-            board.DropDisc(4, Disc.Red);
-            board.DropDisc(4, Disc.Red);
-            board.DropDisc(4, Disc.Red);
-            Console.WriteLine("Has Red won yet...? - " + board.CheckWin(Disc.Red));
-            PrintBoard(board);
+                    // Choose one possible move at random
+                    Random random = new();
+                    move = possibleMoves[random.Next(possibleMoves.Count)];
+                    Console.WriteLine("AI chooses column " + move);
+                }
 
-            // Play a game
-            Console.WriteLine("Play a game...");
-            Game game = new(playerOne, playerTwo);
-            Console.WriteLine("Turn 1 - PlayerOne: " + playerOne.Colour + " - Column 3");
-            game.PlayMove(3);
-            PrintBoard(game.Board);
-            Console.WriteLine("Turn 2 - PlayerTwo: " + playerTwo.Colour + " - Column 4");
-            game.PlayMove(4);
-            PrintBoard(game.Board);
-            Console.WriteLine("Turn 3 - PlayerOne: " + playerOne.Colour + " - Column 4");
-            game.PlayMove(4);
-            PrintBoard(game.Board);
-            Console.WriteLine("Turn 4 - PlayerTwo: " + playerTwo.Colour + " - Column 2");
-            game.PlayMove(2);
-            PrintBoard(game.Board);
+                // Play respective move, human or AI. Repeat until IsOver == true
+                game.PlayMove(move);
 
-
+            }
 
         }
 
@@ -98,5 +93,31 @@ namespace ConnectFour.Core
             Console.WriteLine("\n");
 
         }
+
+        static int AskForColumn(Game game)
+        {
+            // infinite loop - until we get a valid response
+            while (true)
+            {
+                // Ask human for a column
+                Console.Write("Choose column (0-6): ");
+
+                
+                // if we get an int and move is valid, return the int for the column
+                if (int.TryParse(Console.ReadLine(), out int column))
+                {
+                    
+                    if (game.Board.IsValidMove(column))
+                    {
+                        return column;
+                    }
+
+                }
+
+                // Otherwise, ask again
+                Console.WriteLine("Invalid move. Please try again.");
+            }
+        }
+
     }
 }
