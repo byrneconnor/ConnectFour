@@ -16,6 +16,14 @@ namespace ConnectFour.Core
             Console.WriteLine("Player 1: " + playerOne.Name + " - " + playerOne.Colour);
             Console.WriteLine("Player 2: " + playerTwo.Name + " - " + playerTwo.Colour);
             Console.WriteLine("Blank player: " + noPlayer.Name + " - " + noPlayer.Colour);
+
+            Board board = new Board();
+
+            bool validMove = board.IsValidMove(0);
+            bool invalidMove = board.IsValidMove(7);
+
+            Console.WriteLine("validMove = " + validMove + ", invalidMove = " + invalidMove);
+
         }
 
     }
