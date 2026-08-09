@@ -16,11 +16,11 @@ namespace ConnectFour.Core
             // Define game
             Game game = new(human, ai);
 
+            Console.WriteLine("Let's play Connect Four!");
+
             while (game.IsOver == false)
             {
                 
-                Console.WriteLine("Let's play Connect Four!");
-
                 // Print board
                 PrintBoard(game.Board);
 
@@ -57,6 +57,17 @@ namespace ConnectFour.Core
                 // Play respective move, human or AI. Repeat until IsOver == true
                 game.PlayMove(move);
 
+            }
+
+            // Announce game winner
+            if (game.Winner != null)
+            {
+                Console.WriteLine($"{game.Winner.Name} wins!");
+            }
+            // Otherwise, announce draw
+            else
+            {
+                Console.WriteLine("Draw!");
             }
 
         }
