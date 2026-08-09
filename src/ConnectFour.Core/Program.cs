@@ -34,6 +34,18 @@ namespace ConnectFour.Core
             Console.WriteLine("Red to column 4...");
             board.DropDisc(4, Disc.Red);
             PrintBoard(board);
+            Console.WriteLine("Yellow to column 400 (shouldn't work)...");
+            board.DropDisc(400, Disc.Yellow);
+            PrintBoard(board);
+
+            Console.WriteLine("Has Red won yet...? - " + board.CheckWin(Disc.Red));
+            Console.WriteLine("Add some more goes...Red to coulmn 4 three times...");
+            board.DropDisc(4, Disc.Red);
+            board.DropDisc(4, Disc.Red);
+            board.DropDisc(4, Disc.Red);
+            Console.WriteLine("Has Red won yet...? - " + board.CheckWin(Disc.Red));
+            PrintBoard(board);
+
 
         }
 

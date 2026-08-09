@@ -30,6 +30,7 @@ namespace ConnectFour
         }
 
         // drop a disc into the board
+        // boolean value returned to indicate success or failure from attempting to drop disc
         public bool DropDisc(int column, Disc disc)
         {
             // check move is valid
@@ -55,6 +56,100 @@ namespace ConnectFour
         public Disc CellAt(int row, int column)
         {
             return grid[row, column];
+        }
+
+        // check for four in a row
+        public bool CheckWin(Disc disc)
+        {
+            // Horizontal
+            // Loop each row
+            for (int r = 0; r < Rows; r++)
+            {
+                // loop each column (up to max column to get 4 in a row - column 3)
+                for (int c = 0; c < Columns - 3; c++)
+                {
+                    // return true if all 4 cell values match disc value
+                    if (grid[r, c] == disc &&
+                        grid[r, c + 1] == disc &&
+                        grid[r, c + 2] == disc &&
+                        grid[r, c + 3] == disc)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            // Vertical
+            // Loop each column
+            for (int c = 0; c < Columns; c++)
+            {
+                // loop each row (up to max row to get 4-in-a-row - row 2)
+                for (int r = 0; r < Rows - 3; r++)
+                {
+                    // return true if all 4 cell values match disc value
+                    if (grid[r, c] == disc &&
+                        grid[r + 1, c] == disc &&
+                        grid[r + 2, c] == disc &&
+                        grid[r + 3, c] == disc)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            // Down-right diagonal
+            // loop each row (up to max row to get 4-in-a-row - row 2)
+            for (int r = 0; r < Rows - 3; r++)
+            {
+                // loop each column (up to max column to get 4 in a row - column 3)
+                for (int c = 0; c < Columns - 3; c++)
+                {
+                    // return true if all 4 cell values match disc value
+                    if (grid[r, c] == disc &&
+                        grid[r + 1, c + 1] == disc &&
+                        grid[r + 2, c + 2] == disc &&
+                        grid[r + 3, c + 3] == disc)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            // Up-right diagonal
+            // loop each row (starting at row 3 as not possible below that)
+            for (int r = 3; r < Rows; r++)
+            {
+                // loop each column (up to max column to get 4 in a row - column 3)
+                for (int c = 0; c < Columns - 3; c++)
+                {
+                    // return true if all 4 cell values match disc value
+                    if (grid[r, c] == disc &&
+                        grid[r - 1, c + 1] == disc &&
+                        grid[r - 2, c + 2] == disc &&
+                        grid[r - 3, c + 3] == disc)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        // check if board is full - for a draw/end of game
+        public bool IsFull()
+        {
+            // loop through each column, check if top cell is empty
+            // return false if so
+            for (int c = 0; c < Columns; c++)
+            {
+                if (grid[0, c] == Disc.Empty)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
     }
