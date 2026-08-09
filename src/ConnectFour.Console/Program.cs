@@ -18,12 +18,12 @@ namespace ConnectFour.Core
 
             Console.WriteLine("Let's play Connect Four!");
 
+            // Print initial blank board
+            PrintBoard(game.Board);
+
             while (game.IsOver == false)
             {
                 
-                // Print board
-                PrintBoard(game.Board);
-
                 int move;
 
                 // every time it is the human player, ask for an input
@@ -56,6 +56,9 @@ namespace ConnectFour.Core
 
                 // Play respective move, human or AI. Repeat until IsOver == true
                 game.PlayMove(move);
+
+                // Print board after each move
+                PrintBoard(game.Board);
 
             }
 
