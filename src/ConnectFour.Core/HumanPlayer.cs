@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ConnectFour.Core
+﻿namespace ConnectFour.Core
 {
     public class HumanPlayer : Player
     {

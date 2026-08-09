@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ConnectFour.Core
+﻿namespace ConnectFour.Core
 {
     // Game class: requires a board, two players and which of those is the current player
     public class Game

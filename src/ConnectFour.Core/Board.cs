@@ -1,6 +1,4 @@
-﻿using ConnectFour.Core;
-
-namespace ConnectFour
+﻿namespace ConnectFour.Core
 {
     public class Board
     {

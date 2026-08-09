@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using ConnectFour.Core;
+﻿using ConnectFour.Core;
 
 namespace ConnectFour.AI
 {
