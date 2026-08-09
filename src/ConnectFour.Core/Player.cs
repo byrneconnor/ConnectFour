@@ -2,12 +2,12 @@
 
 namespace ConnectFour
 {
-    public class Player
+    public abstract class Player
     {
         private string name;
         private Disc colour;
 
-        public Player(string name, Disc colour)
+        protected Player(string name, Disc colour)
         {
             this.name = name;
             this.colour = colour;
@@ -24,6 +24,14 @@ namespace ConnectFour
             set { this.colour = value; }
             get { return this.colour; }
         }
+
+        // method to flag for human or AI players
+        public abstract bool IsHuman { 
+            get; 
+        }
+
+        // For non-human players only so they can compute a move themselves
+        public abstract int GetMove(Board board);
 
     }
 }

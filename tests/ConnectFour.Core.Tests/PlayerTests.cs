@@ -2,11 +2,29 @@
 {
     public class PlayerTests
     {
+        private sealed class TestPlayer : Player
+        {
+            public TestPlayer(string name, Disc disc) 
+                : base(name, disc) 
+            {
+                // set up test player
+            }
+            public override bool IsHuman
+            {
+                get { return false; }
+            }
+
+            public override int GetMove(Board board)
+            {
+                return 0;
+            }
+        }
+
         // Test name set correctly
         [Fact]
         public void Player_SetsName()
         {
-            var player = new Player("playerOne", Disc.Red);
+            var player = new TestPlayer("playerOne", Disc.Red);
 
             Assert.Equal("playerOne", player.Name);
         }
@@ -15,7 +33,7 @@
         [Fact]
         public void Player_SetsDisc()
         {
-            var player = new Player("playerOne", Disc.Red);
+            var player = new TestPlayer("playerOne", Disc.Red);
 
             Assert.Equal(Disc.Red, player.Colour);
         }
@@ -24,7 +42,7 @@
         [Fact]
         public void Player_SetsBothIndependently()
         {
-            var player = new Player("playerTwo", Disc.Yellow);
+            var player = new TestPlayer("playerTwo", Disc.Yellow);
 
             Assert.Equal("playerTwo", player.Name);
             Assert.Equal(Disc.Yellow, player.Colour);
@@ -34,7 +52,7 @@
         [Fact]
         public void Player_UpdateName()
         {
-            var player = new Player("playerOne", Disc.Red);
+            var player = new TestPlayer("playerOne", Disc.Red);
 
             player.Name = "playerTwo";
 
@@ -45,7 +63,7 @@
         [Fact]
         public void Player_DiscRemainsSame()
         {
-            var player = new Player("playerOne", Disc.Red);
+            var player = new TestPlayer("playerOne", Disc.Red);
 
             player.Name = "playerTwo";
 
@@ -56,7 +74,7 @@
         [Fact]
         public void Player_UpdateDisc()
         {
-            var player = new Player("playerOne", Disc.Red);
+            var player = new TestPlayer("playerOne", Disc.Red);
 
             player.Colour = Disc.Yellow;
 
@@ -67,7 +85,7 @@
         [Fact]
         public void Player_NameRemainsSame()
         {
-            var player = new Player("playerOne", Disc.Red);
+            var player = new TestPlayer("playerOne", Disc.Red);
 
             player.Colour = Disc.Yellow;
 
@@ -78,7 +96,7 @@
         [Fact]
         public void Player_AllowsNullName()
         {
-            var player = new Player(null, Disc.Red);
+            var player = new TestPlayer(null, Disc.Red);
 
             Assert.Null(player.Name);
         }
@@ -90,7 +108,7 @@
         [InlineData("playerTwo", Disc.Red)]
         public void Player_PreservesValues(string name, Disc disc)
         {
-            var player = new Player(name, disc);
+            var player = new TestPlayer(name, disc);
 
             Assert.Equal(name, player.Name);
             Assert.Equal(disc, player.Colour);
@@ -100,7 +118,7 @@
         [Fact]
         public void Player_ReassignNullName()
         {
-            var player = new Player("playerOne", Disc.Red);
+            var player = new TestPlayer("playerOne", Disc.Red);
 
             player.Name = null;
 

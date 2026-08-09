@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
+using ConnectFour.AI;
+
 namespace ConnectFour.Core
 {
     internal class Program
@@ -10,8 +12,8 @@ namespace ConnectFour.Core
         {
 
             // Define players
-            Player human = new Player("Human", Disc.Red);
-            Player ai = new Player("AI", Disc.Yellow);
+            HumanPlayer human = new HumanPlayer("Human", Disc.Red);
+            RandomPlayer ai = new RandomPlayer("AI", Disc.Yellow);
 
             // Define game
             Game game = new(human, ai);
@@ -29,28 +31,12 @@ namespace ConnectFour.Core
                 // every time it is the human player, ask for an input
                 if (game.CurrentPlayer.Name == "Human")
                 {
-                    move = AskForColumn(game);
+                    move = AskForColumn(game.Board);
                 }
                 else
                 // AI's turn
                 {
-                    // Set up a list of possible moves for the AI
-                    List<int> possibleMoves = new();
-                    
-                    // Loop through columns
-                    for (int c = 0; c < Board.Columns; c++)
-                    {
-                        // check if a move is valid
-                        if (game.Board.IsValidMove(c))
-                        {
-                            // Add to list of possible moves
-                            possibleMoves.Add(c);
-                        }
-                    }
-
-                    // Choose one possible move at random
-                    Random random = new();
-                    move = possibleMoves[random.Next(possibleMoves.Count)];
+                    move = ai.GetMove(game.Board);
                     Console.WriteLine("AI chooses column " + move);
                 }
 
@@ -108,7 +94,7 @@ namespace ConnectFour.Core
 
         }
 
-        static int AskForColumn(Game game)
+        static int AskForColumn(Board board)
         {
             // infinite loop - until we get a valid response
             while (true)
@@ -121,7 +107,7 @@ namespace ConnectFour.Core
                 if (int.TryParse(Console.ReadLine(), out int column))
                 {
                     
-                    if (game.Board.IsValidMove(column))
+                    if (board.IsValidMove(column))
                     {
                         return column;
                     }
