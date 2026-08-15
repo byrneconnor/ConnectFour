@@ -44,8 +44,10 @@ jobs:
           node-version: '22.x'
           cache: 'npm'
           cache-dependency-path: src/ConnectFour.Web/package-lock.json
+      # Install
       - name: Install
         run: npm ci
+      # Build
       - name: Build
         run: npm run build
       # Tests - none atm so comment out
