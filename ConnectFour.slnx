@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ConnectFour.AI/ConnectFour.AI.csproj" />
+    <Project Path="src/ConnectFour.Api/ConnectFour.Api.csproj" />
+    <Project Path="src/ConnectFour.Console/ConnectFour.Console.csproj" />
+    <Project Path="src/ConnectFour.Core/ConnectFour.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ConnectFour.AI.Tests/ConnectFour.AI.Tests.csproj" />
+    <Project Path="tests/ConnectFour.Api.Tests/ConnectFour.Api.Tests.csproj" />
+    <Project Path="tests/ConnectFour.Core.Tests/ConnectFour.Core.Tests.csproj" />
+  </Folder>
+</Solution>
