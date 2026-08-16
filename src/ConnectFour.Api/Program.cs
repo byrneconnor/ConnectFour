@@ -20,10 +20,13 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseHttpsRedirection();
 }
 
-app.UseHttpsRedirection();
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.UseCors(DevCors);
 app.MapControllers();
+app.MapFallbackToFile("index.html");
 
 app.Run();

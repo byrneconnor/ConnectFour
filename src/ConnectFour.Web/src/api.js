@@ -1,4 +1,5 @@
-const BASE = "http://localhost:5291";
+// for dev, run `npm run dev` and localhost is set
+const BASE = import.meta.env.DEV ? "http://localhost:5291" : "";
 
 export async function createGame() {
   const res = await fetch(`${BASE}/api/games`, { method: "POST" });
