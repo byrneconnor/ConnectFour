@@ -2,15 +2,12 @@ name: CI/CD
 
 # Controls when the workflow will run
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  push: # CI jobs runs on every push
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# CI = backend and frontend
+# CD = deploy
 jobs:
   backend:
     name: Backend (.NET)
