@@ -8,6 +8,7 @@ namespace ConnectFour.AI
         private readonly Random random = new(); // use to randomly select one of the best moves
         private Disc aiDisc; // define the AI's disc -needed for searching
         private Disc opponentDisc; // define the opponent's disc - needed for searching
+        private static readonly int[] ColumnOrder = { 3, 4, 2, 5, 1, 6, 0 }; // order to play columns, helps to speed up alpha-beta pruning by playing better columns first
 
         public MinimaxPlayer(string name, Disc disc)
             : base(name, disc)
@@ -44,7 +45,7 @@ namespace ConnectFour.AI
             List<int> bestMoves = new List<int>();
 
             // Loop through each column and use minimax to return the best move
-            for (int col = 0; col < Board.Columns; col++)
+            foreach (int col in ColumnOrder)
             {
                 // Create a variable to store the score
                 int score;
@@ -71,7 +72,8 @@ namespace ConnectFour.AI
                 // Otherwise, recursively play out each possible game to get the best possible score
                 else
                 {
-                    score = Minimax(boardCopy, this.opponentDisc);
+                    // pass in the starting values for alpha and beta
+                    score = Minimax(boardCopy, this.opponentDisc, int.MinValue, int.MaxValue);
                 }
 
                 // Return the board clone back to the original state
@@ -108,7 +110,9 @@ namespace ConnectFour.AI
         // Minimax - recursively play out all possible games. Each iteration takes 
         // a copy of the board for each move and which disc to move (plays out both
         // the AI/maximiser and the opponent/minimiser).
-        private int Minimax(BoardCopy boardCopy, Disc discToMove)
+        // We add the alpha and beta variables to allow pruning to take place
+        // The result will be the same but we get there faster
+        private int Minimax(BoardCopy boardCopy, Disc discToMove, int alpha, int beta)
         {
             // Check if this turn is for the maximiser to determine scores to set
             bool maximiserTurn = (discToMove == this.aiDisc);
@@ -128,7 +132,7 @@ namespace ConnectFour.AI
             }
 
             // Loop through each column, return the best score for the player
-            for (int col = 0; col < Board.Columns; col++)
+            foreach (int col in ColumnOrder)
             {
                 // Create a variable to store the score
                 int score;
@@ -162,16 +166,45 @@ namespace ConnectFour.AI
                 // Otherwise, recursively play out games and return best score
                 else
                 {
-                    score = Minimax(boardCopy, nextDisc);
+                    score = Minimax(boardCopy, nextDisc, alpha, beta);
                 }
 
                 boardCopy.Undo(col);
 
-                // If score is better for respectively players, update
-                if ((maximiserTurn && score > value) || (!maximiserTurn && score < value))
+                if (maximiserTurn)
                 {
-                    value = score;
+                    // For the maximiser, if score is higher than current score, update value
+                    if (score > value)
+                    {
+                        value = score;
+                    }
+                    // and if that score is greater than current alpha, update
+                    if (value > alpha)
+                    {
+                        alpha = value;
+                    }
+                } 
+                else 
+                {
+                    // for minimiser, if score is lower than current score, update value
+                    if (score < value)
+                    {
+                        value = score;
+                    }
+                    // and if that score is lower than current beta, update
+                    if (value < beta)
+                    {
+                        beta = value;
+                    }
+
                 }
+
+                // if alpha is greater or equal to beta, prune this branch
+                if (alpha >= beta)
+                {
+                    break;
+                }
+
             }
 
             return value;
