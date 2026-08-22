@@ -1,15 +1,13 @@
 ﻿using ConnectFour.AI;
 using ConnectFour.Core;
 
-namespace ConnectFour.Api.Tests
+namespace ConnectFour.AI.Tests
 {
     public class MinimaxPlayerTests
     {
         // Method to create a board to test logic.
-        //
         // Boards are written as they look on screen: boardRows[0] is the TOP
         // row, boardRows[5] is the BOTTOM row. 'R' = Red, 'Y' = Yellow, '.' = empty.
-        //
         private static Board CreateBoard(string[] boardRows)
         {
             var board = new Board();
@@ -105,9 +103,9 @@ namespace ConnectFour.Api.Tests
             Assert.Equal(3, move);
         }
 
-        // Multiple possible wins to choose from, picks at least one.
+        // Three possible wins to choose from, picks at least one.
         [Fact]
-        public void GetMove_PicksEitherWin()
+        public void GetMove_PicksAnyWin()
         {
             Board board = CreateBoard(
                 [
@@ -122,10 +120,9 @@ namespace ConnectFour.Api.Tests
             var ai = new MinimaxPlayer("AI", Disc.Red);
 
             int move = ai.GetMove(board);
-            
-            // 3 possible moves to choose from
+
             int[] winningMoves = [1, 2, 6];
-            
+
             Assert.Contains(move, winningMoves);
         }
 
@@ -168,7 +165,7 @@ namespace ConnectFour.Api.Tests
 
             int move = ai.GetMove(board);
 
-            Assert.Equal(3, move); 
+            Assert.Equal(3, move);
         }
 
         // Check AI picks a draw over a loss
@@ -189,7 +186,7 @@ namespace ConnectFour.Api.Tests
 
             int move = ai.GetMove(board);
 
-            Assert.Equal(3, move); 
+            Assert.Equal(3, move);
         }
 
         // Check AI picks only avaiable move when board is close to full

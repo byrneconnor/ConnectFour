@@ -1,4 +1,4 @@
-﻿namespace ConnectFour.AI.Tests;
+﻿namespace ConnectFour.Api.Tests;
 
 public class UnitTest1
 {
