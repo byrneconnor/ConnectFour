@@ -38,7 +38,6 @@ namespace ConnectFour.AI
             }
 
             // Choose one possible move at random
-            Random random = new();
             move = possibleMoves[random.Next(possibleMoves.Count)];
 
             return move;
