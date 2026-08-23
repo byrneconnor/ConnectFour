@@ -1,4 +1,6 @@
-﻿using ConnectFour.Core;
+﻿using System.Collections.ObjectModel;
+
+using ConnectFour.Core;
 
 namespace ConnectFour.AI
 {
@@ -9,11 +11,37 @@ namespace ConnectFour.AI
         private Disc aiDisc; // define the AI's disc -needed for searching
         private Disc opponentDisc; // define the opponent's disc - needed for searching
         private static readonly int[] ColumnOrder = { 3, 4, 2, 5, 1, 6, 0 }; // order to play columns, helps to speed up alpha-beta pruning by playing better columns first
+        private readonly int searchDepth; // Set search depth for minimax (so it doesn't search all the way to terminal nodes)
+        private const int DefaultDepth = 8; // set default for now
+        private const int WinScore = 1000000; // large enough that any real win/loss outranks every heuristic score
+        private readonly HeuristicWeights weights; // weights for heuristic evaluation to produce scores at non-terminal nodes
 
-        public MinimaxPlayer(string name, Disc disc)
+        // A class containing scores for heuristic evaluation. It has scores for good looking positions
+        // for AI (which we should prioritise) and opponents (which we should avoid).
+        // We can test these scores as part of the evaluation
+        public class HeuristicWeights
+        {
+            // positive scores for where AI has one, two or three in a row
+            public int AiOne { get; set; } = 1;
+            public int AiTwo { get; set; } = 10;
+            public int AiThree { get; set; } = 50;
+
+            // negative scores for where human has one, two or three in a row
+            // currently set opponentThree to a higher magnitude to AiThree to prioritise blocking
+            public int OpponentOne { get; set; } = -1;
+            public int OpponentTwo { get; set; } = -10;
+            public int OpponentThree { get; set; } = -60;
+
+            // Score per disc held in the centre column (added for the AI, subtracted for the opponent)
+            public int CentreDisc { get; set; } = 3;
+
+        }
+
+        public MinimaxPlayer(string name, Disc disc, int searchDepth = DefaultDepth, HeuristicWeights? weights = null)
             : base(name, disc)
         {
-            //
+            this.searchDepth = searchDepth;
+            this.weights = weights ?? new HeuristicWeights();
         }
 
         // IsHuman overwritten to false
@@ -62,7 +90,7 @@ namespace ConnectFour.AI
                 // Update the score, first by seeing if there has been a win                
                 if (boardCopy.IsWinningMove(row, col, this.aiDisc))
                 {
-                    score = +1;                       
+                    score = WinScore; 
                 }
                 // then check if there is a draw
                 else if (boardCopy.IsFull())
@@ -72,8 +100,8 @@ namespace ConnectFour.AI
                 // Otherwise, recursively play out each possible game to get the best possible score
                 else
                 {
-                    // pass in the starting values for alpha and beta
-                    score = Minimax(boardCopy, this.opponentDisc, int.MinValue, int.MaxValue);
+                    // pass in search depth at 1 (to include this node search) and the starting values for alpha and beta
+                    score = Minimax(boardCopy, this.opponentDisc, 1, int.MinValue, int.MaxValue);
                 }
 
                 // Return the board clone back to the original state
@@ -112,8 +140,15 @@ namespace ConnectFour.AI
         // the AI/maximiser and the opponent/minimiser).
         // We add the alpha and beta variables to allow pruning to take place
         // The result will be the same but we get there faster
-        private int Minimax(BoardCopy boardCopy, Disc discToMove, int alpha, int beta)
+        private int Minimax(BoardCopy boardCopy, Disc discToMove, int depth, int alpha, int beta)
         {
+            // Reached the search depth limit without a terminal node, so return a static heuristic
+            // estimate instead of searching deeper
+            if (depth >= this.searchDepth)
+            {
+                return boardCopy.HeuristicEvaluation(this.aiDisc, this.opponentDisc, this.weights);
+            }
+
             // Check if this turn is for the maximiser to determine scores to set
             bool maximiserTurn = (discToMove == this.aiDisc);
 
@@ -152,10 +187,11 @@ namespace ConnectFour.AI
                     // Update score based on player
                     if (maximiserTurn)
                     {
-                        score = 1;
+                        // Prioritise earlier winning moves rather then a win that takes longer to get
+                        score = WinScore - depth; 
                     } else
                     {
-                        score = -1;
+                        score = -(WinScore - depth);
                     }
                 }
                 // Check if the game is a draw
@@ -166,7 +202,7 @@ namespace ConnectFour.AI
                 // Otherwise, recursively play out games and return best score
                 else
                 {
-                    score = Minimax(boardCopy, nextDisc, alpha, beta);
+                    score = Minimax(boardCopy, nextDisc, depth + 1, alpha, beta);
                 }
 
                 boardCopy.Undo(col);
@@ -316,7 +352,100 @@ namespace ConnectFour.AI
                     || CheckForLine(row, col, 1, 1, disc) >= 4 // top left to bottom right (\)
                     || CheckForLine(row, col, 1, -1, disc) >= 4; // bottom left to top right (/)
             }
-            
+
+            // Heuristic evaluation for non-terminal nodes - scan the board to score cells that
+            // look more promising
+            public int HeuristicEvaluation(Disc aiDisc, Disc opponentDisc, HeuristicWeights weights)
+            {
+                // Set a score
+                int score = 0;
+
+                // Reward the AI (and penalise the opponent) for holding cells in centre column
+                int centre = Board.Columns / 2;
+                for (int r = 0; r < Board.Rows; r++)
+                {
+                    if (this.cells[r, centre] == aiDisc) score += weights.CentreDisc;
+                    else if (this.cells[r, centre] == opponentDisc) score -= weights.CentreDisc;
+                }
+
+                // Check all horizontal rows and update score
+                for (int r = 0; r < Board.Rows; r++)
+                {
+                    for (int c = 0; c <= Board.Columns - 4; c++)
+                    {
+                        score += HeuristicScanCells(r, c, 0, 1, aiDisc, opponentDisc, weights);
+                    }
+                }
+
+                // Check for all vertical windows and update score
+                for (int r = 0; r <= Board.Rows - 4; r++)
+                {
+                    for (int c = 0; c < Board.Columns; c++)
+                    {
+                        score += HeuristicScanCells(r, c, 1, 0, aiDisc, opponentDisc, weights);
+                    }
+                }
+
+                // Check for all top left to bottom right (\) and update score
+                for (int r = 0; r <= Board.Rows - 4; r++)
+                {
+                    for (int c = 0; c <= Board.Columns - 4; c++)
+                    {
+                        score += HeuristicScanCells(r, c, 1, 1, aiDisc, opponentDisc, weights);
+                    }
+                }
+
+                // Check for all bottom left to top right (/) and update score
+                for (int r = 3; r < Board.Rows; r++)
+                {
+                    for (int c = 0; c <= Board.Columns - 4; c++)
+                    {
+                        score += HeuristicScanCells(r, c, -1, 1, aiDisc, opponentDisc, weights);
+                    }
+                }
+
+                return score;
+            }
+
+            // Track discs given starting a cell and direction, returning the
+            // appropriate score for that 4-cell block
+            private int HeuristicScanCells(int row, int col, int rowDirection, int colDirection, Disc aiDisc, Disc opponentDisc, HeuristicWeights weights)
+            {
+                // set counters to zero
+                int aiCount = 0;
+                int opponentCount = 0;
+                int r = row;
+                int c = col;
+                
+                // For the starting postion, check the status of 4 discs in a given direction
+                for (int i = 0; i < 4; i++)
+                {
+                    Disc cell = this.cells[r, c];
+                    if (cell == aiDisc)
+                    {
+                        aiCount++;
+                    } 
+                    else if (cell == opponentDisc)
+                    {
+                        opponentCount++;
+                    } 
+                    r += rowDirection;
+                    c += colDirection;
+                }
+
+                // set an appropriate score based on the set weights
+                switch (aiCount, opponentCount)
+                {
+                    case (3, 0): return weights.AiThree;
+                    case (2, 0): return weights.AiTwo;
+                    case (1, 0): return weights.AiOne;
+                    case (0, 3): return weights.OpponentThree;
+                    case (0, 2): return weights.OpponentTwo;
+                    case (0, 1): return weights.OpponentOne;
+                    default: return 0;
+                }
+            }
+
         }
     }
 }

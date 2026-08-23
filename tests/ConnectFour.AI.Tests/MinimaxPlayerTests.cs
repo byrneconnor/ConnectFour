@@ -228,5 +228,75 @@ namespace ConnectFour.AI.Tests
 
             Assert.Throws<InvalidOperationException>(() => ai.GetMove(board));
         }
+
+        // With the depth limit in place, the AI returns a move from an empty board.
+        // Times out after 5 seconds which indicates a failure
+        [Fact]
+        public void GetMove_DepthLimited_ReturnsFromEmptyBoard()
+        {
+            var board = new Board();
+            var ai = new MinimaxPlayer("AI", Disc.Red);
+
+            // Run on a background task so a regression (no depth limit) fails by timing
+            // out rather than hanging the whole test run.
+            var search = Task.Run(() => ai.GetMove(board));
+            bool finished = search.Wait(TimeSpan.FromSeconds(15));
+
+            Assert.True(finished, "MinimaxPlayer.GetMove did not return in time");
+            Assert.True(board.IsValidMove(search.Result));
+        }
+
+        // Check legal move made when depth and weights set
+        [Fact]
+        public void GetMove_CustomWeightsAndDepthReturnsLegalColumn()
+        {
+            // Set some weights
+            var weights = new MinimaxPlayer.HeuristicWeights
+            {
+                CentreDisc = 20,
+                OpponentThree = -100
+            };
+            var board = new Board();
+            var ai = new MinimaxPlayer("AI", Disc.Red, searchDepth: 4, weights: weights);
+
+            int move = ai.GetMove(board);
+
+            Assert.True(board.IsValidMove(move));
+        }
+
+        // WinScore still prioritised even if heuristic weights are quite large
+        // Even with the heuristic weights pushed far above their defaults (but kept below
+        // WinScore), a real immediate win must still outrank any heuristic score.
+        [Fact]
+        public void GetMove_LargeHeuristicWeightsStillTakesImmediateWin()
+        {
+            Board board = CreateBoard(
+                [
+                "YR.Y.YR",
+                "RYYR.RR",
+                "YRRR.YR",
+                "RRYY.YY",
+                "YRRYYRY",
+                "RYRRRYY"
+                ]);
+
+            // Large weights set
+            var weights = new MinimaxPlayer.HeuristicWeights
+            {
+                AiOne = 50,
+                AiTwo = 200,
+                AiThree = 1000,
+                OpponentOne = -50,
+                OpponentTwo = -200,
+                OpponentThree = -1000,
+                CentreDisc = 100
+            };
+            var ai = new MinimaxPlayer("AI", Disc.Yellow, weights: weights);
+
+            int move = ai.GetMove(board);
+
+            Assert.Equal(4, move);
+        }
+
     }
 }
