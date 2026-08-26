@@ -230,7 +230,7 @@ namespace ConnectFour.AI.Tests
         }
 
         // With the depth limit in place, the AI returns a move from an empty board.
-        // Times out after 5 seconds which indicates a failure
+        // Times out after 15 seconds which indicates a failure
         [Fact]
         public void GetMove_DepthLimited_ReturnsFromEmptyBoard()
         {
@@ -251,7 +251,7 @@ namespace ConnectFour.AI.Tests
         public void GetMove_CustomWeightsAndDepthReturnsLegalColumn()
         {
             // Set some weights
-            var weights = new MinimaxPlayer.HeuristicWeights
+            var weights = new HeuristicWeights
             {
                 CentreDisc = 20,
                 OpponentThree = -100
@@ -281,7 +281,7 @@ namespace ConnectFour.AI.Tests
                 ]);
 
             // Large weights set
-            var weights = new MinimaxPlayer.HeuristicWeights
+            var weights = new HeuristicWeights
             {
                 AiOne = 50,
                 AiTwo = 200,
