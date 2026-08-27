@@ -14,7 +14,8 @@ namespace ConnectFour.Core
             // Define players
             HumanPlayer human = new HumanPlayer("Human", Disc.Red);
             //RandomPlayer ai = new RandomPlayer("AI", Disc.Yellow);
-            MinimaxPlayer ai = new MinimaxPlayer("AI", Disc.Yellow);
+            //MinimaxPlayer ai = new MinimaxPlayer("AI", Disc.Yellow);
+            MCTSPlayer ai = new MCTSPlayer("AI", Disc.Yellow);
 
             // Define game
             Game game = new(human, ai);

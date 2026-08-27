@@ -1,50 +1,15 @@
-﻿using ConnectFour.AI;
+﻿using static ConnectFour.AI.Tests.TestBoards;
 using ConnectFour.Core;
 
 namespace ConnectFour.AI.Tests
 {
     public class MinimaxPlayerTests
     {
-        // Method to create a board to test logic.
-        // Boards are written as they look on screen: boardRows[0] is the TOP
-        // row, boardRows[5] is the BOTTOM row. 'R' = Red, 'Y' = Yellow, '.' = empty.
-        private static Board CreateBoard(string[] boardRows)
-        {
-            var board = new Board();
-
-            // Loop through each column
-            for (int c = 0; c < Board.Columns; c++)
-            {
-                // Work bottom-to-top so gravity matches the drop order
-                for (int r = Board.Rows - 1; r >= 0; r--)
-                {
-                    // Get the symbol representing a specific cell from the string
-                    char ch = boardRows[r][c];
-
-                    // Drop the appropriate disc based on symbol
-                    if (ch == 'R')
-                    {
-                        board.DropDisc(c, Disc.Red);
-                    }
-                    else if (ch == 'Y')
-                    {
-                        board.DropDisc(c, Disc.Yellow);
-                    }
-                    else
-                    {
-                        break; // Empty cell - the rest of this column is empty
-                    }
-                }
-            }
-
-            return board;
-        }
-
         // Create board where AI can win in one move and check it does
         [Fact]
         public void GetMove_TakesImmediateWin()
         {
-            Board board = CreateBoard(
+            Board board = CreateBoardForTests(
                 [
                 "YR.Y.YR",
                 "RYYR.RR",
@@ -65,7 +30,7 @@ namespace ConnectFour.AI.Tests
         [Fact]
         public void GetMove_BlockImmediateWin()
         {
-            Board board = CreateBoard(
+            Board board = CreateBoardForTests(
                 [
                 "YR.Y.YR",
                 "RYYR.RR",
@@ -86,7 +51,7 @@ namespace ConnectFour.AI.Tests
         [Fact]
         public void GetMove_PicksWinOverBlock()
         {
-            Board board = CreateBoard(
+            Board board = CreateBoardForTests(
                 [
                 "..R.RR.",
                 "Y.RYRYY",
@@ -107,7 +72,7 @@ namespace ConnectFour.AI.Tests
         [Fact]
         public void GetMove_PicksAnyWin()
         {
-            Board board = CreateBoard(
+            Board board = CreateBoardForTests(
                 [
                 "...RRR.",
                 "Y.RYRYY",
@@ -130,7 +95,7 @@ namespace ConnectFour.AI.Tests
         [Fact]
         public void GetMove_ReturnsLegalColumn()
         {
-            Board board = CreateBoard(
+            Board board = CreateBoardForTests(
                 [
                 "YR.Y.YR",
                 "RYYR.RR",
@@ -151,7 +116,7 @@ namespace ConnectFour.AI.Tests
         [Fact]
         public void GetMove_PlaysOnlyNonLosingMove()
         {
-            Board board = CreateBoard(
+            Board board = CreateBoardForTests(
                 [
                 "YYR..R.",
                 "RYY..RY",
@@ -172,7 +137,7 @@ namespace ConnectFour.AI.Tests
         [Fact]
         public void GetMove_PickDrawOverLoss()
         {
-            Board board = CreateBoard(
+            Board board = CreateBoardForTests(
                 [
                 ".YY.YYR",
                 "YRRYRRR",
@@ -193,7 +158,7 @@ namespace ConnectFour.AI.Tests
         [Fact]
         public void GetMove_FillsLastCellForDraw()
         {
-            Board board = CreateBoard(
+            Board board = CreateBoardForTests(
                 [
                 ".YYRYYR",
                 "YRRYRRR",
@@ -270,7 +235,7 @@ namespace ConnectFour.AI.Tests
         [Fact]
         public void GetMove_LargeHeuristicWeightsStillTakesImmediateWin()
         {
-            Board board = CreateBoard(
+            Board board = CreateBoardForTests(
                 [
                 "YR.Y.YR",
                 "RYYR.RR",
