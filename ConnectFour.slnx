@@ -4,6 +4,7 @@
     <Project Path="src/ConnectFour.Api/ConnectFour.Api.csproj" />
     <Project Path="src/ConnectFour.Console/ConnectFour.Console.csproj" />
     <Project Path="src/ConnectFour.Core/ConnectFour.Core.csproj" />
+    <Project Path="src/ConnectFour.Evaluation/ConnectFour.Evaluation.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/ConnectFour.AI.Tests/ConnectFour.AI.Tests.csproj" />

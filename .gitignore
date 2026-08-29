@@ -9,3 +9,9 @@ obj/
 # Node
 node_modules/
 dist/
+
+# env files
+.env
+
+# Json data for evaluation
+src/ConnectFour.Evaluation/data/benchmark-positions-scraped.json
