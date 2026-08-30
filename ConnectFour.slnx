@@ -10,5 +10,6 @@
     <Project Path="tests/ConnectFour.AI.Tests/ConnectFour.AI.Tests.csproj" />
     <Project Path="tests/ConnectFour.Api.Tests/ConnectFour.Api.Tests.csproj" />
     <Project Path="tests/ConnectFour.Core.Tests/ConnectFour.Core.Tests.csproj" />
+    <Project Path="tests/ConnectFour.Evaluation.Tests/ConnectFour.Evaluation.Tests.csproj" />
   </Folder>
 </Solution>

@@ -338,7 +338,7 @@ namespace ConnectFour.Evaluation
             // Return all variables to SolvedPosition
             return new SolvedPosition(
                 Position: position,
-                DiscToMove: SideToMove(position),
+                DiscToMove: SolvedPosition.SideToMove(position),
                 ColumnScores: columns,
                 BestColumns: bestColumns.ToArray(),
                 Value: best,
@@ -352,20 +352,6 @@ namespace ConnectFour.Evaluation
         private static void Save(string path, List<SolvedPosition> results)
         {
             File.WriteAllText(path, JsonSerializer.Serialize(results, JsonOptions));
-        }
-
-        // Method to get the correct disc for discToMove
-        // (Red for odd turns, Yellow for even turns based off of postion)
-        private static Disc SideToMove(string position)
-        {
-            if (position.Length % 2 == 0)
-            {
-                return Disc.Red;
-            }
-            else
-            {
-                return Disc.Yellow;
-            }
         }
 
     }
