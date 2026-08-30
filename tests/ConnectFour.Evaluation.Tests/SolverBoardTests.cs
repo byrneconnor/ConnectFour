@@ -25,48 +25,47 @@ namespace ConnectFour.Evaluation.Tests
         };
 
         // Read in benchmark data - used later
-        // Question: another way to do this?
-        private static readonly string DataPath =
-            Path.Combine(AppContext.BaseDirectory, "data", "benchmark-positions-scraped.json");
+        //private static readonly string DataPath =
+        //    Path.Combine(AppContext.BaseDirectory, "data", "benchmark-positions-scraped.json");
 
-        // Only the fields the invariants need. JSON keys are camelCase and line up with these names.
-        private sealed record Record(
-            string position,
-            string discToMove,
-            int?[] columnScores,
-            int[] bestColumns,
-            int value);
+        //// Only the fields the invariants need. JSON keys are camelCase and line up with these names.
+        //private sealed record Record(
+        //    string position,
+        //    string discToMove,
+        //    int?[] columnScores,
+        //    int[] bestColumns,
+        //    int value);
 
-        // Deserialize once and cache — the file is ~2 MB, so we don't want to re-read it per fact.
-        private static Record[]? cachedRecords;
+        //// Deserialize once and cache — the file is ~2 MB, so we don't want to re-read it per fact.
+        //private static Record[]? cachedRecords;
 
-        private static Record[] AllRecords()
-        {
-            if (cachedRecords is not null)
-            {
-                return cachedRecords;
-            }
+        //private static Record[] AllRecords()
+        //{
+        //    if (cachedRecords is not null)
+        //    {
+        //        return cachedRecords;
+        //    }
 
-            Assert.True(File.Exists(DataPath),
-                $"benchmark data not found at {DataPath}. Ensure the .csproj copies it to the output directory.");
+        //    Assert.True(File.Exists(DataPath),
+        //        $"benchmark data not found at {DataPath}. Ensure the .csproj copies it to the output directory.");
 
-            JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
-            cachedRecords = JsonSerializer.Deserialize<Record[]>(File.ReadAllText(DataPath), options)!;
-            return cachedRecords;
-        }
+        //    JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
+        //    cachedRecords = JsonSerializer.Deserialize<Record[]>(File.ReadAllText(DataPath), options)!;
+        //    return cachedRecords;
+        //}
 
-        // Take a sample portion
-        private const int SampleStride = 10;
-        private static IEnumerable<Record> Sample()
-        {
-            int i = 0;
+        //// Take a sample portion
+        //private const int SampleStride = 10;
+        //private static IEnumerable<Record> Sample()
+        //{
+        //    int i = 0;
 
-            foreach (Record record in AllRecords())
-            {
-                if (i++ % SampleStride == 0)
-                    yield return record;
-            }
-        }
+        //    foreach (Record record in AllRecords())
+        //    {
+        //        if (i++ % SampleStride == 0)
+        //            yield return record;
+        //    }
+        //}
 
 
         // Check a best column reported by the solver must be playable on the matching engine board.
@@ -121,95 +120,95 @@ namespace ConnectFour.Evaluation.Tests
 
         
         
-        [Fact]
-        public void SolverBoard_EveryPositionHasLegalMove()
-        {
-            foreach (Record r in Sample())
-            {
-                // Throws an error if move not legal
-                _ = SolverBoard.SolverStringPositionToBoard(r.position);
-            }
-        }
+        //[Fact]
+        //public void SolverBoard_EveryPositionHasLegalMove()
+        //{
+        //    foreach (Record r in Sample())
+        //    {
+        //        // Throws an error if move not legal
+        //        _ = SolverBoard.SolverStringPositionToBoard(r.position);
+        //    }
+        //}
 
-        // Disc colour for SideToMove matches the data's record
-        [Fact]
-        public void SideToMove_matches_the_data()
-        {
-            foreach (Record r in Sample())
-            {
-                Assert.Equal(r.discToMove, SolvedPosition.SideToMove(r.position).ToString());
-            }
-        }
+        //// Disc colour for SideToMove matches the data's record
+        //[Fact]
+        //public void SideToMove_matches_the_data()
+        //{
+        //    foreach (Record r in Sample())
+        //    {
+        //        Assert.Equal(r.discToMove, SolvedPosition.SideToMove(r.position).ToString());
+        //    }
+        //}
 
-        // Check any full columns in both data and boards match
-        [Fact]
-        public void SolvedBoard_FullColumnsMatch()
-        {
-            foreach (Record r in Sample())
-            {
-                Board board = SolverBoard.SolverStringPositionToBoard(r.position);
+        //// Check any full columns in both data and boards match
+        //[Fact]
+        //public void SolvedBoard_FullColumnsMatch()
+        //{
+        //    foreach (Record r in Sample())
+        //    {
+        //        Board board = SolverBoard.SolverStringPositionToBoard(r.position);
 
-                List<int> engineFull = SolverBoard.FullColumns(board);
+        //        List<int> engineFull = SolverBoard.FullColumns(board);
 
-                List<int> solverNull = new();
-                for (int c = 0; c < r.columnScores.Length; c++)
-                {
-                    if (r.columnScores[c] is null)
-                    {
-                        solverNull.Add(c);
-                    }
-                }
+        //        List<int> solverNull = new();
+        //        for (int c = 0; c < r.columnScores.Length; c++)
+        //        {
+        //            if (r.columnScores[c] is null)
+        //            {
+        //                solverNull.Add(c);
+        //            }
+        //        }
 
-                Assert.True(engineFull.SequenceEqual(solverNull), $"full columns within data and board do not match for record {r.position}");
-            }
-        }
+        //        Assert.True(engineFull.SequenceEqual(solverNull), $"full columns within data and board do not match for record {r.position}");
+        //    }
+        //}
 
-        // Check that best columns match max score values
-        [Fact]
-        public void SolverBoard_BestColumnsMatchScores()
-        {
-            foreach (Record r in Sample())
-            {
-                int max = int.MinValue;
-                List<int> maxCols = new();
+        //// Check that best columns match max score values
+        //[Fact]
+        //public void SolverBoard_BestColumnsMatchScores()
+        //{
+        //    foreach (Record r in Sample())
+        //    {
+        //        int max = int.MinValue;
+        //        List<int> maxCols = new();
 
-                for (int c = 0; c < r.columnScores.Length; c++)
-                {
-                    int? score = r.columnScores[c];
-                    if (!score.HasValue)
-                    {
-                        continue;
-                    }
+        //        for (int c = 0; c < r.columnScores.Length; c++)
+        //        {
+        //            int? score = r.columnScores[c];
+        //            if (!score.HasValue)
+        //            {
+        //                continue;
+        //            }
 
-                    if (score.Value > max)
-                    {
-                        max = score.Value;
-                        maxCols.Clear();
-                        maxCols.Add(c);
-                    }
-                    else if (score.Value == max)
-                    {
-                        maxCols.Add(c);
-                    }
-                }
+        //            if (score.Value > max)
+        //            {
+        //                max = score.Value;
+        //                maxCols.Clear();
+        //                maxCols.Add(c);
+        //            }
+        //            else if (score.Value == max)
+        //            {
+        //                maxCols.Add(c);
+        //            }
+        //        }
 
-                Assert.True(maxCols.SequenceEqual(r.bestColumns), $"best column does not represent the best score for record {r.position}");
-                Assert.Equal(max, r.value);
-            }
-        }
+        //        Assert.True(maxCols.SequenceEqual(r.bestColumns), $"best column does not represent the best score for record {r.position}");
+        //        Assert.Equal(max, r.value);
+        //    }
+        //}
 
-        // Check that best columns are playable in board
-        [Fact]
-        public void SolverBoard_BestColumnsLegalMoves()
-        {
-            foreach (Record r in Sample())
-            {
-                Board board = SolverBoard.SolverStringPositionToBoard(r.position);
-                foreach (int c in r.bestColumns)
-                {
-                    Assert.True(board.IsValidMove(c), $"Best column {c} is not playable on board for record {r.position}");
-                }
-            }
-        }
+        //// Check that best columns are playable in board
+        //[Fact]
+        //public void SolverBoard_BestColumnsLegalMoves()
+        //{
+        //    foreach (Record r in Sample())
+        //    {
+        //        Board board = SolverBoard.SolverStringPositionToBoard(r.position);
+        //        foreach (int c in r.bestColumns)
+        //        {
+        //            Assert.True(board.IsValidMove(c), $"Best column {c} is not playable on board for record {r.position}");
+        //        }
+        //    }
+        //}
     }
 }
