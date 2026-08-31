@@ -26,6 +26,17 @@ namespace ConnectFour.Evaluation.Tests
                 MatchesExpected: true,
                 SourceFile: "Test_L2_R1.txt");
 
+        SolvedPosition testCaseThree = new SolvedPosition(
+                Position: "32114125125351447166362752355326644364777",
+                DiscToMove: Disc.Yellow,
+                ColumnScores: [null, null, null, null, null, null, 0],
+                BestColumns: [6],
+                Value: 0,
+                Outcome: "Draw",
+                ExpectedValue: 0,
+                MatchesExpected: true,
+                SourceFile: "Test_L3_R1.txt");
+
 
         [Fact]
         public void MoveScorer_AgreementAndZeroRegret()

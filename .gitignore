@@ -15,3 +15,5 @@ dist/
 
 # Json data for evaluation
 src/ConnectFour.Evaluation/data/benchmark-positions-scraped.json
+src/ConnectFour.Evaluation/data/train-split.json
+src/ConnectFour.Evaluation/data/test-split.json

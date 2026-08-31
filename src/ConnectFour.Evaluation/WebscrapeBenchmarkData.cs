@@ -22,18 +22,6 @@ namespace ConnectFour.Evaluation
         // save data periodically in case of crashes
         private const int SaveEvery = 50;
 
-        // Set up JSON configurations
-        private static readonly JsonSerializerOptions JsonOptions = new()
-        {
-            // JSON keys in camelCase
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            // Indents JSON lines, easier to read
-            WriteIndented = true,
-            // write enums as their names rather than numbers - used for Disc
-            Converters = { new JsonStringEnumConverter() },      
-        };
-
-        
         // Runs asynchronously so network waits don't block a thread; requests still happen one at a time
         public static async Task RunWebscrapingAsync(
             string dataFolder, // Location of the data folder
@@ -107,7 +95,7 @@ namespace ConnectFour.Evaluation
                     // Save a snapshot of results incase code crashes part way
                     if (scraped % SaveEvery == 0)
                     {
-                        Save(outputPath, results);
+                        JsonHelpers.Save(outputPath, results);
                     }
                 }
 
@@ -119,7 +107,7 @@ namespace ConnectFour.Evaluation
             }
 
             // Save the final version of results
-            Save(outputPath, results);
+            JsonHelpers.Save(outputPath, results);
 
             // Final print message
             Console.WriteLine($"Code complete. Number of positions scraped: {scraped}. Number of errors: {errors}.");
@@ -347,12 +335,5 @@ namespace ConnectFour.Evaluation
                 MatchesExpected: best == expectedScore,
                 SourceFile: fileName);
         }
-
-        // Save data
-        private static void Save(string path, List<SolvedPosition> results)
-        {
-            File.WriteAllText(path, JsonSerializer.Serialize(results, JsonOptions));
-        }
-
     }
 }
