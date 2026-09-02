@@ -27,6 +27,12 @@ namespace ConnectFour.AI
                 throw new Exception("totalIterations must be greater than zero.");
             }
 
+            // Exploration constant must be positive
+            if (explorationConstant < 0)
+            {
+                throw new Exception("explorationConstant must be positive.");
+            }
+
             this.totalIterations = totalIterations;
             this.explorationConstant = explorationConstant;
             if (seed == null)
