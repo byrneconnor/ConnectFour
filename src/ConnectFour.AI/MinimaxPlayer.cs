@@ -5,7 +5,7 @@ namespace ConnectFour.AI
     // The Minimax opponent
     public class MinimaxPlayer : Player
     {
-        private readonly Random random = new(); // use to randomly select one of the best moves
+        private readonly Random random; // use to randomly select one of the best moves
         private Disc aiDisc; // define the AI's disc -needed for searching
         private Disc opponentDisc; // define the opponent's disc - needed for searching
         private static readonly int[] ColumnOrder = { 3, 4, 2, 5, 1, 6, 0 }; // order to play columns, helps to speed up alpha-beta pruning by playing better columns first
@@ -13,12 +13,21 @@ namespace ConnectFour.AI
         private const int DefaultDepth = 8; // set default for now
         private const int WinScore = 1000000; // large enough that any real win/loss outranks every heuristic score
         private readonly HeuristicWeights weights; // weights for heuristic evaluation to produce scores at non-terminal nodes
+        private long nodesSearched; // number of nodes searched during GetMove
 
-        public MinimaxPlayer(string name, Disc disc, int searchDepth = DefaultDepth, HeuristicWeights? weights = null)
+        public MinimaxPlayer(string name, Disc disc, int searchDepth = DefaultDepth, HeuristicWeights? weights = null, int? seed = null)
             : base(name, disc)
         {
             this.searchDepth = searchDepth;
             this.weights = weights ?? new HeuristicWeights();
+            if (seed == null)
+            {
+                this.random = new Random();
+            }
+            else
+            {
+                this.random = new Random(seed.Value);
+            }
         }
 
         // IsHuman overwritten to false
@@ -39,6 +48,9 @@ namespace ConnectFour.AI
             {
                 this.opponentDisc = Disc.Red;
             }
+
+            // Restart counter for nodes searched at the start of each turn
+            this.nodesSearched = 0;
 
             // Create a clone of current board
             BoardCopy boardCopy = new BoardCopy(board);
@@ -63,6 +75,9 @@ namespace ConnectFour.AI
 
                 // Drop the disc in the column and return the row to use to check win
                 int row = boardCopy.Drop(col, this.aiDisc);
+
+                // Add 1 to nodes search after turn taken
+                this.nodesSearched++;
 
                 // Update the score, first by seeing if there has been a win                
                 if (boardCopy.IsWinningMove(row, col, this.aiDisc))
@@ -158,6 +173,9 @@ namespace ConnectFour.AI
                 // Drop the disc in the column and return the row to use to check win
                 int row = boardCopy.Drop(col, discToMove);
 
+                // Add 1 to nodes search after turn taken
+                this.nodesSearched++;
+
                 // Update the score, first by seeing if there has been a win for current player
                 if (boardCopy.IsWinningMove(row, col, discToMove))
                 {
@@ -221,6 +239,11 @@ namespace ConnectFour.AI
             }
 
             return value;
+        }
+
+        public override long? GetNodesSearched
+        {
+            get { return nodesSearched; }
         }
     }
 }

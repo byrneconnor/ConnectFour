@@ -4,8 +4,6 @@ namespace ConnectFour.Evaluation
 {
     public static class SolverBoard
     {
-        
-
         // For a string of moves, get the appropriate disc colur to 
         // drop into the board
         public static Disc DiscToDrop(int moveTurn)

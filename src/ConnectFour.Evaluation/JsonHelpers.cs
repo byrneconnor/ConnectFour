@@ -26,9 +26,9 @@ namespace ConnectFour.Evaluation
         }
 
         // Save JSON data
-        public static void Save(string path, List<SolvedPosition> positions)
+        public static void Save(string path, object jsonData)
         {
-            File.WriteAllText(path, JsonSerializer.Serialize(positions, JsonOptions));
+            File.WriteAllText(path, JsonSerializer.Serialize(jsonData, JsonOptions));
         }
     }
 }

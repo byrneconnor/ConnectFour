@@ -1,6 +1,11 @@
 ﻿namespace ConnectFour.Evaluation
 {
-    public class TrainTestSplit(List<SolvedPosition> benchmarkJson, int seed, double trainFraction)
+    // Class to produce a train-test split
+    // benchmarkJson = file location for the original benchmark data
+    // seed = used for reproducibility (get same train-test split)
+    // trainFraction = what proportion you want in your training data (default at 70%)
+    // populationFraction = what proportion of the full population you want in your train-test split (default at 100%)
+    public class TrainTestSplit(List<SolvedPosition> benchmarkJson, int seed, double trainFraction = 0.7, double populationFraction = 1)
     {
         // Split benchmark data into a train-test split
         public (List<SolvedPosition> Train, List<SolvedPosition> Test) Split()
@@ -30,10 +35,14 @@
                     .OrderBy(_ => random.Next())
                     .ToList();
 
-                // Get the count of records belonging to the training data
-                int trainCount = (int)Math.Round(shuffled.Count * trainFraction);
+                // Limit how much of this group is used by populationFraction
+                int populationCount = (int)Math.Round(shuffled.Count * populationFraction);
 
-                for (int i = 0; i < shuffled.Count; i++)
+                // Of that limted cut, get the number of records you want for the training data 
+                int trainCount = (int)Math.Round(populationCount * trainFraction);
+
+                // Loop through each record within populationCount
+                for (int i = 0; i < populationCount; i++)
                 {
                     // For records under trainCount put in training
                     if (i < trainCount)

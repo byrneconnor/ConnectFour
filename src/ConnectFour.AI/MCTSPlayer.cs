@@ -9,7 +9,7 @@ namespace ConnectFour.AI
     // terminal and the result if so.
     public class MCTSPlayer : Player
     {
-        private readonly Random random = new(); // use to randomly select moves during expansion
+        private readonly Random random; // use to randomly select moves during expansion
         private Disc aiDisc; // define the AI's disc -needed for searching
         private Disc opponentDisc; // define the opponent's disc - needed for searching
         private readonly int totalIterations; // how many iterations per run
@@ -18,11 +18,25 @@ namespace ConnectFour.AI
         private const double defaultExploration = 1.41421356237; // UCB1 default of sqrt(2)
 
         public MCTSPlayer(string name, Disc disc, int totalIterations = defaultIterations,
-            double explorationConstant = defaultExploration)
+            double explorationConstant = defaultExploration, int? seed = null)
             : base(name, disc)
         {
+            // MCTS must have at least 1 iteration set
+            if (totalIterations <= 0)
+            {
+                throw new Exception("totalIterations must be greater than zero.");
+            }
+
             this.totalIterations = totalIterations;
             this.explorationConstant = explorationConstant;
+            if (seed == null)
+            {
+                this.random = new Random();
+            }
+            else
+            {
+                this.random = new Random(seed.Value);
+            }
         }
 
         // IsHuman overwritten to false

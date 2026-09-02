@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ConnectFour.Core\ConnectFour.Core.csproj" />
+    <ProjectReference Include="..\ConnectFour.AI\ConnectFour.AI.csproj" />
   </ItemGroup>
 
   <ItemGroup>
