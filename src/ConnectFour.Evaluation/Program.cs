@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Text;
+﻿using System.Text;
 
 using ConnectFour.AI;
 using ConnectFour.Core;
@@ -69,7 +68,7 @@ namespace ConnectFour.Evaluation
             }
 
             // run the benchmark evaluation
-            if (args.Contains("--benchmark-evaluation"))
+            if (args.Contains("--benchmark-evaluation-train"))
             {
                 // Read in the train split to evaluate against
                 string trainFile = "train-split-" + SplitLabel(populationFraction) + ".json";
@@ -160,7 +159,7 @@ namespace ConnectFour.Evaluation
                 {
                     foreach (double exploration in explorationConstants)
                     {
-                        string explorationLabel = exploration.ToString("0.00", CultureInfo.InvariantCulture);
+                        string explorationLabel = exploration.ToString("0.00");
                         mctsConfigs.Add(new MctsConfig($"mcts-i{iterations}-c{explorationLabel}", iterations, exploration));
                     }
                 }
@@ -192,6 +191,91 @@ namespace ConnectFour.Evaluation
 
                 // Write the combined iterations x exploration x stage table for ranking + the write-up
                 SaveMCTSTuningGrid(mctsRuns, dataFolder);
+
+                return;
+            }
+
+            // Run test data against chosen configurations to check for overfitting
+            if (args.Contains("--benchmark-evaluation-test"))
+            {
+                // Read in test data
+                string label = SplitLabel(populationFraction);
+                string testFile = "test-split-" + label + ".json";
+                List<SolvedPosition> test = JsonHelpers.Read(Path.Combine(dataFolder, testFile));
+
+                // Seeds for the repeated MCTS runs 
+                int numberOfRuns = 5;
+                List<int> runSeeds = new List<int>();
+                for (int i = 0; i < numberOfRuns; i++)
+                {
+                    runSeeds.Add(i);
+                }
+
+                // Combination of minimax and MCTS results
+                List<BenchmarkResult> finalResults = new List<BenchmarkResult>();
+
+                ///////////////////////////////////
+                // Minimax evaluation
+                Console.WriteLine("Evaluating minimax...");
+
+                // Minimax is deterministic given a fixed tie-break seed, so one run suffices.
+                int minimaxSeed = 2891;
+
+                // Set the best configuration (TO FINALISE LATER)
+                int depth = 8;
+                HeuristicWeights weights = new HeuristicWeights();
+
+                // Plug into minimax player
+                CreatePlayer minimaxFinal = MakeMinimaxConfiguration(depth, weights);
+
+                // Get results
+                BenchmarkResult minimaxResult = BenchmarkEvaluation.Run(
+                    "minimax-final", "test", minimaxFinal, test, new List<int> { minimaxSeed });
+
+                // Save minimax run
+                SaveBenchmarkResults.Save(minimaxResult, dataFolder);
+                
+                PrintEvaluationSummary(minimaxResult);
+                
+                // Add to minimax-MCTS combined results dataset
+                finalResults.Add(minimaxResult);
+
+                ///////////////////////////////////////////
+                // MCTS - needs several games for averaging
+                Console.WriteLine("Evaluating MCTS...");
+
+                // Set up chosen results (COMEPLETE LATER)
+                List<MctsConfig> chosenMctsConfigs = new List<MctsConfig>
+                {
+                    new MctsConfig("mcts-final-1", 5000, 0.7),
+                    new MctsConfig("mcts-final-2", 5000, 1.41421356237),
+                    new MctsConfig("mcts-final-3", 5000, 2.0),
+                };
+
+                // Loop through each configuration
+                foreach (MctsConfig config in chosenMctsConfigs)
+                {
+                    Console.WriteLine($"Evaluating {config.Label}...");
+
+                    CreatePlayer mctsFinal =
+                        MakeMCTSConfiguration(config.Iterations, config.ExplorationConstant);
+
+                    // The harness loops positions x seeds, so each seed is one repeat per position.
+                    BenchmarkResult mctsResult = BenchmarkEvaluation.Run(
+                        $"{config.Label}-i{config.Iterations}-c{config.ExplorationConstant}", "test", 
+                        mctsFinal, test, runSeeds);
+
+                    // Keep the per-config detail files
+                    SaveBenchmarkResults.Save(mctsResult, dataFolder);
+
+                    PrintEvaluationSummary(mctsResult);
+
+                    // Add to minimax-MCTS combined results dataset
+                    finalResults.Add(mctsResult);
+                }
+
+                // Save the full combined set of results
+                SaveFinalEvaluationTable(finalResults, dataFolder, label);
 
                 return;
             }
@@ -306,13 +390,13 @@ namespace ConnectFour.Evaluation
                     sb.Append(config.WeightGroup).Append(',');
                     sb.Append(s.Stage).Append(',');
                     sb.Append(s.Positions).Append(',');
-                    sb.Append(s.AgreementRate.ToString(CultureInfo.InvariantCulture)).Append(',');
-                    sb.Append(s.MeanRegret.ToString(CultureInfo.InvariantCulture)).Append(',');
-                    sb.Append(s.MeanSpeedRegret?.ToString(CultureInfo.InvariantCulture) ?? "").Append(',');
-                    sb.Append(s.MeanDecisionMs.ToString(CultureInfo.InvariantCulture)).Append(',');
-                    sb.Append(s.P95DecisionMs.ToString(CultureInfo.InvariantCulture)).Append(',');
-                    sb.Append(s.MaxDecisionMs.ToString(CultureInfo.InvariantCulture)).Append(',');
-                    sb.Append(s.MeanNodes?.ToString(CultureInfo.InvariantCulture) ?? "").Append('\n');
+                    sb.Append(s.AgreementRate.ToString()).Append(',');
+                    sb.Append(s.MeanRegret.ToString()).Append(',');
+                    sb.Append(s.MeanSpeedRegret?.ToString()).Append(',');
+                    sb.Append(s.MeanDecisionMs.ToString()).Append(',');
+                    sb.Append(s.P95DecisionMs.ToString()).Append(',');
+                    sb.Append(s.MaxDecisionMs.ToString()).Append(',');
+                    sb.Append(s.MeanNodes?.ToString()).Append('\n');
                 }
             }
 
@@ -335,20 +419,149 @@ namespace ConnectFour.Evaluation
                 {
                     sb.Append(config.Label).Append(',');
                     sb.Append(config.Iterations).Append(',');
-                    sb.Append(config.ExplorationConstant.ToString(CultureInfo.InvariantCulture)).Append(',');
+                    sb.Append(config.ExplorationConstant.ToString()).Append(',');
                     sb.Append(s.Stage).Append(',');
                     sb.Append(s.Positions).Append(',');
-                    sb.Append(s.AgreementRate.ToString(CultureInfo.InvariantCulture)).Append(',');
-                    sb.Append(s.MeanRegret.ToString(CultureInfo.InvariantCulture)).Append(',');
-                    sb.Append(s.MeanSpeedRegret?.ToString(CultureInfo.InvariantCulture) ?? "").Append(',');
-                    sb.Append(s.MeanDecisionMs.ToString(CultureInfo.InvariantCulture)).Append(',');
-                    sb.Append(s.P95DecisionMs.ToString(CultureInfo.InvariantCulture)).Append(',');
-                    sb.Append(s.MaxDecisionMs.ToString(CultureInfo.InvariantCulture)).Append('\n');
+                    sb.Append(s.AgreementRate.ToString()).Append(',');
+                    sb.Append(s.MeanRegret.ToString()).Append(',');
+                    sb.Append(s.MeanSpeedRegret.ToString()).Append(',');
+                    sb.Append(s.MeanDecisionMs.ToString()).Append(',');
+                    sb.Append(s.P95DecisionMs.ToString()).Append(',');
+                    sb.Append(s.MaxDecisionMs.ToString()).Append('\n');
                 }
             }
 
             // Write the combined table
             File.WriteAllText(Path.Combine(outputDir, "mcts-tuning-grid.csv"), sb.ToString());
+        }
+
+        // Save final table for the evaluation of final configurations on test data
+        private static void SaveFinalEvaluationTable(
+            List<BenchmarkResult> results, string outputDir, string splitLabel)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("agent,split,stage,positions,seeds,");
+            sb.Append("agreementMean,agreementStd,agreementMin,agreementMax,");
+            sb.Append("regretMean,regretStd,regretMin,regretMax,");
+            sb.Append("meanDecisionMs,p95DecisionMs,maxDecisionMs,meanNodes\n");
+
+            foreach (BenchmarkResult result in results)
+            {
+                foreach (Stage stage in Enum.GetValues<Stage>())
+                {
+                    // Per-seed agreement / mean regret over the legal moves in this stage.
+                    List<double> perSeedAgreement = new List<double>();
+                    List<double> perSeedRegret = new List<double>();
+
+                    foreach (int seed in result.Seeds)
+                    {
+                        int legal = 0;
+                        int agree = 0;
+                        long regretSum = 0;
+
+                        foreach (MoveResult m in result.Moves)
+                        {
+                            // Only this stage + seed; illegal moves are excluded from scoring rates.
+                            if (m.Stage != stage || m.Seed != seed || m.Illegal)
+                            {
+                                continue;
+                            }
+                            legal++;
+                            if (m.Agreement)
+                            {
+                                agree++;
+                            }
+                            regretSum += m.Regret;
+                        }
+
+                        // No legal moves for this seed/stage (e.g. all illegal - a bug flag): skip.
+                        if (legal == 0)
+                        {
+                            continue;
+                        }
+                        perSeedAgreement.Add((double)agree / legal);
+                        perSeedRegret.Add((double)regretSum / legal);
+                    }
+
+                    // No data for this agent/stage: skip the row.
+                    if (perSeedAgreement.Count == 0)
+                    {
+                        continue;
+                    }
+
+                    // Positions + timing + nodes come from the harness aggregate for this stage.
+                    StageSummary? summary = null;
+                    foreach (StageSummary s in result.StageAggregate)
+                    {
+                        if (s.Stage == stage)
+                        {
+                            summary = s;
+                            break;
+                        }
+                    }
+                    if (summary == null)
+                    {
+                        continue;
+                    }
+
+                    // Distribution across the seeded runs for agreement
+                    (double aMean, double aStd, double aMin, double aMax) = Distribution(perSeedAgreement);
+
+                    // Distribution across seeded runs for regret ( 
+                    (double rMean, double rStd, double rMin, double rMax) = Distribution(perSeedRegret);
+
+                    sb.Append(result.PlayerName).Append(',');
+                    sb.Append(result.Split).Append(',');
+                    sb.Append(stage).Append(',');
+                    sb.Append(summary.Positions).Append(',');
+                    sb.Append(result.Seeds.Count).Append(',');
+                    sb.Append(aMean.ToString()).Append(',');
+                    sb.Append(aStd.ToString()).Append(',');
+                    sb.Append(aMin.ToString()).Append(',');
+                    sb.Append(aMax.ToString()).Append(',');
+                    sb.Append(rMean.ToString()).Append(',');
+                    sb.Append(rStd.ToString()).Append(',');
+                    sb.Append(rMin.ToString()).Append(',');
+                    sb.Append(rMax.ToString()).Append(',');
+                    sb.Append(summary.MeanDecisionMs.ToString()).Append(',');
+                    sb.Append(summary.P95DecisionMs.ToString()).Append(',');
+                    sb.Append(summary.MaxDecisionMs.ToString()).Append(',');
+                    sb.Append(summary.MeanNodes?.ToString()).Append('\n');
+                }
+            }
+
+            File.WriteAllText(
+                Path.Combine(outputDir, "final-evaluation-test-" + splitLabel + ".csv"), sb.ToString());
+        }
+
+        // Mean / sample standard deviation / min / max of a non-empty list of values.
+        private static (double Mean, double Std, double Min, double Max) Distribution(List<double> values)
+        {
+            double sum = 0.0;
+            double min = double.PositiveInfinity;
+            double max = double.NegativeInfinity;
+            foreach (double v in values)
+            {
+                sum += v;
+                if (v < min) min = v;
+                if (v > max) max = v;
+            }
+            double mean = sum / values.Count;
+
+            // Sample standard deviation; zero for a single run (e.g. deterministic minimax).
+            double std = 0.0;
+            if (values.Count > 1)
+            {
+                double sqSum = 0.0;
+                foreach (double v in values)
+                {
+                    double d = v - mean;
+                    sqSum += d * d;
+                }
+                std = Math.Sqrt(sqSum / (values.Count - 1));
+            }
+
+            return (mean, std, min, max);
         }
 
     }
