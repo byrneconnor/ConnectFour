@@ -85,38 +85,49 @@ namespace ConnectFour.Evaluation
                         // Play the game out
                         GamePlay play = PlayGame(firstPlayer, secondPlayer);
 
-                        // Turn the winning slot into the winning player's name
-                        string winnerName;
-                        if (play.WinningPlayer == 1)
+                        // Work out who won as a player (null for a draw)
+                        IArenaPlayer? winningPlayer;
+                        if (play.Outcome == GameOutcome.FirstPlayer)
                         {
-                            winnerName = firstPlayer.Name;
+                            winningPlayer = first;
                         }
-                        else if (play.WinningPlayer == 2)
+                        else if (play.Outcome == GameOutcome.SecondPlayer)
                         {
-                            winnerName = secondPlayer.Name;
+                            winningPlayer = second;
                         }
                         else
                         {
-                            winnerName = "Draw";
+                            winningPlayer = null;
                         }
 
+                        // Set winning players name
+                        string winningName;
+                        if (winningPlayer == null)
+                        {
+                            winningName = "Draw";
+                        }
+                        else
+                        {
+                            winningName = winningPlayer.Name;
+                        }
+                        
                         // Record the game row
                         games.Add(new GameResult(
                             PlayerOne: firstPlayer.Name,
                             PlayerTwo: secondPlayer.Name,
                             PlayerOneSeed: firstSeed,
                             PlayerTwoSeed: secondSeed,
-                            Winner: winnerName,
+                            Winner: winningName,
                             TotalMoves: play.Moves,
                             PlayerOneMs: play.FirstPlayerMs,
                             PlayerTwoMs: play.SecondPlayerMs));
 
                         // Update the head-to-head results (relative to playerOne/playerTwo)
-                        if (play.WinningPlayer == 0)
+                        if (winningPlayer == null)
                         {
                             draws++;
                         }
-                        else if (winnerName == playerOne.Name)
+                        else if (winningPlayer == playerOne)
                         {
                             playerOneWins++;
                         }
@@ -199,24 +210,22 @@ namespace ConnectFour.Evaluation
                 moves++;
             }
 
-            // Map the winning Player back to a slot (null Winner means a draw)
-            int winningPlayer;
-
-            // If no winner, game is a draw
+            // Map the winning player to the outcome
+            GameOutcome outcome;
             if (game.Winner == null)
             {
-                winningPlayer = 0;
+                outcome = GameOutcome.Draw;
             }
             else if (game.Winner == firstPlayer)
             {
-                winningPlayer = 1;
+                outcome = GameOutcome.FirstPlayer;
             }
             else
             {
-                winningPlayer = 2;
+                outcome = GameOutcome.SecondPlayer;
             }
 
-            return new GamePlay(winningPlayer, moves, firstPlayerMs, secondPlayerMs);
+            return new GamePlay(outcome, moves, firstPlayerMs, secondPlayerMs);
         }
 
         // Obtain each players records from running results
@@ -226,12 +235,12 @@ namespace ConnectFour.Evaluation
             secondPlayer.Games++;
 
             // Win / loss / draw from each side's point of view
-            if (play.WinningPlayer == 1)
+            if (play.Outcome == GameOutcome.FirstPlayer)
             {
                 firstPlayer.Wins++;
                 secondPlayer.Losses++;
             }
-            else if (play.WinningPlayer == 2)
+            else if (play.Outcome == GameOutcome.SecondPlayer)
             {
                 secondPlayer.Wins++;
                 firstPlayer.Losses++;
@@ -287,9 +296,8 @@ namespace ConnectFour.Evaluation
             return standings;
         }
 
-        // The outcome of one played game: which slot won (1 = first, 2 = second,
-        // 0 = draw), how many moves were made, and each side's total think time.
-        private record GamePlay(int WinningPlayer, int Moves, double FirstPlayerMs, double SecondPlayerMs);
+        // The outcome of one played game, how many moves were made, and each side's total think time.
+        private record GamePlay(GameOutcome Outcome, int Moves, double FirstPlayerMs, double SecondPlayerMs);
 
         // Track player results across the arena games
         private class PlayerResults
@@ -300,6 +308,14 @@ namespace ConnectFour.Evaluation
             public int Draws;
             public double TotalMs;
             public int TotalMoves;
+        }
+
+        // GameOutcome says which player won a single game (or a draw)
+        private enum GameOutcome
+        {
+            Draw,
+            FirstPlayer,
+            SecondPlayer
         }
     }
 }
