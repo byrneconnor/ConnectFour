@@ -108,12 +108,12 @@ namespace ConnectFour.Evaluation
                 };
 
                 // Build every depth x weight-group combination
-                List<MinimaxConfig> configs = new List<MinimaxConfig>();
+                List<MinimaxConfig> minimaxConfigs = new List<MinimaxConfig>();
                 foreach (int depth in depths)
                 {
                     foreach ((string groupName, HeuristicWeights weights) in weightGroups)
                     {
-                        configs.Add(new MinimaxConfig($"minimax-d{depth}-{groupName}", depth, groupName, weights));
+                        minimaxConfigs.Add(new MinimaxConfig($"minimax-d{depth}-{groupName}", depth, groupName, weights));
                     }
                 }
 
@@ -121,7 +121,7 @@ namespace ConnectFour.Evaluation
                 // its result so the summary table can label each row
                 List<(MinimaxConfig Config, BenchmarkResult Result)> runs =
                     new List<(MinimaxConfig, BenchmarkResult)>();
-                foreach (MinimaxConfig config in configs)
+                foreach (MinimaxConfig config in minimaxConfigs)
                 {
                     Console.WriteLine($"Tuning {config.Label}...");
 
@@ -144,27 +144,54 @@ namespace ConnectFour.Evaluation
                 SaveMinimaxTuningGrid(runs, dataFolder);
 
 
-                /////////////////////////////////////////////
-                //// MCTS - needs several games for averaging
-                //Console.WriteLine("Evaluating MCTS...");
+                ///////////////////////////////////////////
+                // MCTS - needs several games for averaging
+                Console.WriteLine("Evaluating MCTS...");
 
-                //// Create the MCTS player
-                //static Player MakeMcts(Disc disc, int runSeed)
-                //{
-                //    return new MCTSPlayer("mcts", disc, totalIterations: 20000, seed: runSeed);
-                //}
+                // Set iteration options
+                int[] iterationBudgets = { 5000, 20000, 40000 };
 
-                //// Evaluate results
-                //BenchmarkResult mctsResult = BenchmarkEvaluation.Run(
-                //    "mcts-20k",
-                //    "train",
-                //    MakeMcts,
-                //    train,
-                //    runSeeds); // Use multiple seeds as one run of MCTS non-deterministic. Average across seeded repititions for realistic metrics
+                // Set exploration constant options
+                double[] explorationConstants = { 0.7, 1.41421356237, 2.0 };
 
-                //// Save and print results
-                //SaveBenchmarkResults.Save(mctsResult, dataFolder);
-                //PrintEvaluationSummary(mctsResult);
+                // Set up each configuration for MCTS
+                List<MctsConfig> mctsConfigs = new List<MctsConfig>();
+                foreach (int iterations in iterationBudgets)
+                {
+                    foreach (double exploration in explorationConstants)
+                    {
+                        string explorationLabel = exploration.ToString("0.00", CultureInfo.InvariantCulture);
+                        mctsConfigs.Add(new MctsConfig($"mcts-i{iterations}-c{explorationLabel}", iterations, exploration));
+                    }
+                }
+
+                // Set up the results
+                List<(MctsConfig Config, BenchmarkResult Result)> mctsRuns =
+                    new List<(MctsConfig, BenchmarkResult)>();
+                
+                // Loop through each config
+                foreach (MctsConfig config in mctsConfigs)
+                {
+                    Console.WriteLine($"Tuning {config.Label}...");
+
+                    // Return player with single configuration
+                    CreatePlayer singlePlayerConfiguration =
+                        MakeMCTSConfiguration(config.Iterations, config.ExplorationConstant);
+
+                    // Evaluate this configuration across every seed (stochastic - average the repetitions)
+                    BenchmarkResult result = BenchmarkEvaluation.Run(
+                        config.Label, "train", singlePlayerConfiguration, train, runSeeds);
+
+                    // Keep the per-config detail files (uniquely named by the config label)
+                    SaveBenchmarkResults.Save(result, dataFolder);
+
+                    PrintEvaluationSummary(result);
+
+                    mctsRuns.Add((config, result));
+                }
+
+                // Write the combined iterations x exploration x stage table for ranking + the write-up
+                SaveMCTSTuningGrid(mctsRuns, dataFolder);
 
                 return;
             }
@@ -226,6 +253,9 @@ namespace ConnectFour.Evaluation
         // the weight-group name, and the weights themselves
         private sealed record MinimaxConfig(string Label, int Depth, string WeightGroup, HeuristicWeights Weights);
 
+        // One MCTS config with a label, iterations limit and exporation constant
+        private sealed record MctsConfig(string Label, int Iterations, double ExplorationConstant);
+
         // Builds a minimax player for a given configuration
         private static CreatePlayer MakeMinimaxConfiguration(int searchDepth, HeuristicWeights weights)
         {
@@ -240,6 +270,22 @@ namespace ConnectFour.Evaluation
             }
 
             return CreateMinimax;
+        }
+
+        // Builds a MCTS player for a given configuration
+        private static CreatePlayer MakeMCTSConfiguration(int totalIterations, double explorationConstant)
+        {
+            Player CreateMCTS(Disc disc, int seed)
+            {
+                return new MCTSPlayer(
+                    "mcts",
+                    disc,
+                    totalIterations: totalIterations,
+                    explorationConstant: explorationConstant,
+                    seed: seed);
+            }
+
+            return CreateMCTS;
         }
 
         // Writes combined minimax results to csv
@@ -272,6 +318,37 @@ namespace ConnectFour.Evaluation
 
             // Write the combined table
             File.WriteAllText(Path.Combine(outputDir, "minimax-tuning-grid.csv"), sb.ToString());
+        }
+
+        // Save MCTS results to csv
+        private static void SaveMCTSTuningGrid(
+            List<(MctsConfig Config, BenchmarkResult Result)> runs, string outputDir)
+        {
+            // Set up the csv headers
+            StringBuilder sb = new StringBuilder();
+            sb.Append("config,iterations,explorationConstant,stage,positions,agreementRate,meanRegret,meanSpeedRegret,meanDecisionMs,p95DecisionMs,maxDecisionMs\n");
+
+            // One row per configuration per stage
+            foreach ((MctsConfig config, BenchmarkResult result) in runs)
+            {
+                foreach (StageSummary s in result.StageAggregate)
+                {
+                    sb.Append(config.Label).Append(',');
+                    sb.Append(config.Iterations).Append(',');
+                    sb.Append(config.ExplorationConstant.ToString(CultureInfo.InvariantCulture)).Append(',');
+                    sb.Append(s.Stage).Append(',');
+                    sb.Append(s.Positions).Append(',');
+                    sb.Append(s.AgreementRate.ToString(CultureInfo.InvariantCulture)).Append(',');
+                    sb.Append(s.MeanRegret.ToString(CultureInfo.InvariantCulture)).Append(',');
+                    sb.Append(s.MeanSpeedRegret?.ToString(CultureInfo.InvariantCulture) ?? "").Append(',');
+                    sb.Append(s.MeanDecisionMs.ToString(CultureInfo.InvariantCulture)).Append(',');
+                    sb.Append(s.P95DecisionMs.ToString(CultureInfo.InvariantCulture)).Append(',');
+                    sb.Append(s.MaxDecisionMs.ToString(CultureInfo.InvariantCulture)).Append('\n');
+                }
+            }
+
+            // Write the combined table
+            File.WriteAllText(Path.Combine(outputDir, "mcts-tuning-grid.csv"), sb.ToString());
         }
 
     }
