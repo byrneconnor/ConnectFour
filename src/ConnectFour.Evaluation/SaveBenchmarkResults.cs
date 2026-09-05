@@ -34,24 +34,15 @@ namespace ConnectFour.Evaluation
 
         private static string BuildCsv(BenchmarkResult result)
         {
-            // Set up the csv headers 
             StringBuilder sb = new StringBuilder();
-            sb.Append("positionNumber,stage,seed,chosenColumn,illegal,agreement,regret,resultPreserved,speedRegret,decisionMs,nodes\n");
+
+            // Set up the csv headers 
+            sb.Append(CsvHelpers.Row("positionNumber", "stage", "seed", "chosenColumn", "illegal", "agreement", "regret", "resultPreserved", "speedRegret", "decisionMs", "nodes")).Append('\n');
 
             // Loop through and add to the csv
             foreach (MoveResult m in result.Moves)
             {
-                sb.Append(m.PositionNumber).Append(',');
-                sb.Append(m.Stage).Append(',');
-                sb.Append(m.Seed).Append(',');
-                sb.Append(m.ChosenColumn).Append(',');
-                sb.Append(m.Illegal).Append(',');
-                sb.Append(m.Agreement).Append(',');
-                sb.Append(m.Regret).Append(',');
-                sb.Append(m.ResultPreserved).Append(',');
-                sb.Append(m.SpeedRegret).Append(',');
-                sb.Append(m.DecisionMs).Append(',');
-                sb.Append(m.Nodes).Append('\n');
+                sb.Append(CsvHelpers.Row(m.PositionNumber, m.Stage, m.Seed, m.ChosenColumn, m.Illegal, m.Agreement, m.Regret, m.ResultPreserved, m.SpeedRegret, m.DecisionMs, m.Nodes)).Append('\n');
             }
 
             return sb.ToString();

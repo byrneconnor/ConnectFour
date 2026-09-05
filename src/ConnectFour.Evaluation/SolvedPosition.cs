@@ -14,18 +14,10 @@ namespace ConnectFour.Evaluation
         bool MatchesExpected, // Value == ExpectedValue (cross reference to check data web scraped accurately)
         string SourceFile) // which file this position came from
     {
-        // Method to get the correct disc for current player's turn
-        // (Red for odd turns, Yellow for even turns based off of postion)
+        // Return disc to move for this position
         public static Disc SideToMove(string position)
         {
-            if (position.Length % 2 == 0)
-            {
-                return Disc.Red;
-            }
-            else
-            {
-                return Disc.Yellow;
-            }
+            return SolverBoard.DiscToDrop(position.Length);
         }
     }
 }

@@ -608,7 +608,7 @@ namespace ConnectFour.Evaluation
                     $"{p.Draws} draws over {p.GamesPlayed} games");
             }
 
-            // Final standings, strongest first
+            // Final standings
             Console.WriteLine("Standings:");
             foreach (PlayerMetrics s in result.Standings)
             {
