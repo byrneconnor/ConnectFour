@@ -17,7 +17,7 @@
         public int OpponentThree { get; set; } = -60;
 
         // Score per disc held in the centre column (added for the AI, subtracted for the opponent)
-        public int CentreDisc { get; set; } = 3;
+        public int CentreDisc { get; set; } = 30;
 
     }
 }

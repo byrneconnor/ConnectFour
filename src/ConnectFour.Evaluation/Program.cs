@@ -1,4 +1,7 @@
-﻿using ConnectFour.AI;
+﻿using System.Globalization;
+using System.Text;
+
+using ConnectFour.AI;
 using ConnectFour.Core;
 
 using DotNetEnv;
@@ -88,45 +91,80 @@ namespace ConnectFour.Evaluation
                 // Minimax seed
                 int minimaxSeed = 2891;
 
-                static Player MakeMinimax(Disc disc, int runSeed)
+                // Search depths for configurations: 1 puts emphasis on the weights with no lookahead,
+                // 4 and 8 are even lookaheads (CONFIRM FINAL WEIGHTS LATER)
+                int[] depths = { 1, 4, 8 };
+
+                // Weight for configuration. Each differs in a meaningful ratio 
+                // (CONFIRM WEIGHTS LATER)
+                (string Name, HeuristicWeights Weights)[] weightGroups =
                 {
-                    return new MinimaxPlayer("minimax", disc, searchDepth: 8, seed: runSeed);
+                    // Defaults
+                    ("a-baseline",  new HeuristicWeights()),   
+                    // Prioritise centre column
+                    ("b-centre",    new HeuristicWeights { CentreDisc = 60 }),
+                    // Prioritise blocking
+                    ("c-defensive", new HeuristicWeights { OpponentTwo = -20, OpponentThree = -120 }),
+                };
+
+                // Build every depth x weight-group combination
+                List<MinimaxConfig> configs = new List<MinimaxConfig>();
+                foreach (int depth in depths)
+                {
+                    foreach ((string groupName, HeuristicWeights weights) in weightGroups)
+                    {
+                        configs.Add(new MinimaxConfig($"minimax-d{depth}-{groupName}", depth, groupName, weights));
+                    }
                 }
 
-                // Evaluate results
-                BenchmarkResult minimaxResult = BenchmarkEvaluation.Run(
-                    "minimax-d8", 
-                    "train", 
-                    MakeMinimax, 
-                    train, 
-                    new List<int> { minimaxSeed }); // Only need one seed for minimax
-
-                // Save and print results
-                SaveBenchmarkResults.Save(minimaxResult, dataFolder);
-                PrintEvaluationSummary(minimaxResult);
-
-
-                ///////////////////////////////////////////
-                // MCTS - needs several games for averaging
-                Console.WriteLine("Evaluating MCTS...");
-
-                // Create the MCTS player
-                static Player MakeMcts(Disc disc, int runSeed)
+                // Run each configuration through the harness, keeping the config alongside
+                // its result so the summary table can label each row
+                List<(MinimaxConfig Config, BenchmarkResult Result)> runs =
+                    new List<(MinimaxConfig, BenchmarkResult)>();
+                foreach (MinimaxConfig config in configs)
                 {
-                    return new MCTSPlayer("mcts", disc, totalIterations: 20000, seed: runSeed);
+                    Console.WriteLine($"Tuning {config.Label}...");
+
+                    // Return player with single configuration
+                    CreatePlayer singlePlayerConfiguration = MakeMinimaxConfiguration(config.Depth, config.Weights);
+
+                    // Evaluate this configuration on the train split
+                    BenchmarkResult result = BenchmarkEvaluation.Run(
+                        config.Label, "train", singlePlayerConfiguration, train, new List<int> { minimaxSeed });
+
+                    // Keep the per-config detail files (uniquely named by the config label)
+                    SaveBenchmarkResults.Save(result, dataFolder);
+
+                    PrintEvaluationSummary(result);
+
+                    runs.Add((config, result));
                 }
 
-                // Evaluate results
-                BenchmarkResult mctsResult = BenchmarkEvaluation.Run(
-                    "mcts-20k", 
-                    "train",
-                    MakeMcts, 
-                    train, 
-                    runSeeds); // Use multiple seeds as one run of MCTS non-deterministic. Average across seeded repititions for realistic metrics
-                
-                // Save and print results
-                SaveBenchmarkResults.Save(mctsResult, dataFolder);
-                PrintEvaluationSummary(mctsResult);
+                // Write the combined depth x weight x stage table for ranking + the write-up
+                SaveMinimaxTuningGrid(runs, dataFolder);
+
+
+                /////////////////////////////////////////////
+                //// MCTS - needs several games for averaging
+                //Console.WriteLine("Evaluating MCTS...");
+
+                //// Create the MCTS player
+                //static Player MakeMcts(Disc disc, int runSeed)
+                //{
+                //    return new MCTSPlayer("mcts", disc, totalIterations: 20000, seed: runSeed);
+                //}
+
+                //// Evaluate results
+                //BenchmarkResult mctsResult = BenchmarkEvaluation.Run(
+                //    "mcts-20k",
+                //    "train",
+                //    MakeMcts,
+                //    train,
+                //    runSeeds); // Use multiple seeds as one run of MCTS non-deterministic. Average across seeded repititions for realistic metrics
+
+                //// Save and print results
+                //SaveBenchmarkResults.Save(mctsResult, dataFolder);
+                //PrintEvaluationSummary(mctsResult);
 
                 return;
             }
@@ -182,6 +220,58 @@ namespace ConnectFour.Evaluation
             {
                 return "full";
             }
+        }
+
+        // One minimax configuration in the tuning sweep with a label, search depth,
+        // the weight-group name, and the weights themselves
+        private sealed record MinimaxConfig(string Label, int Depth, string WeightGroup, HeuristicWeights Weights);
+
+        // Builds a minimax player for a given configuration
+        private static CreatePlayer MakeMinimaxConfiguration(int searchDepth, HeuristicWeights weights)
+        {
+            Player CreateMinimax(Disc disc, int seed)
+            {
+                return new MinimaxPlayer(
+                    "minimax",
+                    disc,
+                    searchDepth: searchDepth,
+                    weights: weights,
+                    seed: seed);
+            }
+
+            return CreateMinimax;
+        }
+
+        // Writes combined minimax results to csv
+        private static void SaveMinimaxTuningGrid(
+            List<(MinimaxConfig Config, BenchmarkResult Result)> runs, string outputDir)
+        {
+            // Set up the csv headers
+            StringBuilder sb = new StringBuilder();
+            sb.Append("config,depth,weightGroup,stage,positions,agreementRate,meanRegret,meanSpeedRegret,meanDecisionMs,p95DecisionMs,maxDecisionMs,meanNodes\n");
+
+            // One row per configuration per stage
+            foreach ((MinimaxConfig config, BenchmarkResult result) in runs)
+            {
+                foreach (StageSummary s in result.StageAggregate)
+                {
+                    sb.Append(config.Label).Append(',');
+                    sb.Append(config.Depth).Append(',');
+                    sb.Append(config.WeightGroup).Append(',');
+                    sb.Append(s.Stage).Append(',');
+                    sb.Append(s.Positions).Append(',');
+                    sb.Append(s.AgreementRate.ToString(CultureInfo.InvariantCulture)).Append(',');
+                    sb.Append(s.MeanRegret.ToString(CultureInfo.InvariantCulture)).Append(',');
+                    sb.Append(s.MeanSpeedRegret?.ToString(CultureInfo.InvariantCulture) ?? "").Append(',');
+                    sb.Append(s.MeanDecisionMs.ToString(CultureInfo.InvariantCulture)).Append(',');
+                    sb.Append(s.P95DecisionMs.ToString(CultureInfo.InvariantCulture)).Append(',');
+                    sb.Append(s.MaxDecisionMs.ToString(CultureInfo.InvariantCulture)).Append(',');
+                    sb.Append(s.MeanNodes?.ToString(CultureInfo.InvariantCulture) ?? "").Append('\n');
+                }
+            }
+
+            // Write the combined table
+            File.WriteAllText(Path.Combine(outputDir, "minimax-tuning-grid.csv"), sb.ToString());
         }
 
     }
