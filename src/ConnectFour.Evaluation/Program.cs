@@ -280,6 +280,35 @@ namespace ConnectFour.Evaluation
                 return;
             }
 
+            // Run AI v AI arena
+            if (args.Contains("--arena-evaluation"))
+            {
+                // Number of games per pairing (CONFIRM NUMBERS LATER)
+                int gamesPerPairing = 10;
+
+                // set seed for reproducibility
+                int arenaSeed = 2891;
+
+                // Set up the players (CONFIRM LATER)
+                List<IArenaPlayer> players = new List<IArenaPlayer>
+                {
+                    new RandomPlayer("random", Disc.Red),
+                    new MinimaxPlayer("minimax-d8-defensive", Disc.Red, searchDepth: 8, weights: new HeuristicWeights { OpponentTwo = -20, OpponentThree = -120 }),
+                    new MCTSPlayer("mcts-5k-c2-00", Disc.Red, totalIterations: 20000, explorationConstant: 2.0),
+                };
+
+                // Run the tournament
+                Console.WriteLine("Running arena...");
+                ArenaResult arenaResult = ArenaEvaluation.Run(players, gamesPerPairing, arenaSeed);
+
+                // Save and print results
+                SaveArenaResults.Save(arenaResult, dataFolder);
+                PrintArenaSummary(arenaResult);
+
+                return;
+
+            }
+
         }
 
         private static void PrintSplitSummary(List<SolvedPosition> train, List<SolvedPosition> test)
@@ -315,6 +344,7 @@ namespace ConnectFour.Evaluation
             Console.WriteLine($"== {result.PlayerName} ({result.Split}) ==");
             foreach (StageSummary s in result.StageAggregate)
             {
+                // use F1 and P1 to format decimals/percentages to 1 decimal place
                 Console.WriteLine(
                     $"  {s.Stage}: agreement {s.AgreementRate:P1}, mean regret {s.MeanRegret:F2}, " +
                     $"mean {s.MeanDecisionMs:F1} ms over {s.Positions} positions");
@@ -562,6 +592,32 @@ namespace ConnectFour.Evaluation
             }
 
             return (mean, std, min, max);
+        }
+
+        private static void PrintArenaSummary(ArenaResult result)
+        {
+            Console.WriteLine($"== Arena: {result.GamesPerPairing} games per pairing (seed {result.Seed}) ==");
+
+            // Head-to-head results
+            Console.WriteLine("Head-to-head:");
+            foreach (PairingResult p in result.Pairings)
+            {
+                Console.WriteLine(
+                    $"  {p.PlayerOne} vs {p.PlayerTwo}: " +
+                    $"{p.PlayerOne} wins: {p.PlayerOneWins}, {p.PlayerTwo} wins: {p.PlayerTwoWins}, " + 
+                    $"{p.Draws} draws over {p.GamesPlayed} games");
+            }
+
+            // Final standings, strongest first
+            Console.WriteLine("Standings:");
+            foreach (PlayerMetrics s in result.Standings)
+            {
+                // use F1 and P1 to format decimals/percentages to 1 decimal place
+                Console.WriteLine(
+                    $"  {s.Name}: {s.Points:F1} pts | " +
+                    $"{s.Wins}W {s.Losses}L {s.Draws}D | win rate {s.WinRate:P1} | " +
+                    $"mean {s.MeanDecisionMs:F1} ms/move over {s.GamesPlayed} games");
+            }
         }
 
     }

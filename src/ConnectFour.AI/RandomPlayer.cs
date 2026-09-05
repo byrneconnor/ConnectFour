@@ -3,14 +3,21 @@
 namespace ConnectFour.AI
 {
     // A RandomPlayer 
-    public class RandomPlayer : Player
+    public class RandomPlayer : Player, IArenaPlayer
     {
-        private readonly Random random = new();
+        private readonly Random random;
 
-        public RandomPlayer(string name, Disc disc)
+        public RandomPlayer(string name, Disc disc, int? seed = null)
             : base(name, disc)
         {
-            //
+            if (seed == null)
+            {
+                this.random = new Random();
+            }
+            else
+            {
+                this.random = new Random(seed.Value);
+            }
         }
 
         // IsHuman overwritten to false
@@ -41,6 +48,13 @@ namespace ConnectFour.AI
             move = possibleMoves[random.Next(possibleMoves.Count)];
 
             return move;
+        }
+
+        // Arena entry - hand back a fresh, seeded copy of RandomPlayer set to play
+        // the given colour
+        public Player CreatePlayer(Disc colour, int seed)
+        {
+            return new RandomPlayer(this.Name, colour, seed);
         }
     }
 }

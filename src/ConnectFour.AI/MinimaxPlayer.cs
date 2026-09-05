@@ -3,7 +3,7 @@
 namespace ConnectFour.AI
 {
     // The Minimax opponent
-    public class MinimaxPlayer : Player
+    public class MinimaxPlayer : Player, IArenaPlayer
     {
         private readonly Random random; // use to randomly select one of the best moves
         private Disc aiDisc; // define the AI's disc -needed for searching
@@ -244,6 +244,13 @@ namespace ConnectFour.AI
         public override long? GetNodesSearched
         {
             get { return nodesSearched; }
+        }
+
+        // Arena entry - hand back a fresh, seeded copy of MinimaxPlayer set to play
+        // the given colour, keeping search depth and weights constant
+        public Player CreatePlayer(Disc colour, int seed)
+        {
+            return new MinimaxPlayer(this.Name, colour, this.searchDepth, this.weights, seed);
         }
     }
 }
