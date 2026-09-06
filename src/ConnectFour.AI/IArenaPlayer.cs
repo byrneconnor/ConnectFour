@@ -2,8 +2,8 @@
 
 namespace ConnectFour.AI
 {
-    // Contract for arena competitors: a name and a way to hand back a fresh, seeded
-    // player for one game set to a given colour. AI agents implement it directly, so
+    // Contract for arena players - a name and a way to hand back a fresh, seeded
+    // player for one game set to a given colour. AI players implement it directly, so
     // each agent is its own factory
     public interface IArenaPlayer
     {
