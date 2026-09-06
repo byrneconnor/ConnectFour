@@ -151,7 +151,7 @@ namespace ConnectFour.Evaluation
                 }
             }
 
-            // Build the final standings from the results and order strongest-first
+            // Build the final standings from the results
             List<PlayerMetrics> standings = BuildStandings(players, results);
 
             return new ArenaResult(
@@ -263,7 +263,7 @@ namespace ConnectFour.Evaluation
             secondPlayer.TotalMoves += secondPlayerMoves;
         }
 
-        // Turn the per-player results into standings records, ordered strongest-first.
+        // Turn the per-player results into standings records
         private static List<PlayerMetrics> BuildStandings(
             List<IArenaPlayer> players, Dictionary<string, PlayerResults> results)
         {
@@ -316,6 +316,32 @@ namespace ConnectFour.Evaluation
             Draw,
             FirstPlayer,
             SecondPlayer
+        }
+
+        public static void PrintSummary(ArenaResult result)
+        {
+            Console.WriteLine($"== Arena: {result.GamesPerPairing} games per pairing (seed {result.Seed}) ==");
+
+            // Head-to-head results
+            Console.WriteLine("Head-to-head:");
+            foreach (PairingResult p in result.Pairings)
+            {
+                Console.WriteLine(
+                    $"  {p.PlayerOne} vs {p.PlayerTwo}: " +
+                    $"{p.PlayerOne} wins: {p.PlayerOneWins}, {p.PlayerTwo} wins: {p.PlayerTwoWins}, " +
+                    $"{p.Draws} draws over {p.GamesPlayed} games");
+            }
+
+            // Final standings
+            Console.WriteLine("Standings:");
+            foreach (PlayerMetrics s in result.Standings)
+            {
+                // use F1 and P1 to format decimals/percentages to 1 decimal place
+                Console.WriteLine(
+                    $"  {s.Name}: {s.Points:F1} pts | " +
+                    $"{s.Wins}W {s.Losses}L {s.Draws}D | win rate {s.WinRate:P1} | " +
+                    $"mean {s.MeanDecisionMs:F1} ms/move over {s.GamesPlayed} games");
+            }
         }
     }
 }

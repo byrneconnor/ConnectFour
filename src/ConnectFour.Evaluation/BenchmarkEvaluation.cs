@@ -6,7 +6,7 @@ namespace ConnectFour.Evaluation
 {
     // Builds a fresh player for one scoring run. Disc is side to move, seed is
     // the random seed set for reproducibility for stochastic players (MCTS)
-    public delegate Player CreatePlayer(Disc disc, int seed);
+    public delegate Player PlayerFactory(Disc disc, int seed);
 
     // Scores from an agent's decision for a certain benchmark position
     // Scores calculated by MoveScorer
@@ -51,7 +51,7 @@ namespace ConnectFour.Evaluation
     {
         // Run loop to gather results
         public static BenchmarkResult Run(
-            string playerName, string splitLabel, CreatePlayer playerConfiguration, 
+            string playerName, string splitLabel, PlayerFactory playerConfiguration, 
             List<SolvedPosition> positions, List<int> seeds) 
         {
             // Check positions and seeds are not empty
@@ -88,7 +88,7 @@ namespace ConnectFour.Evaluation
 
         // Method to score each position per seed
         private static List<MoveResult> ScorePosition(
-            int positionNumber, SolvedPosition position, CreatePlayer playerConfiguration, List<int> seeds)
+            int positionNumber, SolvedPosition position, PlayerFactory playerConfiguration, List<int> seeds)
         {
             // Get stage and disc values
             Stage stage = SourceFile.GetStage(position.SourceFile);
@@ -250,12 +250,10 @@ namespace ConnectFour.Evaluation
                 {
                     meanNodes = nodesSum / nodesCount;
                 }
-                
-                
+
+
                 // Get 95th-percentile decision time
-                decisionTimes.Sort();
-                int p95Index = (int)Math.Ceiling(95.0 / 100.0 * decisionTimes.Count) - 1;
-                double p95DecisionMs = decisionTimes[p95Index];
+                double p95DecisionMs = Stats.Percentile(decisionTimes, 95);
 
                 // Add aggregates for that group to data
                 aggregates.Add(new StageSummary(
@@ -266,6 +264,18 @@ namespace ConnectFour.Evaluation
             }
 
             return aggregates;
+        }
+
+        public static void PrintEvaluationSummary(BenchmarkResult result)
+        {
+            Console.WriteLine($"== {result.PlayerName} ({result.Split}) ==");
+            foreach (StageSummary s in result.StageAggregate)
+            {
+                // use F1 and P1 to format decimals/percentages to 1 decimal place
+                Console.WriteLine(
+                    $"  {s.Stage}: agreement {s.AgreementRate:P1}, mean regret {s.MeanRegret:F2}, " +
+                    $"mean {s.MeanDecisionMs:F1} ms over {s.Positions} positions");
+            }
         }
 
     }
