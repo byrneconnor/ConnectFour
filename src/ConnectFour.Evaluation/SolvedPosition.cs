@@ -15,7 +15,7 @@ namespace ConnectFour.Evaluation
         string SourceFile) // which file this position came from
     {
         // Method to get the correct disc for current player's turn
-        // (Red for odd turns, Yellow for even turns based off of postion)
+        // (Red for even turns (0, 2, 4...), Yellow for odd turns based off of postion)
         public static Disc SideToMove(string position)
         {
             if (position.Length % 2 == 0)
