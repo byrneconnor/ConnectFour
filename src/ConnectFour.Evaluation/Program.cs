@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-using ConnectFour.AI;
+﻿using ConnectFour.AI;
 using ConnectFour.Core;
 
 using DotNetEnv;
@@ -77,11 +75,7 @@ namespace ConnectFour.Evaluation
                 // Seeds for the repeated MCTS runs (MCTS is stochastic; average across runs).
                 // In the benchmark these are per-position move decisions, not full games.
                 int numberOfRuns = 5;
-                List<int> runSeeds = new List<int>();
-                for (int i = 0; i < numberOfRuns; i++)
-                {
-                    runSeeds.Add(i);
-                }
+                List<int> runSeeds = MakeRunSeeds(numberOfRuns);
 
                 ///////////////////////////////////
                 // Minimax evaluation
@@ -125,7 +119,7 @@ namespace ConnectFour.Evaluation
                     Console.WriteLine($"Tuning {config.Label}...");
 
                     // Return player with single configuration
-                    PlayerFactory singlePlayerConfiguration = MakeMinimaxConfiguration(config.Depth, config.Weights);
+                    PlayerFactory singlePlayerConfiguration = MakeMinimaxConfiguration(config.Label, config.Depth, config.Weights);
 
                     // Evaluate this configuration on the train split
                     BenchmarkResult result = BenchmarkEvaluation.Run(
@@ -144,7 +138,7 @@ namespace ConnectFour.Evaluation
 
 
                 ///////////////////////////////////////////
-                // MCTS - needs several games for averaging
+                // Evaluate MCTS 
                 Console.WriteLine("Evaluating MCTS...");
 
                 // Set iteration options
@@ -175,7 +169,7 @@ namespace ConnectFour.Evaluation
 
                     // Return player with single configuration
                     PlayerFactory singlePlayerConfiguration =
-                        MakeMCTSConfiguration(config.Iterations, config.ExplorationConstant);
+                        MakeMCTSConfiguration(config.Label, config.Iterations, config.ExplorationConstant);
 
                     // Evaluate this configuration across every seed (stochastic - average the repetitions)
                     BenchmarkResult result = BenchmarkEvaluation.Run(
@@ -205,11 +199,7 @@ namespace ConnectFour.Evaluation
 
                 // Seeds for the repeated MCTS runs 
                 int numberOfRuns = 5;
-                List<int> runSeeds = new List<int>();
-                for (int i = 0; i < numberOfRuns; i++)
-                {
-                    runSeeds.Add(i);
-                }
+                List<int> runSeeds = MakeRunSeeds(numberOfRuns);
 
                 // Combination of minimax and MCTS results
                 List<BenchmarkResult> finalResults = new List<BenchmarkResult>();
@@ -226,7 +216,7 @@ namespace ConnectFour.Evaluation
                 HeuristicWeights weights = new HeuristicWeights();
 
                 // Plug into minimax player
-                PlayerFactory minimaxFinal = MakeMinimaxConfiguration(depth, weights);
+                PlayerFactory minimaxFinal = MakeMinimaxConfiguration("minimax-final", depth, weights);
 
                 // Get results
                 BenchmarkResult minimaxResult = BenchmarkEvaluation.Run(
@@ -241,7 +231,7 @@ namespace ConnectFour.Evaluation
                 finalResults.Add(minimaxResult);
 
                 ///////////////////////////////////////////
-                // MCTS - needs several games for averaging
+                // Evaluate MCTS
                 Console.WriteLine("Evaluating MCTS...");
 
                 // Set up chosen results (COMEPLETE LATER)
@@ -258,7 +248,7 @@ namespace ConnectFour.Evaluation
                     Console.WriteLine($"Evaluating {config.Label}...");
 
                     PlayerFactory mctsFinal =
-                        MakeMCTSConfiguration(config.Iterations, config.ExplorationConstant);
+                        MakeMCTSConfiguration(config.Label, config.Iterations, config.ExplorationConstant);
 
                     // The harness loops positions x seeds, so each seed is one repeat per position.
                     BenchmarkResult mctsResult = BenchmarkEvaluation.Run(
@@ -294,7 +284,7 @@ namespace ConnectFour.Evaluation
                 {
                     new RandomPlayer("random", Disc.Red),
                     new MinimaxPlayer("minimax-d8-defensive", Disc.Red, searchDepth: 8, weights: new HeuristicWeights { OpponentTwo = -20, OpponentThree = -120 }),
-                    new MCTSPlayer("mcts-5k-c2-00", Disc.Red, totalIterations: 20000, explorationConstant: 2.0),
+                    new MCTSPlayer("mcts-5k-c2-00", Disc.Red, totalIterations: 5000, explorationConstant: 2.0),
                 };
 
                 // Run the tournament
@@ -309,9 +299,27 @@ namespace ConnectFour.Evaluation
 
             }
 
+            // if no or incorrect arguments passed in the command
+            Console.WriteLine("No recognised argument provided. Available flags:");
+            Console.WriteLine("  --web-scrape                  Scrape benchmark positions from the solver");
+            Console.WriteLine("  --split                       Produce the train/test split");
+            Console.WriteLine("  --benchmark-evaluation-train  Tune configurations on the train split");
+            Console.WriteLine("  --benchmark-evaluation-test   Evaluate final configurations on the test split");
+            Console.WriteLine("  --arena-evaluation            Run the AI vs AI arena evaluation");
+
         }
 
-        
+        private static List<int> MakeRunSeeds(int numberOfRuns)
+        {
+            List<int> runSeeds = new List<int>();
+            for (int i = 0; i < numberOfRuns; i++)
+            {
+                runSeeds.Add(i);
+            }
+
+            return runSeeds;
+
+        }
 
         
 
@@ -328,12 +336,12 @@ namespace ConnectFour.Evaluation
         }
 
         // Builds a minimax player for a given configuration
-        private static PlayerFactory MakeMinimaxConfiguration(int searchDepth, HeuristicWeights weights)
+        private static PlayerFactory MakeMinimaxConfiguration(string name, int searchDepth, HeuristicWeights weights)
         {
             Player CreateMinimax(Disc disc, int seed)
             {
                 return new MinimaxPlayer(
-                    "minimax",
+                    name,
                     disc,
                     searchDepth: searchDepth,
                     weights: weights,
@@ -344,12 +352,12 @@ namespace ConnectFour.Evaluation
         }
 
         // Builds a MCTS player for a given configuration
-        private static PlayerFactory MakeMCTSConfiguration(int totalIterations, double explorationConstant)
+        private static PlayerFactory MakeMCTSConfiguration(string name, int totalIterations, double explorationConstant)
         {
             Player CreateMCTS(Disc disc, int seed)
             {
                 return new MCTSPlayer(
-                    "mcts",
+                    name,
                     disc,
                     totalIterations: totalIterations,
                     explorationConstant: explorationConstant,
