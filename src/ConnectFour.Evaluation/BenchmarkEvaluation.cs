@@ -92,7 +92,7 @@ namespace ConnectFour.Evaluation
         {
             // Get stage and disc values
             Stage stage = SourceFile.GetStage(position.SourceFile);
-            Disc disc = SolvedPosition.SideToMove(position.Position);
+            Disc disc = position.DiscToMove;
 
             // Set up results for individual position across multiple seeds
             List<MoveResult> positionRows = new List<MoveResult>(seeds.Count);
