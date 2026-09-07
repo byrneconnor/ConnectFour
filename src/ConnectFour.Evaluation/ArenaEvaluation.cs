@@ -11,7 +11,7 @@ namespace ConnectFour.Evaluation
     public class ArenaEvaluation
     {
         // Run the whole round-robin and return the collected results.
-        public static ArenaResult Run(List<IArenaPlayer> players, int gamesPerPairing, int seed)
+        public static ArenaResult Run(List<ArenaEntry> players, int gamesPerPairing, int seed)
         {
             // Check there is at least 2 players in the arena
             if (players.Count < 2)
@@ -31,7 +31,7 @@ namespace ConnectFour.Evaluation
 
             // Set up players records
             Dictionary<string, PlayerResults> results = new Dictionary<string, PlayerResults>();
-            foreach (IArenaPlayer player in players)
+            foreach (ArenaEntry player in players)
             {
                 results[player.Name] = new PlayerResults();
             }
@@ -45,8 +45,8 @@ namespace ConnectFour.Evaluation
             {
                 for (int j = i + 1; j < players.Count; j++)
                 {
-                    IArenaPlayer playerOne = players[i];
-                    IArenaPlayer playerTwo = players[j];
+                    ArenaEntry playerOne = players[i];
+                    ArenaEntry playerTwo = players[j];
 
                     // Head-to-head results for this pairing (relative to playerOne/playerTwo)
                     int playerOneWins = 0;
@@ -57,8 +57,8 @@ namespace ConnectFour.Evaluation
                     for (int g = 0; g < gamesPerPairing; g++)
                     {
                         // Alternate who moves first so results are not biased
-                        IArenaPlayer first;
-                        IArenaPlayer second;
+                        ArenaEntry first;
+                        ArenaEntry second;
 
                         // Set playerOne to open even games (0, 2, 4 ...),
                         bool playerOneStarts = (g % 2 == 0);
@@ -79,14 +79,14 @@ namespace ConnectFour.Evaluation
                         int secondSeed = masterRandom.Next();
 
                         // Build fresh agents: the first mover plays Red, the second Yellow
-                        Player firstPlayer = first.CreatePlayer(Disc.Red, firstSeed);
-                        Player secondPlayer = second.CreatePlayer(Disc.Yellow, secondSeed);
+                        Player firstPlayer = first.Create(Disc.Red, firstSeed);
+                        Player secondPlayer = second.Create(Disc.Yellow, secondSeed);
 
                         // Play the game out
                         GamePlay play = PlayGame(firstPlayer, secondPlayer);
 
                         // Work out who won as a player (null for a draw)
-                        IArenaPlayer? winningPlayer;
+                        ArenaEntry? winningPlayer;
                         if (play.Outcome == GameOutcome.FirstPlayer)
                         {
                             winningPlayer = first;
@@ -113,8 +113,8 @@ namespace ConnectFour.Evaluation
                         
                         // Record the game row
                         games.Add(new GameResult(
-                            PlayerOne: firstPlayer.Name,
-                            PlayerTwo: secondPlayer.Name,
+                            PlayerOne: first.Name,
+                            PlayerTwo: second.Name,
                             PlayerOneSeed: firstSeed,
                             PlayerTwoSeed: secondSeed,
                             Winner: winningName,
@@ -137,7 +137,7 @@ namespace ConnectFour.Evaluation
                         }
 
                         // Update the overall per-player results for both sides
-                        RecordGame(results[firstPlayer.Name], results[secondPlayer.Name], play);
+                        RecordGame(results[first.Name], results[second.Name], play);
                     }
 
                     // Store this pairing's head-to-head result
@@ -265,12 +265,12 @@ namespace ConnectFour.Evaluation
 
         // Turn the per-player results into standings records
         private static List<PlayerMetrics> BuildStandings(
-            List<IArenaPlayer> players, Dictionary<string, PlayerResults> results)
+            List<ArenaEntry> players, Dictionary<string, PlayerResults> results)
         {
             List<PlayerMetrics> standings = new List<PlayerMetrics>();
 
             // Loop through each player
-            foreach (IArenaPlayer player in players)
+            foreach (ArenaEntry player in players)
             {
                 PlayerResults result = results[player.Name];
 

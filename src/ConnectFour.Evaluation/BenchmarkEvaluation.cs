@@ -1,13 +1,10 @@
 ﻿using System.Diagnostics; // for timings
 
 using ConnectFour.Core;
+using ConnectFour.AI;
 
 namespace ConnectFour.Evaluation
 {
-    // Builds a fresh player for one scoring run. Disc is side to move, seed is
-    // the random seed set for reproducibility for stochastic players (MCTS)
-    public delegate Player PlayerFactory(Disc disc, int seed);
-
     // Scores from an agent's decision for a certain benchmark position
     // Scores calculated by MoveScorer
     public sealed record MoveResult(

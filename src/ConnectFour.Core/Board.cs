@@ -9,11 +9,6 @@
         // Create a 2D array of Discs with dimensions 6 x 7 with empty discs
         private readonly Disc[,] grid = new Disc[Rows, Columns];
 
-        public Board()
-        {
-            // blank constructor
-        }
-
         // Check if a move is valid
         public bool IsValidMove(int column)
         {

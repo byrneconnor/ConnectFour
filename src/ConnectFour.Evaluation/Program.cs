@@ -280,11 +280,12 @@ namespace ConnectFour.Evaluation
                 int arenaSeed = 2891;
 
                 // Set up the players (CONFIRM LATER)
-                List<IArenaPlayer> players = new List<IArenaPlayer>
+                // Ensure all labels are unique
+                List<ArenaEntry> players = new List<ArenaEntry>
                 {
-                    new RandomPlayer("random", Disc.Red),
-                    new MinimaxPlayer("minimax-d8-defensive", Disc.Red, searchDepth: 8, weights: new HeuristicWeights { OpponentTwo = -20, OpponentThree = -120 }),
-                    new MCTSPlayer("mcts-5k-c2-00", Disc.Red, totalIterations: 5000, explorationConstant: 2.0),
+                    new ArenaEntry("random", MakeRandomConfiguration("random")),
+                    new ArenaEntry("minimax-d8-defensive", MakeMinimaxConfiguration("minimax-d8-defensive", 8, new HeuristicWeights { OpponentTwo = -20, OpponentThree = -120 })),
+                    new ArenaEntry("mcts-5k-c2-00", MakeMCTSConfiguration("mcts-5k-c2-00", 5000, 2.0)),
                 };
 
                 // Run the tournament
@@ -333,6 +334,17 @@ namespace ConnectFour.Evaluation
             {
                 return "full";
             }
+        }
+
+        // Builds a random player for a given configuration
+        private static PlayerFactory MakeRandomConfiguration(string name)
+        {
+            Player CreateRandom(Disc disc, int seed)
+            {
+                return new RandomPlayer(name, disc, seed);
+            }
+
+            return CreateRandom;
         }
 
         // Builds a minimax player for a given configuration
