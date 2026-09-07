@@ -87,14 +87,7 @@ namespace ConnectFour.AI
         {
             // set the aiDisc and opponentDisc to appropriate colours
             this.aiDisc = this.Colour;
-            if (this.aiDisc == Disc.Red)
-            {
-                this.opponentDisc = Disc.Yellow;
-            }
-            else
-            {
-                this.opponentDisc = Disc.Red;
-            }
+            this.opponentDisc = this.aiDisc.Opponent();
 
             // Create list of legal moves for board state
             List<int> rootMoves = LegalMoves(new BoardCopy(board));
@@ -300,14 +293,7 @@ namespace ConnectFour.AI
                 }
 
                 // Swap currentDisc value - repeat until a winner is returned
-                if (currentDisc == Disc.Red)
-                {
-                    currentDisc = Disc.Yellow;
-                }
-                else
-                {
-                    currentDisc = Disc.Red;
-                }
+                currentDisc = currentDisc.Opponent();
             }
 
         }

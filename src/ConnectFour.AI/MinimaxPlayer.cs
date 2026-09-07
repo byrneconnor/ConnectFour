@@ -40,14 +40,8 @@ namespace ConnectFour.AI
         public override int GetMove(Board board)
         {
             // set the aiDisc and opponentDisc to appropriate colours
-            this.aiDisc = this.Colour; 
-            if (this.aiDisc == Disc.Red)
-            {
-                this.opponentDisc = Disc.Yellow;
-            } else
-            {
-                this.opponentDisc = Disc.Red;
-            }
+            this.aiDisc = this.Colour;
+            this.opponentDisc = this.aiDisc.Opponent();
 
             // Restart counter for nodes searched at the start of each turn
             this.nodesSearched = 0;
@@ -146,16 +140,16 @@ namespace ConnectFour.AI
 
             // Set the next disc for the next game and set value for current game
             // to maximum/minimiser dependent on whose turn it is
-            Disc nextDisc;
+            Disc nextDisc = discToMove.Opponent();
             int value;
             if (maximiserTurn)
             {
-                nextDisc = this.opponentDisc; // next turn after this is opponent's 
-                value = int.MinValue; // AI is maximiser, so set value extremely low
+                // AI is maximiser, so set value extremely low
+                value = int.MinValue; 
             } else
             {
-                nextDisc = this.aiDisc; // next turn after this is AI's
-                value = int.MaxValue; // Human is minimiser, so set value extremely high
+                // Human is minimiser, so set value extremely high
+                value = int.MaxValue; 
             }
 
             // Loop through each column, return the best score for the player
