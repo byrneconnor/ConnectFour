@@ -5,12 +5,19 @@ namespace ConnectFour.AI
     // A RandomPlayer 
     public class RandomPlayer : Player
     {
-        private readonly Random random = new();
+        private readonly Random random;
 
-        public RandomPlayer(string name, Disc disc)
+        public RandomPlayer(string name, Disc disc, int? seed = null)
             : base(name, disc)
         {
-            //
+            if (seed == null)
+            {
+                this.random = new Random();
+            }
+            else
+            {
+                this.random = new Random(seed.Value);
+            }
         }
 
         // IsHuman overwritten to false
@@ -38,10 +45,10 @@ namespace ConnectFour.AI
             }
 
             // Choose one possible move at random
-            Random random = new();
             move = possibleMoves[random.Next(possibleMoves.Count)];
 
             return move;
         }
+
     }
 }

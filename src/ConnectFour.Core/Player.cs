@@ -31,5 +31,12 @@
         // For non-human players only so they can compute a move themselves
         public abstract int GetMove(Board board);
 
+        // option metric used for evaluating nodes searched through minimax
+        // Set it to null within Player to be overridden by MinimaxPlayer
+        public virtual long? GetNodesSearched
+        {
+            get { return null; }
+        }
+
     }
 }
