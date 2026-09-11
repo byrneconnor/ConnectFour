@@ -7,7 +7,7 @@ namespace ConnectFour.AI
     // that stage (and therefore who is next); it tracks the children nodes (following moves
     // from that postion) and which remain unexplored (used in expansion); whether a node is
     // terminal and the result if so.
-    public class MCTSPlayer : Player, IArenaPlayer
+    public class MCTSPlayer : Player
     {
         private readonly Random random; // use to randomly select moves during expansion
         private Disc aiDisc; // define the AI's disc -needed for searching
@@ -27,10 +27,10 @@ namespace ConnectFour.AI
                 throw new Exception("totalIterations must be greater than zero.");
             }
 
-            // Exploration constant must be positive
+            // Exploration constant must be zero or above
             if (explorationConstant < 0)
             {
-                throw new Exception("explorationConstant must be positive.");
+                throw new Exception("explorationConstant must be zero or above.");
             }
 
             this.totalIterations = totalIterations;
@@ -366,13 +366,6 @@ namespace ConnectFour.AI
             // otherwise just only move
             return bestMoves[this.random.Next(bestMoves.Count)];
 
-        }
-
-        // Arena entry - hand back a fresh, seeded copy of MCTSPLayer set to play
-        // the given colour, keeping iteration budget and exploration constant
-        public Player CreatePlayer(Disc colour, int seed)
-        {
-            return new MCTSPlayer(this.Name, colour, this.totalIterations, this.explorationConstant, seed);
         }
 
     }

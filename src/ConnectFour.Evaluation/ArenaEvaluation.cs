@@ -11,7 +11,7 @@ namespace ConnectFour.Evaluation
     public class ArenaEvaluation
     {
         // Run the whole round-robin and return the collected results.
-        public static ArenaResult Run(List<IArenaPlayer> players, int gamesPerPairing, int seed)
+        public static ArenaResult Run(List<ArenaEntry> players, int gamesPerPairing, int seed)
         {
             // Check there is at least 2 players in the arena
             if (players.Count < 2)
@@ -31,7 +31,7 @@ namespace ConnectFour.Evaluation
 
             // Set up players records
             Dictionary<string, PlayerResults> results = new Dictionary<string, PlayerResults>();
-            foreach (IArenaPlayer player in players)
+            foreach (ArenaEntry player in players)
             {
                 results[player.Name] = new PlayerResults();
             }
@@ -45,8 +45,8 @@ namespace ConnectFour.Evaluation
             {
                 for (int j = i + 1; j < players.Count; j++)
                 {
-                    IArenaPlayer playerOne = players[i];
-                    IArenaPlayer playerTwo = players[j];
+                    ArenaEntry playerOne = players[i];
+                    ArenaEntry playerTwo = players[j];
 
                     // Head-to-head results for this pairing (relative to playerOne/playerTwo)
                     int playerOneWins = 0;
@@ -57,8 +57,8 @@ namespace ConnectFour.Evaluation
                     for (int g = 0; g < gamesPerPairing; g++)
                     {
                         // Alternate who moves first so results are not biased
-                        IArenaPlayer first;
-                        IArenaPlayer second;
+                        ArenaEntry first;
+                        ArenaEntry second;
 
                         // Set playerOne to open even games (0, 2, 4 ...),
                         bool playerOneStarts = (g % 2 == 0);
@@ -79,14 +79,14 @@ namespace ConnectFour.Evaluation
                         int secondSeed = masterRandom.Next();
 
                         // Build fresh agents: the first mover plays Red, the second Yellow
-                        Player firstPlayer = first.CreatePlayer(Disc.Red, firstSeed);
-                        Player secondPlayer = second.CreatePlayer(Disc.Yellow, secondSeed);
+                        Player firstPlayer = first.Create(Disc.Red, firstSeed);
+                        Player secondPlayer = second.Create(Disc.Yellow, secondSeed);
 
                         // Play the game out
                         GamePlay play = PlayGame(firstPlayer, secondPlayer);
 
                         // Work out who won as a player (null for a draw)
-                        IArenaPlayer? winningPlayer;
+                        ArenaEntry? winningPlayer;
                         if (play.Outcome == GameOutcome.FirstPlayer)
                         {
                             winningPlayer = first;
@@ -113,8 +113,8 @@ namespace ConnectFour.Evaluation
                         
                         // Record the game row
                         games.Add(new GameResult(
-                            PlayerOne: firstPlayer.Name,
-                            PlayerTwo: secondPlayer.Name,
+                            PlayerOne: first.Name,
+                            PlayerTwo: second.Name,
                             PlayerOneSeed: firstSeed,
                             PlayerTwoSeed: secondSeed,
                             Winner: winningName,
@@ -137,7 +137,7 @@ namespace ConnectFour.Evaluation
                         }
 
                         // Update the overall per-player results for both sides
-                        RecordGame(results[firstPlayer.Name], results[secondPlayer.Name], play);
+                        RecordGame(results[first.Name], results[second.Name], play);
                     }
 
                     // Store this pairing's head-to-head result
@@ -151,7 +151,7 @@ namespace ConnectFour.Evaluation
                 }
             }
 
-            // Build the final standings from the results and order strongest-first
+            // Build the final standings from the results
             List<PlayerMetrics> standings = BuildStandings(players, results);
 
             return new ArenaResult(
@@ -263,14 +263,14 @@ namespace ConnectFour.Evaluation
             secondPlayer.TotalMoves += secondPlayerMoves;
         }
 
-        // Turn the per-player results into standings records, ordered strongest-first.
+        // Turn the per-player results into standings records
         private static List<PlayerMetrics> BuildStandings(
-            List<IArenaPlayer> players, Dictionary<string, PlayerResults> results)
+            List<ArenaEntry> players, Dictionary<string, PlayerResults> results)
         {
             List<PlayerMetrics> standings = new List<PlayerMetrics>();
 
             // Loop through each player
-            foreach (IArenaPlayer player in players)
+            foreach (ArenaEntry player in players)
             {
                 PlayerResults result = results[player.Name];
 
@@ -316,6 +316,32 @@ namespace ConnectFour.Evaluation
             Draw,
             FirstPlayer,
             SecondPlayer
+        }
+
+        public static void PrintSummary(ArenaResult result)
+        {
+            Console.WriteLine($"== Arena: {result.GamesPerPairing} games per pairing (seed {result.Seed}) ==");
+
+            // Head-to-head results
+            Console.WriteLine("Head-to-head:");
+            foreach (PairingResult p in result.Pairings)
+            {
+                Console.WriteLine(
+                    $"  {p.PlayerOne} vs {p.PlayerTwo}: " +
+                    $"{p.PlayerOne} wins: {p.PlayerOneWins}, {p.PlayerTwo} wins: {p.PlayerTwoWins}, " +
+                    $"{p.Draws} draws over {p.GamesPlayed} games");
+            }
+
+            // Final standings
+            Console.WriteLine("Standings:");
+            foreach (PlayerMetrics s in result.Standings)
+            {
+                // use F1 and P1 to format decimals/percentages to 1 decimal place
+                Console.WriteLine(
+                    $"  {s.Name}: {s.Points:F1} pts | " +
+                    $"{s.Wins}W {s.Losses}L {s.Draws}D | win rate {s.WinRate:P1} | " +
+                    $"mean {s.MeanDecisionMs:F1} ms/move over {s.GamesPlayed} games");
+            }
         }
     }
 }

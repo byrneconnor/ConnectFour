@@ -1,7 +1,7 @@
 ﻿namespace ConnectFour.Evaluation
 {
     // Class to produce a train-test split
-    // benchmarkJson = file location for the original benchmark data
+    // benchmarkJson = list of solved positions
     // seed = used for reproducibility (get same train-test split)
     // trainFraction = what proportion you want in your training data (default at 70%)
     // populationFraction = what proportion of the full population you want in your train-test split (default at 100%)
@@ -54,6 +54,34 @@
             }
 
             return (train, test);
+        }
+
+        public static void PrintSplitSummary(List<SolvedPosition> train, List<SolvedPosition> test)
+        {
+            foreach (Stage stage in Enum.GetValues<Stage>())
+            {
+                int trainCount = 0;
+                int testCount = 0;
+
+                foreach (SolvedPosition position in train)
+                {
+                    if (SourceFile.GetStage(position.SourceFile) == stage)
+                    {
+                        trainCount++;
+                    }
+                }
+
+                foreach (SolvedPosition position in test)
+                {
+                    if (SourceFile.GetStage(position.SourceFile) == stage)
+                    {
+                        testCount++;
+                    }
+                }
+
+                Console.WriteLine(
+                    $"For {stage} stage, training count is {trainCount}, test count is {testCount}");
+            }
         }
 
     }

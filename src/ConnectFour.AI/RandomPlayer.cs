@@ -3,7 +3,7 @@
 namespace ConnectFour.AI
 {
     // A RandomPlayer 
-    public class RandomPlayer : Player, IArenaPlayer
+    public class RandomPlayer : Player
     {
         private readonly Random random;
 
@@ -50,11 +50,5 @@ namespace ConnectFour.AI
             return move;
         }
 
-        // Arena entry - hand back a fresh, seeded copy of RandomPlayer set to play
-        // the given colour
-        public Player CreatePlayer(Disc colour, int seed)
-        {
-            return new RandomPlayer(this.Name, colour, seed);
-        }
     }
 }

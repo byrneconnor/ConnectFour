@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using System.Text.Json;
 
 namespace ConnectFour.Evaluation
 {
@@ -35,27 +34,12 @@ namespace ConnectFour.Evaluation
             StringBuilder sb = new StringBuilder();
 
             // Header row
-            sb.AppendLine("playerOne,playerTwo,playerOneSeed,playerTwoSeed,winner,totalMoves,playerOneMs,playerTwoMs");
+            sb.Append(CsvHelpers.Row("playerOne", "playerTwo", "playerOneSeed", "playerTwoSeed","winner", "totalMoves", "playerOneMs", "playerTwoMs")).Append('\n');
 
             // One row per game
             foreach (GameResult game in result.Games)
             {
-                sb.Append(game.PlayerOne);
-                sb.Append(',');
-                sb.Append(game.PlayerTwo);
-                sb.Append(',');
-                sb.Append(game.PlayerOneSeed.ToString());
-                sb.Append(',');
-                sb.Append(game.PlayerTwoSeed.ToString());
-                sb.Append(',');
-                sb.Append(game.Winner);
-                sb.Append(',');
-                sb.Append(game.TotalMoves.ToString());
-                sb.Append(',');
-                sb.Append(game.PlayerOneMs.ToString());
-                sb.Append(',');
-                sb.Append(game.PlayerTwoMs.ToString());
-                sb.AppendLine();
+                sb.Append(CsvHelpers.Row(game.PlayerOne, game.PlayerTwo, game.PlayerOneSeed, game.PlayerTwoSeed, game.Winner, game.TotalMoves, game.PlayerOneMs, game.PlayerTwoMs)).Append('\n');
             }
 
             File.WriteAllText(csvPath, sb.ToString());

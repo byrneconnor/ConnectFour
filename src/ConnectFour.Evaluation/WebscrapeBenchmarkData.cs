@@ -58,7 +58,7 @@ namespace ConnectFour.Evaluation
             httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(userAgent);
 
             // Read every position file in the data folder
-            List<(string position, int expectedScore, string fileName)> data = ReadPositions(dataFolder, outputFileName);
+            List<(string position, int expectedScore, string fileName)> data = ReadPositions(dataFolder);
 
             // Set up list to store webscrape solved positions
             List<SolvedPosition> results = new();
@@ -113,7 +113,7 @@ namespace ConnectFour.Evaluation
 
         // Read board positions and best score from text files
         // Returns a list of postions, best score and file name
-        private static List<(string position, int score, string fileName)> ReadPositions(string dataFolder, string outputFileName)
+        private static List<(string position, int score, string fileName)> ReadPositions(string dataFolder)
         {
             List<(string, int, string)> data = new();
             

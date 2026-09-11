@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-using ConnectFour.AI;
+﻿using ConnectFour.AI;
 using ConnectFour.Core;
 
 using DotNetEnv;
@@ -62,7 +60,7 @@ namespace ConnectFour.Evaluation
                 JsonHelpers.Save(Path.Combine(dataFolder, "test-split-" + label + ".json"), test);
 
                 // print summary
-                PrintSplitSummary(train, test);
+                TrainTestSplit.PrintSplitSummary(train, test);
 
                 return;
             }
@@ -77,11 +75,7 @@ namespace ConnectFour.Evaluation
                 // Seeds for the repeated MCTS runs (MCTS is stochastic; average across runs).
                 // In the benchmark these are per-position move decisions, not full games.
                 int numberOfRuns = 5;
-                List<int> runSeeds = new List<int>();
-                for (int i = 0; i < numberOfRuns; i++)
-                {
-                    runSeeds.Add(i);
-                }
+                List<int> runSeeds = MakeRunSeeds(numberOfRuns);
 
                 ///////////////////////////////////
                 // Minimax evaluation
@@ -125,7 +119,7 @@ namespace ConnectFour.Evaluation
                     Console.WriteLine($"Tuning {config.Label}...");
 
                     // Return player with single configuration
-                    CreatePlayer singlePlayerConfiguration = MakeMinimaxConfiguration(config.Depth, config.Weights);
+                    PlayerFactory singlePlayerConfiguration = MakeMinimaxConfiguration(config.Label, config.Depth, config.Weights);
 
                     // Evaluate this configuration on the train split
                     BenchmarkResult result = BenchmarkEvaluation.Run(
@@ -134,17 +128,17 @@ namespace ConnectFour.Evaluation
                     // Keep the per-config detail files (uniquely named by the config label)
                     SaveBenchmarkResults.Save(result, dataFolder);
 
-                    PrintEvaluationSummary(result);
+                    BenchmarkEvaluation.PrintEvaluationSummary(result);
 
                     runs.Add((config, result));
                 }
 
                 // Write the combined depth x weight x stage table for ranking + the write-up
-                SaveMinimaxTuningGrid(runs, dataFolder);
+                EvaluationTables.SaveMinimaxTuningGrid(runs, dataFolder);
 
 
                 ///////////////////////////////////////////
-                // MCTS - needs several games for averaging
+                // Evaluate MCTS 
                 Console.WriteLine("Evaluating MCTS...");
 
                 // Set iteration options
@@ -174,8 +168,8 @@ namespace ConnectFour.Evaluation
                     Console.WriteLine($"Tuning {config.Label}...");
 
                     // Return player with single configuration
-                    CreatePlayer singlePlayerConfiguration =
-                        MakeMCTSConfiguration(config.Iterations, config.ExplorationConstant);
+                    PlayerFactory singlePlayerConfiguration =
+                        MakeMCTSConfiguration(config.Label, config.Iterations, config.ExplorationConstant);
 
                     // Evaluate this configuration across every seed (stochastic - average the repetitions)
                     BenchmarkResult result = BenchmarkEvaluation.Run(
@@ -184,13 +178,13 @@ namespace ConnectFour.Evaluation
                     // Keep the per-config detail files (uniquely named by the config label)
                     SaveBenchmarkResults.Save(result, dataFolder);
 
-                    PrintEvaluationSummary(result);
+                    BenchmarkEvaluation.PrintEvaluationSummary(result);
 
                     mctsRuns.Add((config, result));
                 }
 
                 // Write the combined iterations x exploration x stage table for ranking + the write-up
-                SaveMCTSTuningGrid(mctsRuns, dataFolder);
+                EvaluationTables.SaveMCTSTuningGrid(mctsRuns, dataFolder);
 
                 return;
             }
@@ -205,11 +199,7 @@ namespace ConnectFour.Evaluation
 
                 // Seeds for the repeated MCTS runs 
                 int numberOfRuns = 5;
-                List<int> runSeeds = new List<int>();
-                for (int i = 0; i < numberOfRuns; i++)
-                {
-                    runSeeds.Add(i);
-                }
+                List<int> runSeeds = MakeRunSeeds(numberOfRuns);
 
                 // Combination of minimax and MCTS results
                 List<BenchmarkResult> finalResults = new List<BenchmarkResult>();
@@ -226,7 +216,7 @@ namespace ConnectFour.Evaluation
                 HeuristicWeights weights = new HeuristicWeights();
 
                 // Plug into minimax player
-                CreatePlayer minimaxFinal = MakeMinimaxConfiguration(depth, weights);
+                PlayerFactory minimaxFinal = MakeMinimaxConfiguration("minimax-final", depth, weights);
 
                 // Get results
                 BenchmarkResult minimaxResult = BenchmarkEvaluation.Run(
@@ -235,13 +225,13 @@ namespace ConnectFour.Evaluation
                 // Save minimax run
                 SaveBenchmarkResults.Save(minimaxResult, dataFolder);
                 
-                PrintEvaluationSummary(minimaxResult);
+                BenchmarkEvaluation.PrintEvaluationSummary(minimaxResult);
                 
                 // Add to minimax-MCTS combined results dataset
                 finalResults.Add(minimaxResult);
 
                 ///////////////////////////////////////////
-                // MCTS - needs several games for averaging
+                // Evaluate MCTS
                 Console.WriteLine("Evaluating MCTS...");
 
                 // Set up chosen results (COMEPLETE LATER)
@@ -257,8 +247,8 @@ namespace ConnectFour.Evaluation
                 {
                     Console.WriteLine($"Evaluating {config.Label}...");
 
-                    CreatePlayer mctsFinal =
-                        MakeMCTSConfiguration(config.Iterations, config.ExplorationConstant);
+                    PlayerFactory mctsFinal =
+                        MakeMCTSConfiguration(config.Label, config.Iterations, config.ExplorationConstant);
 
                     // The harness loops positions x seeds, so each seed is one repeat per position.
                     BenchmarkResult mctsResult = BenchmarkEvaluation.Run(
@@ -268,14 +258,14 @@ namespace ConnectFour.Evaluation
                     // Keep the per-config detail files
                     SaveBenchmarkResults.Save(mctsResult, dataFolder);
 
-                    PrintEvaluationSummary(mctsResult);
+                    BenchmarkEvaluation.PrintEvaluationSummary(mctsResult);
 
                     // Add to minimax-MCTS combined results dataset
                     finalResults.Add(mctsResult);
                 }
 
                 // Save the full combined set of results
-                SaveFinalEvaluationTable(finalResults, dataFolder, label);
+                EvaluationTables.SaveFinalEvaluationTable(finalResults, dataFolder, label);
 
                 return;
             }
@@ -290,11 +280,12 @@ namespace ConnectFour.Evaluation
                 int arenaSeed = 2891;
 
                 // Set up the players (CONFIRM LATER)
-                List<IArenaPlayer> players = new List<IArenaPlayer>
+                // Ensure all labels are unique
+                List<ArenaEntry> players = new List<ArenaEntry>
                 {
-                    new RandomPlayer("random", Disc.Red),
-                    new MinimaxPlayer("minimax-d8-defensive", Disc.Red, searchDepth: 8, weights: new HeuristicWeights { OpponentTwo = -20, OpponentThree = -120 }),
-                    new MCTSPlayer("mcts-5k-c2-00", Disc.Red, totalIterations: 20000, explorationConstant: 2.0),
+                    new ArenaEntry("random", MakeRandomConfiguration("random")),
+                    new ArenaEntry("minimax-d8-defensive", MakeMinimaxConfiguration("minimax-d8-defensive", 8, new HeuristicWeights { OpponentTwo = -20, OpponentThree = -120 })),
+                    new ArenaEntry("mcts-5k-c2-00", MakeMCTSConfiguration("mcts-5k-c2-00", 5000, 2.0)),
                 };
 
                 // Run the tournament
@@ -302,54 +293,36 @@ namespace ConnectFour.Evaluation
                 ArenaResult arenaResult = ArenaEvaluation.Run(players, gamesPerPairing, arenaSeed);
 
                 // Save and print results
+                ArenaEvaluation.PrintSummary(arenaResult);
                 SaveArenaResults.Save(arenaResult, dataFolder);
-                PrintArenaSummary(arenaResult);
-
+                
                 return;
 
             }
 
+            // if no or incorrect arguments passed in the command
+            Console.WriteLine("No recognised argument provided. Available flags:");
+            Console.WriteLine("  --web-scrape                  Scrape benchmark positions from the solver");
+            Console.WriteLine("  --split                       Produce the train/test split");
+            Console.WriteLine("  --benchmark-evaluation-train  Tune configurations on the train split");
+            Console.WriteLine("  --benchmark-evaluation-test   Evaluate final configurations on the test split");
+            Console.WriteLine("  --arena-evaluation            Run the AI vs AI arena evaluation");
+
         }
 
-        private static void PrintSplitSummary(List<SolvedPosition> train, List<SolvedPosition> test)
+        private static List<int> MakeRunSeeds(int numberOfRuns)
         {
-            foreach (Stage stage in Enum.GetValues<Stage>())
+            List<int> runSeeds = new List<int>();
+            for (int i = 0; i < numberOfRuns; i++)
             {
-                int trainCount = 0;
-                int testCount = 0;
-
-                foreach (SolvedPosition position in train)
-                {
-                    if (SourceFile.GetStage(position.SourceFile) == stage)
-                    {
-                        trainCount++;
-                    }
-                }
-
-                foreach (SolvedPosition position in test)
-                {
-                    if (SourceFile.GetStage(position.SourceFile) == stage)
-                    {
-                        testCount++;
-                    }
-                }
-
-                Console.WriteLine(
-                    $"For {stage} stage, training count is {trainCount}, test count is {testCount}");
+                runSeeds.Add(i);
             }
+
+            return runSeeds;
+
         }
 
-        private static void PrintEvaluationSummary(BenchmarkResult result)
-        {
-            Console.WriteLine($"== {result.PlayerName} ({result.Split}) ==");
-            foreach (StageSummary s in result.StageAggregate)
-            {
-                // use F1 and P1 to format decimals/percentages to 1 decimal place
-                Console.WriteLine(
-                    $"  {s.Stage}: agreement {s.AgreementRate:P1}, mean regret {s.MeanRegret:F2}, " +
-                    $"mean {s.MeanDecisionMs:F1} ms over {s.Positions} positions");
-            }
-        }
+        
 
         private static string SplitLabel(double populationFraction)
         {
@@ -363,20 +336,24 @@ namespace ConnectFour.Evaluation
             }
         }
 
-        // One minimax configuration in the tuning sweep with a label, search depth,
-        // the weight-group name, and the weights themselves
-        private sealed record MinimaxConfig(string Label, int Depth, string WeightGroup, HeuristicWeights Weights);
+        // Builds a random player for a given configuration
+        private static PlayerFactory MakeRandomConfiguration(string name)
+        {
+            Player CreateRandom(Disc disc, int seed)
+            {
+                return new RandomPlayer(name, disc, seed);
+            }
 
-        // One MCTS config with a label, iterations limit and exporation constant
-        private sealed record MctsConfig(string Label, int Iterations, double ExplorationConstant);
+            return CreateRandom;
+        }
 
         // Builds a minimax player for a given configuration
-        private static CreatePlayer MakeMinimaxConfiguration(int searchDepth, HeuristicWeights weights)
+        private static PlayerFactory MakeMinimaxConfiguration(string name, int searchDepth, HeuristicWeights weights)
         {
             Player CreateMinimax(Disc disc, int seed)
             {
                 return new MinimaxPlayer(
-                    "minimax",
+                    name,
                     disc,
                     searchDepth: searchDepth,
                     weights: weights,
@@ -387,12 +364,12 @@ namespace ConnectFour.Evaluation
         }
 
         // Builds a MCTS player for a given configuration
-        private static CreatePlayer MakeMCTSConfiguration(int totalIterations, double explorationConstant)
+        private static PlayerFactory MakeMCTSConfiguration(string name, int totalIterations, double explorationConstant)
         {
             Player CreateMCTS(Disc disc, int seed)
             {
                 return new MCTSPlayer(
-                    "mcts",
+                    name,
                     disc,
                     totalIterations: totalIterations,
                     explorationConstant: explorationConstant,
@@ -400,224 +377,6 @@ namespace ConnectFour.Evaluation
             }
 
             return CreateMCTS;
-        }
-
-        // Writes combined minimax results to csv
-        private static void SaveMinimaxTuningGrid(
-            List<(MinimaxConfig Config, BenchmarkResult Result)> runs, string outputDir)
-        {
-            // Set up the csv headers
-            StringBuilder sb = new StringBuilder();
-            sb.Append("config,depth,weightGroup,stage,positions,agreementRate,meanRegret,meanSpeedRegret,meanDecisionMs,p95DecisionMs,maxDecisionMs,meanNodes\n");
-
-            // One row per configuration per stage
-            foreach ((MinimaxConfig config, BenchmarkResult result) in runs)
-            {
-                foreach (StageSummary s in result.StageAggregate)
-                {
-                    sb.Append(config.Label).Append(',');
-                    sb.Append(config.Depth).Append(',');
-                    sb.Append(config.WeightGroup).Append(',');
-                    sb.Append(s.Stage).Append(',');
-                    sb.Append(s.Positions).Append(',');
-                    sb.Append(s.AgreementRate.ToString()).Append(',');
-                    sb.Append(s.MeanRegret.ToString()).Append(',');
-                    sb.Append(s.MeanSpeedRegret?.ToString()).Append(',');
-                    sb.Append(s.MeanDecisionMs.ToString()).Append(',');
-                    sb.Append(s.P95DecisionMs.ToString()).Append(',');
-                    sb.Append(s.MaxDecisionMs.ToString()).Append(',');
-                    sb.Append(s.MeanNodes?.ToString()).Append('\n');
-                }
-            }
-
-            // Write the combined table
-            File.WriteAllText(Path.Combine(outputDir, "minimax-tuning-grid.csv"), sb.ToString());
-        }
-
-        // Save MCTS results to csv
-        private static void SaveMCTSTuningGrid(
-            List<(MctsConfig Config, BenchmarkResult Result)> runs, string outputDir)
-        {
-            // Set up the csv headers
-            StringBuilder sb = new StringBuilder();
-            sb.Append("config,iterations,explorationConstant,stage,positions,agreementRate,meanRegret,meanSpeedRegret,meanDecisionMs,p95DecisionMs,maxDecisionMs\n");
-
-            // One row per configuration per stage
-            foreach ((MctsConfig config, BenchmarkResult result) in runs)
-            {
-                foreach (StageSummary s in result.StageAggregate)
-                {
-                    sb.Append(config.Label).Append(',');
-                    sb.Append(config.Iterations).Append(',');
-                    sb.Append(config.ExplorationConstant.ToString()).Append(',');
-                    sb.Append(s.Stage).Append(',');
-                    sb.Append(s.Positions).Append(',');
-                    sb.Append(s.AgreementRate.ToString()).Append(',');
-                    sb.Append(s.MeanRegret.ToString()).Append(',');
-                    sb.Append(s.MeanSpeedRegret.ToString()).Append(',');
-                    sb.Append(s.MeanDecisionMs.ToString()).Append(',');
-                    sb.Append(s.P95DecisionMs.ToString()).Append(',');
-                    sb.Append(s.MaxDecisionMs.ToString()).Append('\n');
-                }
-            }
-
-            // Write the combined table
-            File.WriteAllText(Path.Combine(outputDir, "mcts-tuning-grid.csv"), sb.ToString());
-        }
-
-        // Save final table for the evaluation of final configurations on test data
-        private static void SaveFinalEvaluationTable(
-            List<BenchmarkResult> results, string outputDir, string splitLabel)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("agent,split,stage,positions,seeds,");
-            sb.Append("agreementMean,agreementStd,agreementMin,agreementMax,");
-            sb.Append("regretMean,regretStd,regretMin,regretMax,");
-            sb.Append("meanDecisionMs,p95DecisionMs,maxDecisionMs,meanNodes\n");
-
-            foreach (BenchmarkResult result in results)
-            {
-                foreach (Stage stage in Enum.GetValues<Stage>())
-                {
-                    // Per-seed agreement / mean regret over the legal moves in this stage.
-                    List<double> perSeedAgreement = new List<double>();
-                    List<double> perSeedRegret = new List<double>();
-
-                    foreach (int seed in result.Seeds)
-                    {
-                        int legal = 0;
-                        int agree = 0;
-                        long regretSum = 0;
-
-                        foreach (MoveResult m in result.Moves)
-                        {
-                            // Only this stage + seed; illegal moves are excluded from scoring rates.
-                            if (m.Stage != stage || m.Seed != seed || m.Illegal)
-                            {
-                                continue;
-                            }
-                            legal++;
-                            if (m.Agreement)
-                            {
-                                agree++;
-                            }
-                            regretSum += m.Regret;
-                        }
-
-                        // No legal moves for this seed/stage (e.g. all illegal - a bug flag): skip.
-                        if (legal == 0)
-                        {
-                            continue;
-                        }
-                        perSeedAgreement.Add((double)agree / legal);
-                        perSeedRegret.Add((double)regretSum / legal);
-                    }
-
-                    // No data for this agent/stage: skip the row.
-                    if (perSeedAgreement.Count == 0)
-                    {
-                        continue;
-                    }
-
-                    // Positions + timing + nodes come from the harness aggregate for this stage.
-                    StageSummary? summary = null;
-                    foreach (StageSummary s in result.StageAggregate)
-                    {
-                        if (s.Stage == stage)
-                        {
-                            summary = s;
-                            break;
-                        }
-                    }
-                    if (summary == null)
-                    {
-                        continue;
-                    }
-
-                    // Distribution across the seeded runs for agreement
-                    (double aMean, double aStd, double aMin, double aMax) = Distribution(perSeedAgreement);
-
-                    // Distribution across seeded runs for regret ( 
-                    (double rMean, double rStd, double rMin, double rMax) = Distribution(perSeedRegret);
-
-                    sb.Append(result.PlayerName).Append(',');
-                    sb.Append(result.Split).Append(',');
-                    sb.Append(stage).Append(',');
-                    sb.Append(summary.Positions).Append(',');
-                    sb.Append(result.Seeds.Count).Append(',');
-                    sb.Append(aMean.ToString()).Append(',');
-                    sb.Append(aStd.ToString()).Append(',');
-                    sb.Append(aMin.ToString()).Append(',');
-                    sb.Append(aMax.ToString()).Append(',');
-                    sb.Append(rMean.ToString()).Append(',');
-                    sb.Append(rStd.ToString()).Append(',');
-                    sb.Append(rMin.ToString()).Append(',');
-                    sb.Append(rMax.ToString()).Append(',');
-                    sb.Append(summary.MeanDecisionMs.ToString()).Append(',');
-                    sb.Append(summary.P95DecisionMs.ToString()).Append(',');
-                    sb.Append(summary.MaxDecisionMs.ToString()).Append(',');
-                    sb.Append(summary.MeanNodes?.ToString()).Append('\n');
-                }
-            }
-
-            File.WriteAllText(
-                Path.Combine(outputDir, "final-evaluation-test-" + splitLabel + ".csv"), sb.ToString());
-        }
-
-        // Mean / sample standard deviation / min / max of a non-empty list of values.
-        private static (double Mean, double Std, double Min, double Max) Distribution(List<double> values)
-        {
-            double sum = 0.0;
-            double min = double.PositiveInfinity;
-            double max = double.NegativeInfinity;
-            foreach (double v in values)
-            {
-                sum += v;
-                if (v < min) min = v;
-                if (v > max) max = v;
-            }
-            double mean = sum / values.Count;
-
-            // Sample standard deviation; zero for a single run (e.g. deterministic minimax).
-            double std = 0.0;
-            if (values.Count > 1)
-            {
-                double sqSum = 0.0;
-                foreach (double v in values)
-                {
-                    double d = v - mean;
-                    sqSum += d * d;
-                }
-                std = Math.Sqrt(sqSum / (values.Count - 1));
-            }
-
-            return (mean, std, min, max);
-        }
-
-        private static void PrintArenaSummary(ArenaResult result)
-        {
-            Console.WriteLine($"== Arena: {result.GamesPerPairing} games per pairing (seed {result.Seed}) ==");
-
-            // Head-to-head results
-            Console.WriteLine("Head-to-head:");
-            foreach (PairingResult p in result.Pairings)
-            {
-                Console.WriteLine(
-                    $"  {p.PlayerOne} vs {p.PlayerTwo}: " +
-                    $"{p.PlayerOne} wins: {p.PlayerOneWins}, {p.PlayerTwo} wins: {p.PlayerTwoWins}, " + 
-                    $"{p.Draws} draws over {p.GamesPlayed} games");
-            }
-
-            // Final standings, strongest first
-            Console.WriteLine("Standings:");
-            foreach (PlayerMetrics s in result.Standings)
-            {
-                // use F1 and P1 to format decimals/percentages to 1 decimal place
-                Console.WriteLine(
-                    $"  {s.Name}: {s.Points:F1} pts | " +
-                    $"{s.Wins}W {s.Losses}L {s.Draws}D | win rate {s.WinRate:P1} | " +
-                    $"mean {s.MeanDecisionMs:F1} ms/move over {s.GamesPlayed} games");
-            }
         }
 
     }
