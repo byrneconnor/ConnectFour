@@ -12,17 +12,21 @@ namespace ConnectFour.AI
             int score = 0;
 
             // Reward the AI (and penalise the opponent) for holding cells in centre column
-            int centre = Board.Columns / 2;
             for (int r = 0; r < Board.Rows; r++)
             {
-                Disc cell = board.CellAt(r, centre);
-                if (cell == aiDisc)
+                for (int c = 0; c < Board.Columns; c++)
                 {
-                    score += weights.CentreDisc;
-                } 
-                else if (cell == opponentDisc)
-                {
-                    score -= weights.CentreDisc;
+                    Disc cell = board.CellAt(r, c);
+                    int positionalValue = weights.PositionalWeights[r, c];
+
+                    if (cell == aiDisc)
+                    {
+                        score += positionalValue;
+                    }
+                    else if (cell == opponentDisc)
+                    {
+                        score -= positionalValue;
+                    }
                 }
             }
 

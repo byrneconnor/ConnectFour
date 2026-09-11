@@ -16,8 +16,16 @@
         public int OpponentTwo { get; set; } = -10;
         public int OpponentThree { get; set; } = -60;
 
-        // Score per disc held in the centre column (added for the AI, subtracted for the opponent)
-        public int CentreDisc { get; set; } = 30;
+        // Scores per dics on the board to represent disc positions
+        public int[,] PositionalWeights =
+        {
+            { 3, 4, 5, 7, 5, 4, 3 },
+            { 4, 6, 8, 10, 8, 6, 4 },
+            { 5, 8, 11, 13, 11, 8, 5 },
+            { 5, 8, 11, 13, 11, 8, 5 },
+            { 4, 6, 8, 10, 8, 6, 4 },
+            { 3, 4, 5, 7, 5, 4, 3 }
+        };
 
     }
 }
