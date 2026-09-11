@@ -65,7 +65,7 @@ namespace ConnectFour.Api.Services
             Player human = new HumanPlayer("Human", Disc.Red);
 
             // Create AI player
-            Player ai = new RandomPlayer("AI", Disc.Yellow);
+            Player ai = new MinimaxPlayer("AI", Disc.Yellow);
 
             // Create game
             var game = new Game(human, ai);
