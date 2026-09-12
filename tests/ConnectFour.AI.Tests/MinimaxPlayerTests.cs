@@ -218,7 +218,15 @@ namespace ConnectFour.AI.Tests
             // Set some weights
             var weights = new HeuristicWeights
             {
-                CentreDisc = 20,
+                PositionalWeights = new int[,]
+                {
+                        { 3, 4, 5, 7, 5, 4, 3 },
+                        { 4, 6, 8, 10, 8, 6, 4 },
+                        { 5, 8, 11, 13, 11, 8, 5 },
+                        { 5, 8, 11, 13, 11, 8, 5 },
+                        { 4, 6, 8, 10, 8, 6, 4 },
+                        { 3, 4, 5, 7, 5, 4, 3 }
+                },
                 OpponentThree = -100
             };
             var board = new Board();
@@ -248,13 +256,19 @@ namespace ConnectFour.AI.Tests
             // Large weights set
             var weights = new HeuristicWeights
             {
-                AiOne = 50,
                 AiTwo = 200,
                 AiThree = 1000,
-                OpponentOne = -50,
                 OpponentTwo = -200,
                 OpponentThree = -1000,
-                CentreDisc = 100
+                PositionalWeights = new int[,]
+                {
+                        { 3, 4, 5, 7, 5, 4, 3 },
+                        { 4, 6, 8, 10, 8, 6, 4 },
+                        { 5, 8, 11, 13, 11, 8, 5 },
+                        { 5, 8, 11, 13, 11, 8, 5 },
+                        { 4, 6, 8, 10, 8, 6, 4 },
+                        { 3, 4, 5, 7, 5, 4, 3 }
+                }
             };
             var ai = new MinimaxPlayer("AI", Disc.Yellow, weights: weights);
 
