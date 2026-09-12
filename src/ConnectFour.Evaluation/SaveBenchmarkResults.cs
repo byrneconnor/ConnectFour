@@ -21,15 +21,6 @@ namespace ConnectFour.Evaluation
             // Per-move rows as CSV.
             File.WriteAllText(Path.Combine(outputDir, filePrefix + "-full-results.csv"), BuildCsv(result));
 
-            // Per-stage summary as JSON
-            var summary = new
-            {
-                result.PlayerName,
-                result.Split,
-                result.Seeds,
-                result.StageAggregate,
-            };
-            JsonHelpers.Save(Path.Combine(outputDir, filePrefix + "-group-aggregates.json"), summary);
         }
 
         private static string BuildCsv(BenchmarkResult result)
