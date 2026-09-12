@@ -212,25 +212,51 @@ namespace ConnectFour.Evaluation
                 // Minimax is deterministic given a fixed tie-break seed, so one run suffices.
                 int minimaxSeed = 2891;
 
-                // Set the best configuration (TO FINALISE LATER)
-                int depth = 8;
-                HeuristicWeights weights = new HeuristicWeights();
+                // Only using 4
+                int[] depths = { 4 };
 
-                // Plug into minimax player
-                PlayerFactory minimaxFinal = MakeMinimaxConfiguration("minimax-final", depth, weights);
+                // Weight for configuration. Only using baseline and defence
+                (string Name, HeuristicWeights Weights)[] weightGroups =
+                {
+                    // Defaults
+                    ("a-baseline", new HeuristicWeights()),   
+                    // Defensive
+                    ("c-defensive", new HeuristicWeights { OpponentTwo = -20, OpponentThree = -120 }),
+                };
 
-                // Get results
-                BenchmarkResult minimaxResult = BenchmarkEvaluation.Run(
-                    "minimax-final", "test", minimaxFinal, test, new List<int> { minimaxSeed });
+                // Build every depth x weight-group combination
+                List<MinimaxConfig> minimaxConfigs = new List<MinimaxConfig>();
+                foreach (int depth in depths)
+                {
+                    foreach ((string groupName, HeuristicWeights weights) in weightGroups)
+                    {
+                        minimaxConfigs.Add(new MinimaxConfig($"minimax-d{depth}-{groupName}", depth, groupName, weights));
+                    }
+                }
 
-                // Save minimax run
-                SaveBenchmarkResults.Save(minimaxResult, testDataPath);
+                // Loop through each configuration
+                foreach (MinimaxConfig config in minimaxConfigs)
+                {
+                    Console.WriteLine($"Evaluating {config.Label}...");
+
+                    PlayerFactory minimaxFinal =
+                        MakeMinimaxConfiguration(config.Label, config.Depth, config.Weights);
+
+                    // Minimax is deterministic, so one seed per position is enough.
+                    BenchmarkResult minimaxResult = BenchmarkEvaluation.Run(
+                        config.Label, "test",
+                        minimaxFinal, test, new List<int> { minimaxSeed });
+
+                    // Keep the per-config detail files
+                    SaveBenchmarkResults.Save(minimaxResult, testDataPath);
+
+                    BenchmarkEvaluation.PrintEvaluationSummary(minimaxResult);
+
+                    // Add to minimax-MCTS combined results dataset
+                    finalResults.Add(minimaxResult);
+                }
+
                 
-                BenchmarkEvaluation.PrintEvaluationSummary(minimaxResult);
-                
-                // Add to minimax-MCTS combined results dataset
-                finalResults.Add(minimaxResult);
-
                 ///////////////////////////////////////////
                 // Evaluate MCTS
                 Console.WriteLine("Evaluating MCTS...");
@@ -253,7 +279,7 @@ namespace ConnectFour.Evaluation
 
                     // The harness loops positions x seeds, so each seed is one repeat per position.
                     BenchmarkResult mctsResult = BenchmarkEvaluation.Run(
-                        $"{config.Label}-i{config.Iterations}-c{config.ExplorationConstant}", "test", 
+                        $"{config.Label}-i{config.Iterations}-c{config.ExplorationConstant}", "test",
                         mctsFinal, test, runSeeds);
 
                     // Keep the per-config detail files
@@ -275,7 +301,7 @@ namespace ConnectFour.Evaluation
             if (args.Contains("--arena-evaluation"))
             {
                 // Number of games per pairing (CONFIRM NUMBERS LATER)
-                int gamesPerPairing = 10;
+                int gamesPerPairing = 50;
 
                 // set seed for reproducibility
                 int arenaSeed = 2891;
@@ -285,7 +311,9 @@ namespace ConnectFour.Evaluation
                 List<ArenaEntry> players = new List<ArenaEntry>
                 {
                     new ArenaEntry("random", MakeRandomConfiguration("random")),
-                    new ArenaEntry("minimax-d8-defensive", MakeMinimaxConfiguration("minimax-d8-defensive", 8, new HeuristicWeights { OpponentTwo = -20, OpponentThree = -120 })),
+                    new ArenaEntry("minimax-d4-a-baseline", MakeMinimaxConfiguration("minimax-d4-a-baseline", 4, new HeuristicWeights())),
+                    new ArenaEntry("minimax-d4-c-defensive", MakeMinimaxConfiguration("minimax-d4-c-defensive", 4, new HeuristicWeights { OpponentTwo = -20, OpponentThree = -120 })),
+                    new ArenaEntry("mcts-5k-c1-41421356237", MakeMCTSConfiguration("mcts-5k-c1-41421356237", 5000, 1.41421356237)),
                     new ArenaEntry("mcts-5k-c2-00", MakeMCTSConfiguration("mcts-5k-c2-00", 5000, 2.0)),
                 };
 
