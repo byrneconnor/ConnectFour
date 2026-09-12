@@ -12,20 +12,23 @@ namespace ConnectFour.AI
             int score = 0;
 
             // Reward the AI (and penalise the opponent) for holding cells in centre column
-            for (int r = 0; r < Board.Rows; r++)
+            if (weights.UsePositionalWeights)
             {
-                for (int c = 0; c < Board.Columns; c++)
+                for (int r = 0; r < Board.Rows; r++)
                 {
-                    Disc cell = board.CellAt(r, c);
-                    int positionalValue = weights.PositionalWeights[r, c];
+                    for (int c = 0; c < Board.Columns; c++)
+                    {
+                        Disc cell = board.CellAt(r, c);
+                        int positionalValue = weights.PositionalWeights[r, c];
 
-                    if (cell == aiDisc)
-                    {
-                        score += positionalValue;
-                    }
-                    else if (cell == opponentDisc)
-                    {
-                        score -= positionalValue;
+                        if (cell == aiDisc)
+                        {
+                            score += positionalValue;
+                        }
+                        else if (cell == opponentDisc)
+                        {
+                            score -= positionalValue;
+                        }
                     }
                 }
             }
@@ -100,10 +103,8 @@ namespace ConnectFour.AI
             {
                 case (3, 0): return weights.AiThree;
                 case (2, 0): return weights.AiTwo;
-                case (1, 0): return weights.AiOne;
                 case (0, 3): return weights.OpponentThree;
                 case (0, 2): return weights.OpponentTwo;
-                case (0, 1): return weights.OpponentOne;
                 default: return 0;
             }
         }
