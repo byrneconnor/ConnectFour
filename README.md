@@ -1,5 +1,11 @@
 # ConnectFour application
 
+## Summary
+
+This repository contain code used for an AI in Board Games dissertation. The output is a web application that lets a human play Connect Four against an AI opponent. The opponent is chosen via a structured evaluation that benchmarks several AI agents (Random, Minimax, MCTS) against an online solver and against each other. Backend is an ASP.NET Core API (.NET 10); frontend is a React + Vite SPA.
+
+*Prerequisites: .NET 10 SDK and Node 22*
+
 ## Backend API
 
 To run the backend API locally:
@@ -15,6 +21,10 @@ To run the frontend locally:
 * Navigate to the frontend root: `cd src/ConnectFour.Web`
 * Run `npm run dev` 
 * Open http://localhost:5173
+
+## Tests
+
+Run the backend test suite from the repository root: `dotnet test`
 
 ## Evaluation
 
