@@ -74,7 +74,10 @@ namespace ConnectFour.AI
 
         // Track discs given starting a cell and direction, returning the
         // appropriate score for that 4-cell block
-        private static int HeuristicScanCells(BoardCopy board, int row, int col, int rowDirection, int colDirection, Disc aiDisc, Disc opponentDisc, HeuristicWeights weights)
+        private static int HeuristicScanCells(
+            BoardCopy board, int row, int col, int rowDirection, int colDirection, 
+            Disc aiDisc, Disc opponentDisc, HeuristicWeights weights
+            )
         {
             // set counters to zero
             int aiCount = 0;

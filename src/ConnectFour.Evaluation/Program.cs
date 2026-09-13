@@ -24,7 +24,7 @@ namespace ConnectFour.Evaluation
 
             
             // Set population fraction - how much of the benchmark data do you want to use for the train-test split
-            double populationFraction = 1.0;
+            double populationFraction = 0.1;
 
             // Set seed for train-test split
             int splitSeed = 2891;
@@ -199,7 +199,7 @@ namespace ConnectFour.Evaluation
                 List<SolvedPosition> test = JsonHelpers.Read(Path.Combine(testDataPath, testFile));
 
                 // Seeds for the repeated MCTS runs 
-                int numberOfRuns = 5;
+                int numberOfRuns = 15;
                 List<int> runSeeds = MakeRunSeeds(numberOfRuns);
 
                 // Combination of minimax and MCTS results

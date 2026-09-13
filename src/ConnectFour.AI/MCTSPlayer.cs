@@ -123,7 +123,7 @@ namespace ConnectFour.AI
 
                 // Step 1 - Selection: descend until fully expanded, using UCB1 for selection on explored nodes
                 // If a non-terminal node has not been explored yet, select that move 
-                while (node.IsTerminal == false && node.UntriedMoves.Count == 0 && node.Children.Count > 0)
+                while (!node.IsTerminal && node.UntriedMoves.Count == 0 && node.Children.Count > 0)
                 {
                     // use UCB to chose child node
                     node = SelectUCBChild(node);
@@ -207,7 +207,13 @@ namespace ConnectFour.AI
             }
 
             // return best UCB value
-            return best!;
+            if (best != null)
+            {
+                return best;
+            }
+                
+            // Throw error otherwise
+            throw new InvalidOperationException("Node has no children.");
         }
 
         // Expand the search tree with the child node for a node that has yet to be tried
@@ -298,6 +304,7 @@ namespace ConnectFour.AI
 
         }
 
+        // Method for backpropagation
         private void Backpropagation(Node node, Disc winner)
         {
             // start from the leaf reached this iteration (the expanded child, or a terminal node)

@@ -1,6 +1,15 @@
-@ConnectFour.Api_HostAddress = http://localhost:5291
+@host = http://localhost:5291
 
-GET {{ConnectFour.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+# Create a game
+POST {{host}}/api/games
 
 ###
+# Get current state (paste an id from the create response)
+GET {{host}}/api/games/{{id}}
+
+###
+# Submit a move
+POST {{host}}/api/games/{{id}}/moves
+Content-Type: application/json
+
+{ "column": 3 }
