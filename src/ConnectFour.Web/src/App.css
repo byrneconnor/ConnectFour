@@ -3,7 +3,8 @@
   --empty: #e6edff;
   --red: #ef4444;
   --yellow: #facc15;
-  --slot: 60px;
+  /* Cap at 60px on wide screens; shrink to fit 7 columns + gaps + padding on phones */
+  --slot: min(60px, (100vw - 104px) / 7);
 }
 
 * { box-sizing: border-box; }
