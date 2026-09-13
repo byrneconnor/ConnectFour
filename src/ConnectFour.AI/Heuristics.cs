@@ -12,17 +12,24 @@ namespace ConnectFour.AI
             int score = 0;
 
             // Reward the AI (and penalise the opponent) for holding cells in centre column
-            int centre = Board.Columns / 2;
-            for (int r = 0; r < Board.Rows; r++)
+            if (weights.UsePositionalWeights)
             {
-                Disc cell = board.CellAt(r, centre);
-                if (cell == aiDisc)
+                for (int r = 0; r < Board.Rows; r++)
                 {
-                    score += weights.CentreDisc;
-                } 
-                else if (cell == opponentDisc)
-                {
-                    score -= weights.CentreDisc;
+                    for (int c = 0; c < Board.Columns; c++)
+                    {
+                        Disc cell = board.CellAt(r, c);
+                        int positionalValue = weights.PositionalWeights[r, c];
+
+                        if (cell == aiDisc)
+                        {
+                            score += positionalValue;
+                        }
+                        else if (cell == opponentDisc)
+                        {
+                            score -= positionalValue;
+                        }
+                    }
                 }
             }
 
@@ -67,7 +74,10 @@ namespace ConnectFour.AI
 
         // Track discs given starting a cell and direction, returning the
         // appropriate score for that 4-cell block
-        private static int HeuristicScanCells(BoardCopy board, int row, int col, int rowDirection, int colDirection, Disc aiDisc, Disc opponentDisc, HeuristicWeights weights)
+        private static int HeuristicScanCells(
+            BoardCopy board, int row, int col, int rowDirection, int colDirection, 
+            Disc aiDisc, Disc opponentDisc, HeuristicWeights weights
+            )
         {
             // set counters to zero
             int aiCount = 0;
@@ -96,10 +106,8 @@ namespace ConnectFour.AI
             {
                 case (3, 0): return weights.AiThree;
                 case (2, 0): return weights.AiTwo;
-                case (1, 0): return weights.AiOne;
                 case (0, 3): return weights.OpponentThree;
                 case (0, 2): return weights.OpponentTwo;
-                case (0, 1): return weights.OpponentOne;
                 default: return 0;
             }
         }

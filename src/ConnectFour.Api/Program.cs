@@ -24,9 +24,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseDefaultFiles();
-app.UseStaticFiles();
-app.UseCors(DevCors);
-app.MapControllers();
-app.MapFallbackToFile("index.html");
+app.UseStaticFiles(); // serve built React frontend
+app.UseCors(DevCors); // for local dev URL
+app.MapControllers(); // connect to endpoints
+app.MapFallbackToFile("index.html"); // fallback for client routes
 
 app.Run();

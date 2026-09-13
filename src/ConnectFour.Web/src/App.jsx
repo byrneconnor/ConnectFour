@@ -3,10 +3,11 @@ import { createGame, playMove } from "./api";
 import "./App.css";
 
 export default function App() {
-  const [game, setGame] = useState(null);   // the latest GameStateDto
-  const [busy, setBusy] = useState(false);   // true while a request is in flight
-  const [error, setError] = useState(null);
+  const [game, setGame] = useState(null); // the latest GameStateDto
+  const [busy, setBusy] = useState(false); // true while a request is in flight
+  const [error, setError] = useState(null); // error message from the last request, if any
 
+  // create new game
   async function newGame() {
     setError(null);
     setBusy(true);
@@ -19,6 +20,7 @@ export default function App() {
     }
   }
 
+  // drop a disc in the given column
   async function drop(col) {
     if (!game || game.isOver || busy) return;
     if (!game.validMoves.includes(col)) return;

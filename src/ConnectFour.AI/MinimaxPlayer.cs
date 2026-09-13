@@ -170,23 +170,21 @@ namespace ConnectFour.AI
                 // Add 1 to nodes search after turn taken
                 this.nodesSearched++;
 
-                // Update the score, first by seeing if there has been a win for current player
+                // Update the score taken depth into consideration, prioritise earlier winning moves rather then a win that takes longer to get
                 if (boardCopy.IsWinningMove(row, col, discToMove))
                 {
                     // Update score based on player
                     if (maximiserTurn)
                     {
-                        // Prioritise earlier winning moves rather then a win that takes longer to get
                         score = WinScore - depth; 
                     } else
                     {
                         score = -(WinScore - depth);
                     }
                 }
-                // Check if the game is a draw
                 else if (boardCopy.IsFull())
                 {
-                    score = 0;
+                    score = 0; // game is a draw
                 }
                 // Otherwise, recursively play out games and return best score
                 else
@@ -196,40 +194,32 @@ namespace ConnectFour.AI
 
                 boardCopy.Undo(col);
 
-                if (maximiserTurn)
+                if (maximiserTurn) // For the maximiser, if score is higher than current score, update value (and alpha if higher)
                 {
-                    // For the maximiser, if score is higher than current score, update value
                     if (score > value)
                     {
                         value = score;
                     }
-                    // and if that score is greater than current alpha, update
                     if (value > alpha)
                     {
                         alpha = value;
                     }
-                } 
-                else 
+                }
+                else // for minimiser, if score is lower than current score, update value (and beta if lower)
                 {
-                    // for minimiser, if score is lower than current score, update value
                     if (score < value)
                     {
                         value = score;
                     }
-                    // and if that score is lower than current beta, update
                     if (value < beta)
                     {
                         beta = value;
                     }
-
                 }
-
-                // if alpha is greater or equal to beta, prune this branch
-                if (alpha >= beta)
+                if (alpha >= beta) // if alpha is greater or equal to beta, prune this branch
                 {
                     break;
                 }
-
             }
 
             return value;

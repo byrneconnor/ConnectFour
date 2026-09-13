@@ -64,8 +64,8 @@ namespace ConnectFour.Api.Services
             // Create human player
             Player human = new HumanPlayer("Human", Disc.Red);
 
-            // Create AI player
-            Player ai = new MinimaxPlayer("AI", Disc.Yellow);
+            // Create AI player - final chosen player was MCTS with 5000 iterations and exploration constant defaulted at sqrt(2)
+            Player ai = new MCTSPlayer("AI", Disc.Yellow, totalIterations: 5000);
 
             // Create game
             var game = new Game(human, ai);
