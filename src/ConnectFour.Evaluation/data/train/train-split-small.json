@@ -1,0 +1,8988 @@
+[
+  {
+    "position": "446316175327",
+    "discToMove": "Red",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      -15,
+      -11,
+      -15,
+      -15
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -11,
+    "outcome": "Loss",
+    "expectedValue": -11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "76175126656574",
+    "discToMove": "Red",
+    "columnScores": [
+      -14,
+      -14,
+      -14,
+      -2,
+      -14,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "1543264732537",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -14,
+      -14,
+      -14,
+      -14,
+      -14,
+      -1,
+      -14
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "57271713",
+    "discToMove": "Red",
+    "columnScores": [
+      -17,
+      -17,
+      -17,
+      -17,
+      -17,
+      -17,
+      2
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "226763",
+    "discToMove": "Red",
+    "columnScores": [
+      -3,
+      -3,
+      -2,
+      -4,
+      -3,
+      -2,
+      -3
+    ],
+    "bestColumns": [
+      2,
+      5
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "375416463271",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      11,
+      11,
+      11,
+      11,
+      6,
+      0
+    ],
+    "bestColumns": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "value": 11,
+    "outcome": "Win",
+    "expectedValue": 11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "527",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      1,
+      -2,
+      0,
+      2,
+      2,
+      -2
+    ],
+    "bestColumns": [
+      4,
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "2111134674537",
+    "discToMove": "Yellow",
+    "columnScores": [
+      9,
+      12,
+      13,
+      11,
+      14,
+      10,
+      4
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 14,
+    "outcome": "Win",
+    "expectedValue": 14,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "45251526556",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -15,
+      -15,
+      -5,
+      -15,
+      -15,
+      -15,
+      -15
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -5,
+    "outcome": "Loss",
+    "expectedValue": -5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "3544",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -2,
+      -4,
+      -3,
+      -2,
+      -5,
+      -5
+    ],
+    "bestColumns": [
+      0,
+      1,
+      4
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "2326",
+    "discToMove": "Red",
+    "columnScores": [
+      -3,
+      2,
+      -1,
+      2,
+      0,
+      2,
+      -3
+    ],
+    "bestColumns": [
+      1,
+      3,
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "5132555435242",
+    "discToMove": "Yellow",
+    "columnScores": [
+      0,
+      -3,
+      -11,
+      1,
+      -3,
+      -2,
+      -2
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "7347",
+    "discToMove": "Red",
+    "columnScores": [
+      2,
+      0,
+      4,
+      2,
+      1,
+      3,
+      2
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "264762",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      4,
+      17,
+      5,
+      4,
+      3,
+      -2
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 17,
+    "outcome": "Win",
+    "expectedValue": 17,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "4572",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      0,
+      -3,
+      -2,
+      0,
+      -3,
+      -3
+    ],
+    "bestColumns": [
+      1,
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "24233451577773",
+    "discToMove": "Red",
+    "columnScores": [
+      -12,
+      0,
+      -5,
+      0,
+      -1,
+      -10,
+      -6
+    ],
+    "bestColumns": [
+      1,
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "6245554557371",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -13,
+      -5,
+      -2,
+      -13,
+      -13,
+      9,
+      -2
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 9,
+    "outcome": "Win",
+    "expectedValue": 9,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "523261235364",
+    "discToMove": "Red",
+    "columnScores": [
+      -10,
+      -12,
+      -12,
+      -13,
+      -12,
+      0,
+      -12
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "22532154113",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -5,
+      -4,
+      0,
+      -8,
+      -4,
+      -12,
+      -5
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "52412354",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -3,
+      3,
+      5,
+      9,
+      9,
+      6
+    ],
+    "bestColumns": [
+      4,
+      5
+    ],
+    "value": 9,
+    "outcome": "Win",
+    "expectedValue": 9,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "12447313567113",
+    "discToMove": "Red",
+    "columnScores": [
+      -14,
+      -14,
+      -13,
+      -14,
+      -14,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -13,
+    "outcome": "Loss",
+    "expectedValue": -13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "65513",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -5,
+      -4,
+      -4,
+      -4,
+      -2,
+      -4,
+      -5
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "52472173123",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      0,
+      -15,
+      -15,
+      -15
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "311413527235",
+    "discToMove": "Red",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      -2,
+      -15,
+      -15,
+      -15
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "74432",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -3,
+      -2,
+      0,
+      -2,
+      -2,
+      -3
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "5246453465122",
+    "discToMove": "Yellow",
+    "columnScores": [
+      5,
+      12,
+      13,
+      12,
+      14,
+      13,
+      5
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 14,
+    "outcome": "Win",
+    "expectedValue": 14,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "7737773311",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -2,
+      -1,
+      8,
+      -2,
+      -2,
+      -2
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 8,
+    "outcome": "Win",
+    "expectedValue": 8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "45657176263",
+    "discToMove": "Yellow",
+    "columnScores": [
+      2,
+      2,
+      13,
+      13,
+      13,
+      12,
+      4
+    ],
+    "bestColumns": [
+      2,
+      3,
+      4
+    ],
+    "value": 13,
+    "outcome": "Win",
+    "expectedValue": 13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "4364426147462",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -14,
+      -14,
+      -14,
+      -4,
+      -14,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "263157275",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -16,
+      -16,
+      -16,
+      -12,
+      -16,
+      -16,
+      -16
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -12,
+    "outcome": "Loss",
+    "expectedValue": -12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "75235732423247",
+    "discToMove": "Red",
+    "columnScores": [
+      -14,
+      0,
+      -14,
+      -14,
+      -14,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "5417154424744",
+    "discToMove": "Yellow",
+    "columnScores": [
+      4,
+      4,
+      4,
+      null,
+      11,
+      4,
+      2
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 11,
+    "outcome": "Win",
+    "expectedValue": 11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "6165621512444",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -14,
+      -14,
+      -14,
+      -14,
+      -14,
+      10,
+      -14
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 10,
+    "outcome": "Win",
+    "expectedValue": 10,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "15765",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -2,
+      0,
+      0,
+      0,
+      -2,
+      -3
+    ],
+    "bestColumns": [
+      2,
+      3,
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "246512134",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      -2,
+      -4,
+      0,
+      -2,
+      -3,
+      -10
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "31665274",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -5,
+      -2,
+      -2,
+      0,
+      -2,
+      -2
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "15167131532574",
+    "discToMove": "Red",
+    "columnScores": [
+      -5,
+      -14,
+      -3,
+      -4,
+      -2,
+      -4,
+      -2
+    ],
+    "bestColumns": [
+      4,
+      6
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "317125147122",
+    "discToMove": "Red",
+    "columnScores": [
+      -15,
+      -15,
+      0,
+      -15,
+      -15,
+      -15,
+      -15
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "6217543557633",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -5,
+      -5,
+      -7,
+      -11,
+      -4,
+      -9,
+      -4
+    ],
+    "bestColumns": [
+      4,
+      6
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "76234731336425",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      11,
+      -4,
+      11,
+      -1,
+      -11,
+      -4
+    ],
+    "bestColumns": [
+      1,
+      3
+    ],
+    "value": 11,
+    "outcome": "Win",
+    "expectedValue": 11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "67331624326767",
+    "discToMove": "Red",
+    "columnScores": [
+      -14,
+      -14,
+      -14,
+      -14,
+      -14,
+      -14,
+      -5
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": -5,
+    "outcome": "Loss",
+    "expectedValue": -5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "56627647",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      2,
+      -2,
+      5,
+      -3,
+      0,
+      -2
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 5,
+    "outcome": "Win",
+    "expectedValue": 5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "6566455116",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -4,
+      -4,
+      -2,
+      -3,
+      -3,
+      -3
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "55146",
+    "discToMove": "Yellow",
+    "columnScores": [
+      2,
+      0,
+      0,
+      6,
+      3,
+      3,
+      1
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 6,
+    "outcome": "Win",
+    "expectedValue": 6,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "6227357242231",
+    "discToMove": "Yellow",
+    "columnScores": [
+      2,
+      2,
+      12,
+      2,
+      3,
+      3,
+      -2
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 12,
+    "outcome": "Win",
+    "expectedValue": 12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "34147662454",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -8,
+      -4,
+      -8,
+      -8,
+      -15,
+      -10,
+      -8
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "25411234316",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      1,
+      14,
+      3,
+      -12,
+      -5,
+      -4
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 14,
+    "outcome": "Win",
+    "expectedValue": 14,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "44634",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      -4,
+      -4,
+      -2,
+      -4,
+      -3,
+      -3
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "223176522",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -16,
+      -16,
+      -16,
+      -4,
+      -16,
+      -16,
+      -16
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "21732164",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      0,
+      -2,
+      1,
+      1,
+      2,
+      -2
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "1353322321",
+    "discToMove": "Red",
+    "columnScores": [
+      13,
+      13,
+      3,
+      13,
+      11,
+      12,
+      12
+    ],
+    "bestColumns": [
+      0,
+      1,
+      3
+    ],
+    "value": 13,
+    "outcome": "Win",
+    "expectedValue": 13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "44215",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -18,
+      -18,
+      2,
+      -18,
+      -18,
+      -18,
+      -18
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "126473415576",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -4,
+      -3,
+      2,
+      1,
+      2,
+      -1
+    ],
+    "bestColumns": [
+      3,
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "556415",
+    "discToMove": "Red",
+    "columnScores": [
+      -8,
+      -8,
+      -10,
+      -3,
+      -7,
+      -6,
+      -6
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "6561171532415",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      -3,
+      -3,
+      -2,
+      -2,
+      -10,
+      -4
+    ],
+    "bestColumns": [
+      3,
+      4
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "6463666773374",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      14,
+      -9,
+      -3,
+      -14,
+      -5,
+      -5
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 14,
+    "outcome": "Win",
+    "expectedValue": 14,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "444255",
+    "discToMove": "Red",
+    "columnScores": [
+      -3,
+      2,
+      2,
+      3,
+      2,
+      17,
+      -3
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 17,
+    "outcome": "Win",
+    "expectedValue": 17,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "12656747233",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -11,
+      -14,
+      -14,
+      -10,
+      -11,
+      -14,
+      -9
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": -9,
+    "outcome": "Loss",
+    "expectedValue": -9,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "6762271",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      -3,
+      -4,
+      -4,
+      -3,
+      -2,
+      -3
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "15523",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      -1,
+      -2,
+      -2,
+      1,
+      -2,
+      -3
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "417446744",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -3,
+      0
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "242251531221",
+    "discToMove": "Red",
+    "columnScores": [
+      2,
+      -12,
+      3,
+      -13,
+      2,
+      -12,
+      -12
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "4157233222333",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -6,
+      -6,
+      -6,
+      -12,
+      -4,
+      -4,
+      -6
+    ],
+    "bestColumns": [
+      4,
+      5
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "3154435743",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      -5,
+      12,
+      12,
+      12,
+      1,
+      0
+    ],
+    "bestColumns": [
+      2,
+      3,
+      4
+    ],
+    "value": 12,
+    "outcome": "Win",
+    "expectedValue": 12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "4721111",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -6,
+      -2,
+      -6,
+      -2,
+      -3,
+      -6,
+      -5
+    ],
+    "bestColumns": [
+      1,
+      3
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "41274556645",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      -15,
+      -15,
+      -15,
+      -6
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": -6,
+    "outcome": "Loss",
+    "expectedValue": -6,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "42751673635",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      1,
+      -15,
+      -15,
+      -15
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "666437755157",
+    "discToMove": "Red",
+    "columnScores": [
+      4,
+      2,
+      4,
+      12,
+      11,
+      12,
+      4
+    ],
+    "bestColumns": [
+      3,
+      5
+    ],
+    "value": 12,
+    "outcome": "Win",
+    "expectedValue": 12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "7234472553",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -1,
+      -2,
+      10,
+      0,
+      -2,
+      -2
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 10,
+    "outcome": "Win",
+    "expectedValue": 10,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "4631531",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -17,
+      2,
+      -17,
+      -17,
+      -17,
+      -17,
+      -17
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "22437432",
+    "discToMove": "Red",
+    "columnScores": [
+      -5,
+      -4,
+      0,
+      3,
+      0,
+      -1,
+      -6
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "2147756677465",
+    "discToMove": "Yellow",
+    "columnScores": [
+      1,
+      1,
+      -10,
+      0,
+      1,
+      0,
+      -2
+    ],
+    "bestColumns": [
+      0,
+      1,
+      4
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "7415366657571",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -13,
+      -13,
+      -3,
+      -3,
+      -13,
+      -11,
+      -3
+    ],
+    "bestColumns": [
+      2,
+      3,
+      6
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "742172341137",
+    "discToMove": "Red",
+    "columnScores": [
+      -13,
+      -3,
+      4,
+      -2,
+      -5,
+      -6,
+      -6
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "47126551632312",
+    "discToMove": "Red",
+    "columnScores": [
+      4,
+      3,
+      10,
+      10,
+      3,
+      10,
+      10
+    ],
+    "bestColumns": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "value": 10,
+    "outcome": "Win",
+    "expectedValue": 10,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "643253135",
+    "discToMove": "Yellow",
+    "columnScores": [
+      4,
+      4,
+      5,
+      5,
+      -2,
+      -3,
+      -3
+    ],
+    "bestColumns": [
+      2,
+      3
+    ],
+    "value": 5,
+    "outcome": "Win",
+    "expectedValue": 5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "1352513235",
+    "discToMove": "Red",
+    "columnScores": [
+      -1,
+      6,
+      8,
+      8,
+      0,
+      4,
+      5
+    ],
+    "bestColumns": [
+      2,
+      3
+    ],
+    "value": 8,
+    "outcome": "Win",
+    "expectedValue": 8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "746634153",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -1,
+      0,
+      4,
+      13,
+      13,
+      2,
+      3
+    ],
+    "bestColumns": [
+      3,
+      4
+    ],
+    "value": 13,
+    "outcome": "Win",
+    "expectedValue": 13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "3627",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -2,
+      0,
+      18,
+      2,
+      2,
+      0
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 18,
+    "outcome": "Win",
+    "expectedValue": 18,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "4772613",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -17,
+      -17,
+      -17,
+      -17,
+      -2,
+      -17,
+      -17
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "234351144",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      15,
+      15,
+      3,
+      3,
+      -2,
+      -3
+    ],
+    "bestColumns": [
+      1,
+      2
+    ],
+    "value": 15,
+    "outcome": "Win",
+    "expectedValue": 15,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "5643656644463",
+    "discToMove": "Yellow",
+    "columnScores": [
+      1,
+      0,
+      0,
+      1,
+      3,
+      3,
+      2
+    ],
+    "bestColumns": [
+      4,
+      5
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "15637243433",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -14,
+      -14,
+      -14,
+      2,
+      -1,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "63172336254",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -12,
+      -3,
+      -4,
+      -12,
+      2,
+      -4,
+      -5
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "1475",
+    "discToMove": "Red",
+    "columnScores": [
+      -18,
+      -5,
+      -4,
+      -18,
+      -18,
+      -5,
+      -18
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "6757653427",
+    "discToMove": "Red",
+    "columnScores": [
+      -16,
+      -16,
+      -16,
+      -16,
+      -16,
+      -16,
+      -2
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "1425525276343",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -13,
+      14,
+      0,
+      -1,
+      0,
+      -13,
+      -13
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 14,
+    "outcome": "Win",
+    "expectedValue": 14,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "36651613517",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      0,
+      -2,
+      -3,
+      2,
+      -2,
+      -2
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "44551623377175",
+    "discToMove": "Red",
+    "columnScores": [
+      -10,
+      -9,
+      -3,
+      -3,
+      -10,
+      -12,
+      -3
+    ],
+    "bestColumns": [
+      2,
+      3,
+      6
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "6172331716576",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -14,
+      -14,
+      -14,
+      -1,
+      -14,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "275423727",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      0,
+      2,
+      2,
+      0,
+      -6,
+      -5
+    ],
+    "bestColumns": [
+      2,
+      3
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "6645357675",
+    "discToMove": "Red",
+    "columnScores": [
+      -16,
+      -16,
+      -16,
+      -16,
+      -14,
+      -16,
+      -16
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -14,
+    "outcome": "Loss",
+    "expectedValue": -14,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "477253445676",
+    "discToMove": "Red",
+    "columnScores": [
+      -12,
+      13,
+      13,
+      0,
+      12,
+      0,
+      14
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 14,
+    "outcome": "Win",
+    "expectedValue": 14,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "46431461437764",
+    "discToMove": "Red",
+    "columnScores": [
+      5,
+      3,
+      -3,
+      3,
+      3,
+      6,
+      4
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 6,
+    "outcome": "Win",
+    "expectedValue": 6,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "534334315",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      2,
+      -15,
+      -3,
+      -12
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "6416447233271",
+    "discToMove": "Yellow",
+    "columnScores": [
+      2,
+      4,
+      6,
+      4,
+      2,
+      -2,
+      3
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 6,
+    "outcome": "Win",
+    "expectedValue": 6,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "31163424",
+    "discToMove": "Red",
+    "columnScores": [
+      -5,
+      -12,
+      3,
+      2,
+      -5,
+      -6,
+      -5
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "13167624557",
+    "discToMove": "Yellow",
+    "columnScores": [
+      2,
+      2,
+      7,
+      12,
+      5,
+      12,
+      3
+    ],
+    "bestColumns": [
+      3,
+      5
+    ],
+    "value": 12,
+    "outcome": "Win",
+    "expectedValue": 12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "3615533",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -2,
+      -3,
+      0,
+      -1,
+      -3,
+      -3
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "1257553",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      0,
+      1,
+      0,
+      0,
+      0,
+      -4
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "7263",
+    "discToMove": "Red",
+    "columnScores": [
+      -3,
+      -18,
+      -18,
+      2,
+      -3,
+      -18,
+      -18
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "134474573",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -16,
+      -16,
+      -16,
+      -16,
+      -16,
+      4,
+      -16
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "6666343747",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      0,
+      5,
+      0,
+      -1,
+      0,
+      0
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 5,
+    "outcome": "Win",
+    "expectedValue": 5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "6664",
+    "discToMove": "Red",
+    "columnScores": [
+      -5,
+      -5,
+      -5,
+      0,
+      -5,
+      -6,
+      -5
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "25565244276167",
+    "discToMove": "Red",
+    "columnScores": [
+      4,
+      3,
+      4,
+      13,
+      12,
+      12,
+      13
+    ],
+    "bestColumns": [
+      3,
+      6
+    ],
+    "value": 13,
+    "outcome": "Win",
+    "expectedValue": 13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "3623671",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -17,
+      -17,
+      -17,
+      4,
+      -17,
+      -17,
+      -17
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "4664",
+    "discToMove": "Red",
+    "columnScores": [
+      -3,
+      0,
+      0,
+      2,
+      -2,
+      2,
+      -3
+    ],
+    "bestColumns": [
+      3,
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "76751111216",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -9,
+      -9,
+      -2,
+      -2,
+      -3,
+      -4,
+      -4
+    ],
+    "bestColumns": [
+      2,
+      3
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "77145145",
+    "discToMove": "Red",
+    "columnScores": [
+      -5,
+      -2,
+      -4,
+      1,
+      0,
+      -1,
+      -2
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "1135475",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -17,
+      -4,
+      -17,
+      -17,
+      -17,
+      -17,
+      -17
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "757526431",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      0,
+      6,
+      11,
+      11,
+      0,
+      2
+    ],
+    "bestColumns": [
+      3,
+      4
+    ],
+    "value": 11,
+    "outcome": "Win",
+    "expectedValue": 11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "311436221",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -2,
+      5,
+      -3,
+      4,
+      -2,
+      2
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 5,
+    "outcome": "Win",
+    "expectedValue": 5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "67464163431",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      -7,
+      -15,
+      -15,
+      -15
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -7,
+    "outcome": "Loss",
+    "expectedValue": -7,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "457463123551",
+    "discToMove": "Red",
+    "columnScores": [
+      2,
+      -2,
+      3,
+      2,
+      2,
+      4,
+      3
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "16567657",
+    "discToMove": "Red",
+    "columnScores": [
+      -17,
+      -17,
+      -17,
+      -17,
+      -17,
+      0,
+      -17
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "156151173",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -10,
+      -5,
+      -3,
+      -4,
+      -4,
+      -11,
+      -10
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "5776772534",
+    "discToMove": "Red",
+    "columnScores": [
+      -7,
+      -5,
+      -4,
+      -6,
+      -6,
+      -16,
+      -7
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "7154",
+    "discToMove": "Red",
+    "columnScores": [
+      -6,
+      -3,
+      -3,
+      -2,
+      -1,
+      -5,
+      -4
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "7547212762163",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      -2,
+      2,
+      5,
+      1,
+      -3,
+      4
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 5,
+    "outcome": "Win",
+    "expectedValue": 5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "54636754265",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      -15,
+      2,
+      -15,
+      -15
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "6651",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      0,
+      0,
+      18,
+      3,
+      -1,
+      -3
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 18,
+    "outcome": "Win",
+    "expectedValue": 18,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "3757217673373",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -14,
+      -14,
+      -14,
+      -4,
+      -14,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "737217227332",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -2,
+      0,
+      4,
+      -2,
+      -4,
+      -4
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "6336171451776",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -4,
+      0,
+      0,
+      -4,
+      0,
+      0
+    ],
+    "bestColumns": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "1655456",
+    "discToMove": "Yellow",
+    "columnScores": [
+      1,
+      4,
+      3,
+      3,
+      4,
+      2,
+      0
+    ],
+    "bestColumns": [
+      1,
+      4
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "2347",
+    "discToMove": "Red",
+    "columnScores": [
+      -3,
+      3,
+      0,
+      1,
+      0,
+      -3,
+      -3
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "51544",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -11,
+      0,
+      -4,
+      2,
+      -5,
+      -12,
+      -11
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "12317646551",
+    "discToMove": "Yellow",
+    "columnScores": [
+      4,
+      4,
+      11,
+      15,
+      12,
+      14,
+      4
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 15,
+    "outcome": "Win",
+    "expectedValue": 15,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "1665",
+    "discToMove": "Red",
+    "columnScores": [
+      -18,
+      -18,
+      1,
+      3,
+      -18,
+      -18,
+      -1
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "1764",
+    "discToMove": "Red",
+    "columnScores": [
+      -3,
+      -5,
+      -3,
+      0,
+      -5,
+      2,
+      -3
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "36222",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -17,
+      -17,
+      -1,
+      0,
+      -17,
+      -17
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "22347273731",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      -15,
+      -15,
+      -15,
+      13
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 13,
+    "outcome": "Win",
+    "expectedValue": 13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "35345615747415",
+    "discToMove": "Red",
+    "columnScores": [
+      -14,
+      -14,
+      -14,
+      -8,
+      -14,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -8,
+    "outcome": "Loss",
+    "expectedValue": -8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "35716",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -2,
+      0,
+      -3,
+      3,
+      -1,
+      -3
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "2553635322312",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -10,
+      -11,
+      -11,
+      -12,
+      -8,
+      -11,
+      -11
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -8,
+    "outcome": "Loss",
+    "expectedValue": -8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "54665763",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -2,
+      0,
+      0,
+      3,
+      0,
+      -2
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "413",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -18,
+      -2,
+      -18,
+      -18,
+      -2,
+      -2,
+      -18
+    ],
+    "bestColumns": [
+      1,
+      4,
+      5
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "411746",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      4,
+      3,
+      10,
+      0,
+      0,
+      0
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 10,
+    "outcome": "Win",
+    "expectedValue": 10,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "364154427172",
+    "discToMove": "Red",
+    "columnScores": [
+      -15,
+      -15,
+      1,
+      -15,
+      -15,
+      -15,
+      -15
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "43416727356",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      -15,
+      -12,
+      -15,
+      -15
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -12,
+    "outcome": "Loss",
+    "expectedValue": -12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "412",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      -3,
+      -2,
+      2,
+      -3,
+      -4,
+      -4
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "77114326552",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      0,
+      -2,
+      4,
+      3,
+      4,
+      -2
+    ],
+    "bestColumns": [
+      3,
+      5
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "3426456142",
+    "discToMove": "Red",
+    "columnScores": [
+      -16,
+      -16,
+      -16,
+      -16,
+      -16,
+      -16,
+      13
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 13,
+    "outcome": "Win",
+    "expectedValue": 13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "17457357354171",
+    "discToMove": "Red",
+    "columnScores": [
+      12,
+      12,
+      11,
+      12,
+      11,
+      13,
+      11
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 13,
+    "outcome": "Win",
+    "expectedValue": 13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "15424",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -6,
+      -5,
+      -5,
+      1,
+      -4,
+      -5,
+      -5
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "444523171",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -5,
+      -4,
+      -3,
+      -3,
+      -4,
+      -4,
+      -5
+    ],
+    "bestColumns": [
+      2,
+      3
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "64715616",
+    "discToMove": "Red",
+    "columnScores": [
+      -12,
+      -7,
+      -9,
+      -4,
+      -9,
+      -5,
+      -7
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "17133137732261",
+    "discToMove": "Red",
+    "columnScores": [
+      -3,
+      -3,
+      -3,
+      -2,
+      2,
+      0,
+      -3
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "41525",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -17,
+      -17,
+      -13,
+      -17,
+      -17,
+      -4,
+      -13
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "447616",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -3,
+      -3,
+      -2,
+      -5,
+      -5,
+      -4
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "262133671416",
+    "discToMove": "Red",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      -15,
+      -2,
+      -15,
+      -15
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "56134544742566",
+    "discToMove": "Red",
+    "columnScores": [
+      -13,
+      -13,
+      -14,
+      -13,
+      -13,
+      -13,
+      -14
+    ],
+    "bestColumns": [
+      0,
+      1,
+      3,
+      4,
+      5
+    ],
+    "value": -13,
+    "outcome": "Loss",
+    "expectedValue": -13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "25144",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      0,
+      -2,
+      4,
+      2,
+      18,
+      -1
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 18,
+    "outcome": "Win",
+    "expectedValue": 18,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "1253",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      -1,
+      2,
+      -1,
+      3,
+      0,
+      0
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "1676441",
+    "discToMove": "Yellow",
+    "columnScores": [
+      3,
+      0,
+      3,
+      4,
+      3,
+      4,
+      3
+    ],
+    "bestColumns": [
+      3,
+      5
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "477731",
+    "discToMove": "Red",
+    "columnScores": [
+      3,
+      2,
+      4,
+      10,
+      17,
+      4,
+      6
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 17,
+    "outcome": "Win",
+    "expectedValue": 17,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "1572142465324",
+    "discToMove": "Yellow",
+    "columnScores": [
+      3,
+      3,
+      4,
+      6,
+      13,
+      14,
+      1
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 14,
+    "outcome": "Win",
+    "expectedValue": 14,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "621454551432",
+    "discToMove": "Red",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      -13,
+      -15,
+      -15,
+      -15
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -13,
+    "outcome": "Loss",
+    "expectedValue": -13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "51756773145177",
+    "discToMove": "Red",
+    "columnScores": [
+      -14,
+      -10,
+      -14,
+      -14,
+      -14,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": -10,
+    "outcome": "Loss",
+    "expectedValue": -10,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "1234224532255",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -9,
+      -14,
+      -14,
+      -14,
+      -14,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      0
+    ],
+    "value": -9,
+    "outcome": "Loss",
+    "expectedValue": -9,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "2351",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      2,
+      3,
+      -2,
+      3,
+      1,
+      0
+    ],
+    "bestColumns": [
+      2,
+      4
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "4757",
+    "discToMove": "Red",
+    "columnScores": [
+      2,
+      3,
+      18,
+      9,
+      4,
+      0,
+      3
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 18,
+    "outcome": "Win",
+    "expectedValue": 18,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "47766677",
+    "discToMove": "Red",
+    "columnScores": [
+      -1,
+      4,
+      6,
+      5,
+      0,
+      1,
+      -2
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 6,
+    "outcome": "Win",
+    "expectedValue": 6,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "52425664",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -3,
+      -5,
+      -4,
+      5,
+      -3,
+      -5
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 5,
+    "outcome": "Win",
+    "expectedValue": 5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "33215",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -18,
+      -18,
+      -18,
+      0,
+      -18,
+      -18,
+      -18
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "11527",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      0,
+      -3,
+      0,
+      0,
+      2,
+      -3
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "1122271557125",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -13,
+      -13,
+      -2,
+      4,
+      -13,
+      -13,
+      4
+    ],
+    "bestColumns": [
+      3,
+      6
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "6513243566177",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      2,
+      3,
+      -2,
+      12,
+      -3,
+      12
+    ],
+    "bestColumns": [
+      4,
+      6
+    ],
+    "value": 12,
+    "outcome": "Win",
+    "expectedValue": 12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "16446744515347",
+    "discToMove": "Red",
+    "columnScores": [
+      2,
+      1,
+      2,
+      2,
+      12,
+      4,
+      2
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 12,
+    "outcome": "Win",
+    "expectedValue": 12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "5234625471277",
+    "discToMove": "Yellow",
+    "columnScores": [
+      2,
+      -1,
+      2,
+      2,
+      2,
+      -11,
+      -2
+    ],
+    "bestColumns": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "24732455556",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      4,
+      -2,
+      14,
+      -5,
+      15,
+      -4
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 15,
+    "outcome": "Win",
+    "expectedValue": 15,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "24754",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -3,
+      -2,
+      -1,
+      -2,
+      -2,
+      -3
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "4155",
+    "discToMove": "Red",
+    "columnScores": [
+      2,
+      2,
+      18,
+      4,
+      4,
+      18,
+      0
+    ],
+    "bestColumns": [
+      2,
+      5
+    ],
+    "value": 18,
+    "outcome": "Win",
+    "expectedValue": 18,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "171467553",
+    "discToMove": "Yellow",
+    "columnScores": [
+      2,
+      2,
+      5,
+      11,
+      5,
+      5,
+      11
+    ],
+    "bestColumns": [
+      3,
+      6
+    ],
+    "value": 11,
+    "outcome": "Win",
+    "expectedValue": 11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "15657272771432",
+    "discToMove": "Red",
+    "columnScores": [
+      -14,
+      -11,
+      -14,
+      -14,
+      -14,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": -11,
+    "outcome": "Loss",
+    "expectedValue": -11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "65444437612",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      13,
+      -2,
+      -3,
+      -3,
+      3,
+      -3
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 13,
+    "outcome": "Win",
+    "expectedValue": 13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "2462434577",
+    "discToMove": "Red",
+    "columnScores": [
+      4,
+      5,
+      12,
+      11,
+      12,
+      5,
+      4
+    ],
+    "bestColumns": [
+      2,
+      4
+    ],
+    "value": 12,
+    "outcome": "Win",
+    "expectedValue": 12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "41764447672",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -13,
+      -13,
+      -12,
+      -13,
+      -5,
+      -13,
+      -5
+    ],
+    "bestColumns": [
+      4,
+      6
+    ],
+    "value": -5,
+    "outcome": "Loss",
+    "expectedValue": -5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "1112444",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      3,
+      -4,
+      2,
+      -3,
+      -2,
+      -2
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "6523177",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      -1,
+      2,
+      -3,
+      0,
+      0,
+      -2
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "3522566233353",
+    "discToMove": "Yellow",
+    "columnScores": [
+      3,
+      13,
+      -13,
+      -14,
+      -13,
+      -13,
+      -13
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 13,
+    "outcome": "Win",
+    "expectedValue": 13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "11745742763154",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -3,
+      13,
+      0,
+      12,
+      0,
+      -4
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 13,
+    "outcome": "Win",
+    "expectedValue": 13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "3157",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      2,
+      4,
+      18,
+      4,
+      2,
+      0
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 18,
+    "outcome": "Win",
+    "expectedValue": 18,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "4626",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      4,
+      18,
+      5,
+      -2,
+      1,
+      -2
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 18,
+    "outcome": "Win",
+    "expectedValue": 18,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "277215132",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -1,
+      0,
+      3,
+      0,
+      -2,
+      -1,
+      -2
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "55614652233",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -15,
+      -15,
+      -15,
+      -15,
+      -15,
+      -15,
+      -12
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": -12,
+    "outcome": "Loss",
+    "expectedValue": -12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "72334",
+    "discToMove": "Yellow",
+    "columnScores": [
+      0,
+      3,
+      4,
+      4,
+      0,
+      2,
+      1
+    ],
+    "bestColumns": [
+      2,
+      3
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "624135355",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -6,
+      -5,
+      -1,
+      -4,
+      -12,
+      -5,
+      -5
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "7644",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -3,
+      -3,
+      -2,
+      -3,
+      -3,
+      -5
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "7675456251",
+    "discToMove": "Red",
+    "columnScores": [
+      4,
+      5,
+      2,
+      12,
+      9,
+      12,
+      13
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 13,
+    "outcome": "Win",
+    "expectedValue": 13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "6455632",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      0,
+      -3,
+      -2,
+      2,
+      3,
+      -2
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "637377",
+    "discToMove": "Red",
+    "columnScores": [
+      -3,
+      -3,
+      -5,
+      2,
+      2,
+      -7,
+      -7
+    ],
+    "bestColumns": [
+      3,
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "34461116",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -2,
+      -2,
+      2,
+      -2,
+      2,
+      -2
+    ],
+    "bestColumns": [
+      3,
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "7565212415",
+    "discToMove": "Red",
+    "columnScores": [
+      -16,
+      -16,
+      -16,
+      -16,
+      -5,
+      -16,
+      -16
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -5,
+    "outcome": "Loss",
+    "expectedValue": -5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "42555",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -17,
+      -17,
+      -4,
+      -17,
+      -17,
+      -3,
+      -4
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "6123473741",
+    "discToMove": "Red",
+    "columnScores": [
+      5,
+      2,
+      5,
+      10,
+      10,
+      -2,
+      0
+    ],
+    "bestColumns": [
+      3,
+      4
+    ],
+    "value": 10,
+    "outcome": "Win",
+    "expectedValue": 10,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "74132",
+    "discToMove": "Yellow",
+    "columnScores": [
+      0,
+      2,
+      1,
+      5,
+      0,
+      2,
+      0
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 5,
+    "outcome": "Win",
+    "expectedValue": 5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "65654",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -3,
+      -4,
+      -2,
+      3,
+      2,
+      -2
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "3232161",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      1,
+      1,
+      -2,
+      -2,
+      -2,
+      -3
+    ],
+    "bestColumns": [
+      1,
+      2
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "745463472164",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      2,
+      -4,
+      -12,
+      -4,
+      0,
+      -12
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "3152345573",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -3,
+      2,
+      0,
+      -4,
+      -4,
+      -4
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "253473155",
+    "discToMove": "Yellow",
+    "columnScores": [
+      0,
+      2,
+      7,
+      12,
+      0,
+      -1,
+      0
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 12,
+    "outcome": "Win",
+    "expectedValue": 12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "13656245475314",
+    "discToMove": "Red",
+    "columnScores": [
+      -14,
+      -14,
+      -14,
+      -14,
+      3,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "12761",
+    "discToMove": "Yellow",
+    "columnScores": [
+      2,
+      -2,
+      0,
+      -2,
+      0,
+      2,
+      0
+    ],
+    "bestColumns": [
+      0,
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "5231651335725",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -14,
+      -14,
+      -14,
+      0,
+      -14,
+      -14,
+      -14
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "52576573",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -6,
+      -4,
+      -4,
+      -3,
+      -2,
+      -4
+    ],
+    "bestColumns": [
+      0,
+      5
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "362662",
+    "discToMove": "Red",
+    "columnScores": [
+      1,
+      2,
+      2,
+      17,
+      2,
+      2,
+      -1
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 17,
+    "outcome": "Win",
+    "expectedValue": 17,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R1.txt"
+  },
+  {
+    "position": "2773315563",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      0,
+      -2,
+      -2,
+      -1,
+      -2,
+      -2
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R3.txt"
+  },
+  {
+    "position": "72463526127",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      -4,
+      2,
+      3,
+      1,
+      3,
+      -4
+    ],
+    "bestColumns": [
+      3,
+      5
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "13731156633747",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -2,
+      -3,
+      -4,
+      -2,
+      -1,
+      -3
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L1_R2.txt"
+  },
+  {
+    "position": "621745356556434654",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      -1
+    ],
+    "bestColumns": [
+      2,
+      3
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "2142465453452554",
+    "discToMove": "Red",
+    "columnScores": [
+      -1,
+      -1,
+      -1,
+      0,
+      -1,
+      -1,
+      -1
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "71521736623715176174362",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -9,
+      -9,
+      -8,
+      -9,
+      -9,
+      -9,
+      -9
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -8,
+    "outcome": "Loss",
+    "expectedValue": -8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "2443337161355136341",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -11,
+      11,
+      null,
+      -11,
+      -11,
+      -11,
+      -11
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 11,
+    "outcome": "Win",
+    "expectedValue": 11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "3457741246677474572223453551",
+    "discToMove": "Red",
+    "columnScores": [
+      -7,
+      -7,
+      5,
+      null,
+      -7,
+      -7,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 5,
+    "outcome": "Win",
+    "expectedValue": 5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "131352224351551721",
+    "discToMove": "Red",
+    "columnScores": [
+      -12,
+      -12,
+      2,
+      -12,
+      -12,
+      -12,
+      -12
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "135735127271332772",
+    "discToMove": "Red",
+    "columnScores": [
+      -5,
+      -3,
+      -7,
+      3,
+      -5,
+      -3,
+      -7
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "272132777317137311",
+    "discToMove": "Red",
+    "columnScores": [
+      -12,
+      -12,
+      -8,
+      -12,
+      -12,
+      -12,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -8,
+    "outcome": "Loss",
+    "expectedValue": -8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "31654655127454356651",
+    "discToMove": "Red",
+    "columnScores": [
+      4,
+      -10,
+      3,
+      0,
+      null,
+      -9,
+      3
+    ],
+    "bestColumns": [
+      0
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "6363361177611667737171332522",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      0,
+      null,
+      -2,
+      -2,
+      null,
+      null
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "225453214732156",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -13,
+      -13,
+      -13,
+      -13,
+      -13,
+      1,
+      -13
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "25237552414526715775131224",
+    "discToMove": "Red",
+    "columnScores": [
+      7,
+      null,
+      -8,
+      7,
+      null,
+      6,
+      3
+    ],
+    "bestColumns": [
+      0,
+      3
+    ],
+    "value": 7,
+    "outcome": "Win",
+    "expectedValue": 7,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "7423547216653427",
+    "discToMove": "Red",
+    "columnScores": [
+      -13,
+      -13,
+      -13,
+      -12,
+      -13,
+      -13,
+      -13
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -12,
+    "outcome": "Loss",
+    "expectedValue": -12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "177147233362257734257",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -10,
+      -3,
+      0,
+      0,
+      -9,
+      -3,
+      null
+    ],
+    "bestColumns": [
+      2,
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "271411161457254361726",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -10,
+      -10,
+      -10,
+      -7,
+      -10,
+      -10
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -7,
+    "outcome": "Loss",
+    "expectedValue": -7,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "37575776647454331673434566",
+    "discToMove": "Red",
+    "columnScores": [
+      -8,
+      -8,
+      -1,
+      -8,
+      -8,
+      -8,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "53364425411375617",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -12,
+      -12,
+      -12,
+      -12,
+      4,
+      -12,
+      -12
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "2575611536142347326253237356",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -7,
+      null,
+      -7,
+      -7,
+      -7,
+      -7
+    ],
+    "bestColumns": [
+      0
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "72572533563327373216",
+    "discToMove": "Red",
+    "columnScores": [
+      -11,
+      -11,
+      null,
+      -11,
+      -11,
+      -11,
+      -10
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": -10,
+    "outcome": "Loss",
+    "expectedValue": -10,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "13672456235365253217554",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -9,
+      -9,
+      -9,
+      0,
+      null,
+      -9,
+      -9
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "7152546711275134377323761",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -8,
+      -8,
+      -8,
+      -8,
+      2,
+      -8,
+      null
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "2276777447334336274",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -11,
+      -11,
+      -11,
+      0,
+      -11,
+      -11,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "67774712211136444",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -12,
+      -12,
+      -12,
+      -12,
+      -11,
+      -12,
+      -12
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -11,
+    "outcome": "Loss",
+    "expectedValue": -11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "535422646166267617122741",
+    "discToMove": "Red",
+    "columnScores": [
+      -9,
+      -9,
+      -9,
+      -9,
+      8,
+      null,
+      -9
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 8,
+    "outcome": "Win",
+    "expectedValue": 8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "5472325524434522",
+    "discToMove": "Red",
+    "columnScores": [
+      -13,
+      -5,
+      -5,
+      4,
+      -4,
+      -4,
+      -4
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "671757717572516436431112455",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -7,
+      -7,
+      -7,
+      -7,
+      -6,
+      null
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": -6,
+    "outcome": "Loss",
+    "expectedValue": -6,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "1162376627565673221574613327",
+    "discToMove": "Red",
+    "columnScores": [
+      -7,
+      -7,
+      -7,
+      6,
+      -7,
+      null,
+      -7
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 6,
+    "outcome": "Win",
+    "expectedValue": 6,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "356555121131565",
+    "discToMove": "Yellow",
+    "columnScores": [
+      3,
+      -3,
+      3,
+      -10,
+      null,
+      -3,
+      -3
+    ],
+    "bestColumns": [
+      0,
+      2
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "121246711441334617333",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      3,
+      3,
+      3,
+      2,
+      3,
+      3
+    ],
+    "bestColumns": [
+      1,
+      2,
+      3,
+      5,
+      6
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "136215442375624672646433",
+    "discToMove": "Red",
+    "columnScores": [
+      -9,
+      -6,
+      -4,
+      -6,
+      -9,
+      -6,
+      -4
+    ],
+    "bestColumns": [
+      2,
+      6
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "3564442273572575557647",
+    "discToMove": "Red",
+    "columnScores": [
+      -9,
+      -9,
+      -3,
+      0,
+      null,
+      -1,
+      -9
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "1122662611655247736",
+    "discToMove": "Yellow",
+    "columnScores": [
+      0,
+      1,
+      9,
+      11,
+      10,
+      0,
+      9
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 11,
+    "outcome": "Win",
+    "expectedValue": 11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "65313213177411167266555",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      8,
+      3,
+      8,
+      0,
+      2,
+      7
+    ],
+    "bestColumns": [
+      1,
+      3
+    ],
+    "value": 8,
+    "outcome": "Win",
+    "expectedValue": 8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "3263232424611712475",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -8,
+      -9,
+      2,
+      -10,
+      -9,
+      -9,
+      2
+    ],
+    "bestColumns": [
+      2,
+      6
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "6576551771641561711664",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      -7,
+      -9,
+      -8,
+      -8,
+      null,
+      -7
+    ],
+    "bestColumns": [
+      1,
+      6
+    ],
+    "value": -7,
+    "outcome": "Loss",
+    "expectedValue": -7,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "42223173163723255",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -2,
+      -2,
+      -2,
+      -1,
+      -1,
+      -2
+    ],
+    "bestColumns": [
+      4,
+      5
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "5265241244434754575522",
+    "discToMove": "Red",
+    "columnScores": [
+      9,
+      7,
+      9,
+      null,
+      null,
+      7,
+      8
+    ],
+    "bestColumns": [
+      0,
+      2
+    ],
+    "value": 9,
+    "outcome": "Win",
+    "expectedValue": 9,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "7651777173421313",
+    "discToMove": "Red",
+    "columnScores": [
+      -13,
+      -13,
+      -9,
+      -13,
+      -13,
+      -13,
+      -13
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -9,
+    "outcome": "Loss",
+    "expectedValue": -9,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "546167317562564251256237162",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -7,
+      -7,
+      -7,
+      -5,
+      -7,
+      null,
+      -7
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -5,
+    "outcome": "Loss",
+    "expectedValue": -5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "5227537247113557535",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -11,
+      -11,
+      -11,
+      4,
+      null,
+      -11,
+      -11
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "41616326326776745652",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -9,
+      -2,
+      -5,
+      -2,
+      null,
+      -4
+    ],
+    "bestColumns": [
+      0,
+      2,
+      4
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "614551547675356721341",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -10,
+      -10,
+      -10,
+      -10,
+      -10,
+      -10,
+      2
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "54212234444632567373",
+    "discToMove": "Red",
+    "columnScores": [
+      -10,
+      -10,
+      -8,
+      -10,
+      -11,
+      -10,
+      9
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 9,
+    "outcome": "Win",
+    "expectedValue": 9,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "736655673445166272447546",
+    "discToMove": "Red",
+    "columnScores": [
+      -9,
+      -9,
+      -9,
+      -9,
+      -7,
+      null,
+      -9
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -7,
+    "outcome": "Loss",
+    "expectedValue": -7,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "61116745365555744225",
+    "discToMove": "Red",
+    "columnScores": [
+      -1,
+      -1,
+      0,
+      -1,
+      null,
+      -1,
+      -1
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "532464473562772321431",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -9,
+      -9,
+      0,
+      -9,
+      -10,
+      0,
+      -8
+    ],
+    "bestColumns": [
+      2,
+      5
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "662662157472472653671",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      -2,
+      0,
+      4,
+      -2,
+      null,
+      4
+    ],
+    "bestColumns": [
+      3,
+      6
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "547547271651712377362",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -10,
+      -9,
+      -10,
+      -10,
+      -10,
+      -10,
+      null
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": -9,
+    "outcome": "Loss",
+    "expectedValue": -9,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "4727627767627512232",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -11,
+      null,
+      -11,
+      -11,
+      -11,
+      0,
+      null
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "41416453222527221644",
+    "discToMove": "Red",
+    "columnScores": [
+      10,
+      null,
+      10,
+      2,
+      8,
+      4,
+      4
+    ],
+    "bestColumns": [
+      0,
+      2
+    ],
+    "value": 10,
+    "outcome": "Win",
+    "expectedValue": 10,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "72167163255625775222515773",
+    "discToMove": "Red",
+    "columnScores": [
+      -8,
+      null,
+      -8,
+      -7,
+      null,
+      -8,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -7,
+    "outcome": "Loss",
+    "expectedValue": -7,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "1653153124666157347",
+    "discToMove": "Yellow",
+    "columnScores": [
+      10,
+      -10,
+      -9,
+      11,
+      -2,
+      -9,
+      10
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 11,
+    "outcome": "Win",
+    "expectedValue": 11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "114231112632155",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -13,
+      -13,
+      -4,
+      -13,
+      -13,
+      -13
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "411717625255115123554",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -10,
+      -9,
+      -10,
+      null,
+      -10,
+      -10
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -9,
+    "outcome": "Loss",
+    "expectedValue": -9,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "356772472543562137131",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -10,
+      -10,
+      -10,
+      0,
+      -10,
+      -10,
+      -10
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "736657142241757413",
+    "discToMove": "Red",
+    "columnScores": [
+      -10,
+      -3,
+      -2,
+      -10,
+      -1,
+      -10,
+      0
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "177235444377213",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -13,
+      -13,
+      -13,
+      -2,
+      -13,
+      -13,
+      -13
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "5733231371343227426",
+    "discToMove": "Yellow",
+    "columnScores": [
+      2,
+      2,
+      null,
+      -1,
+      2,
+      2,
+      2
+    ],
+    "bestColumns": [
+      0,
+      1,
+      4,
+      5,
+      6
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "411364471753646417433177755",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -7,
+      -7,
+      -7,
+      null,
+      -7,
+      3,
+      null
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "5536622414432311577",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -7,
+      -6,
+      -1,
+      -9,
+      -8,
+      -7,
+      -6
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "1667675535724753771415352132",
+    "discToMove": "Red",
+    "columnScores": [
+      1,
+      -1,
+      1,
+      1,
+      null,
+      1,
+      null
+    ],
+    "bestColumns": [
+      0,
+      2,
+      3,
+      5
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "71627112343522227",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -12,
+      null,
+      -12,
+      -12,
+      -12,
+      -12,
+      -8
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": -8,
+    "outcome": "Loss",
+    "expectedValue": -8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "1224277247774721613545115",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -8,
+      -8,
+      -8,
+      -6,
+      -8,
+      -8,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -6,
+    "outcome": "Loss",
+    "expectedValue": -6,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "52377671166361641637125",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -8,
+      -7,
+      -8,
+      -8,
+      2,
+      null,
+      -8
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "5253754644476374",
+    "discToMove": "Red",
+    "columnScores": [
+      -13,
+      -13,
+      -13,
+      -13,
+      -12,
+      -13,
+      -13
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -12,
+    "outcome": "Loss",
+    "expectedValue": -12,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "24114657447556133315577775",
+    "discToMove": "Red",
+    "columnScores": [
+      -1,
+      -4,
+      -1,
+      -4,
+      null,
+      -3,
+      null
+    ],
+    "bestColumns": [
+      0,
+      2
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "62623724435526761122431133",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      null,
+      -2,
+      -2,
+      -2,
+      -4,
+      -8
+    ],
+    "bestColumns": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "763452543756455357732314",
+    "discToMove": "Red",
+    "columnScores": [
+      -9,
+      -9,
+      -8,
+      -9,
+      null,
+      -9,
+      -9
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -8,
+    "outcome": "Loss",
+    "expectedValue": -8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "45266256172466233",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -10,
+      -4,
+      -7,
+      -3,
+      -8,
+      -10,
+      -9
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "21132623546744124234436137",
+    "discToMove": "Red",
+    "columnScores": [
+      -8,
+      -8,
+      -8,
+      null,
+      -1,
+      -8,
+      -8
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "647432614463264564726511",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -9,
+      -9,
+      null,
+      -9,
+      null,
+      -9
+    ],
+    "bestColumns": [
+      0
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "136626645476767211574",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      0,
+      -8,
+      -2,
+      0,
+      null,
+      -7
+    ],
+    "bestColumns": [
+      1,
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "2563371255665117572172765612",
+    "discToMove": "Red",
+    "columnScores": [
+      -7,
+      -7,
+      -7,
+      -7,
+      null,
+      -3,
+      -7
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "555533546667766635773141271",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -7,
+      -7,
+      -7,
+      -5,
+      null,
+      null,
+      -7
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -5,
+    "outcome": "Loss",
+    "expectedValue": -5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "515724523511356336726",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -9,
+      3,
+      -9,
+      -10,
+      -9,
+      -2,
+      -9
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "235461435664543",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -13,
+      -13,
+      -13,
+      -13,
+      2,
+      -13,
+      -13
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "46224467422565762767",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      -6,
+      0,
+      0,
+      0,
+      -5,
+      -5
+    ],
+    "bestColumns": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "41761763312134657447222",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -1,
+      -7,
+      -1,
+      -7,
+      -9,
+      -2,
+      -7
+    ],
+    "bestColumns": [
+      0,
+      2
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "231271467273325644223",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -10,
+      null,
+      -10,
+      -10,
+      -10,
+      -10,
+      -2
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "6637642476564146317",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -9,
+      -10,
+      -10,
+      -10,
+      -11,
+      null,
+      -10
+    ],
+    "bestColumns": [
+      0
+    ],
+    "value": -9,
+    "outcome": "Loss",
+    "expectedValue": -9,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "7743656446571135",
+    "discToMove": "Red",
+    "columnScores": [
+      -13,
+      -13,
+      -13,
+      -13,
+      -13,
+      3,
+      -13
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "7726363362772135552226117",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      null,
+      -5,
+      -6,
+      2,
+      -5,
+      -5
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "13265413456751323",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -11,
+      -12,
+      -11,
+      -11,
+      -11,
+      -11,
+      -11
+    ],
+    "bestColumns": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "value": -11,
+    "outcome": "Loss",
+    "expectedValue": -11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "562167252164563247",
+    "discToMove": "Red",
+    "columnScores": [
+      -1,
+      -2,
+      -3,
+      2,
+      2,
+      -2,
+      -2
+    ],
+    "bestColumns": [
+      3,
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "252251572125725",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -5,
+      null,
+      -7,
+      -5,
+      -5,
+      -5,
+      -5
+    ],
+    "bestColumns": [
+      0,
+      3,
+      4,
+      5,
+      6
+    ],
+    "value": -5,
+    "outcome": "Loss",
+    "expectedValue": -5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "46777727413544135465",
+    "discToMove": "Red",
+    "columnScores": [
+      -10,
+      -10,
+      -10,
+      -10,
+      -2,
+      -8,
+      -10
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "32726444675447122372436",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -9,
+      -9,
+      -9,
+      null,
+      -9,
+      8,
+      -9
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 8,
+    "outcome": "Win",
+    "expectedValue": 8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "4367372437732346624",
+    "discToMove": "Yellow",
+    "columnScores": [
+      3,
+      -11,
+      -11,
+      -11,
+      -11,
+      -11,
+      -11
+    ],
+    "bestColumns": [
+      0
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "61155524541272735",
+    "discToMove": "Yellow",
+    "columnScores": [
+      11,
+      11,
+      2,
+      11,
+      0,
+      0,
+      -1
+    ],
+    "bestColumns": [
+      0,
+      1,
+      3
+    ],
+    "value": 11,
+    "outcome": "Win",
+    "expectedValue": 11,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "5611375712215524244",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -11,
+      -3,
+      -11,
+      -11,
+      -11,
+      -11,
+      -11
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "4661237137541742643224",
+    "discToMove": "Red",
+    "columnScores": [
+      -10,
+      -10,
+      8,
+      -10,
+      -10,
+      -10,
+      -10
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 8,
+    "outcome": "Win",
+    "expectedValue": 8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "512347144257757753413317416",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -7,
+      -7,
+      -7,
+      -6,
+      -7,
+      -7,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -6,
+    "outcome": "Loss",
+    "expectedValue": -6,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "433437441334614",
+    "discToMove": "Yellow",
+    "columnScores": [
+      7,
+      4,
+      4,
+      null,
+      4,
+      8,
+      4
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 8,
+    "outcome": "Win",
+    "expectedValue": 8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "4355755472353616",
+    "discToMove": "Red",
+    "columnScores": [
+      -11,
+      0,
+      4,
+      1,
+      -11,
+      -13,
+      4
+    ],
+    "bestColumns": [
+      2,
+      6
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "5264751646554621322566",
+    "discToMove": "Red",
+    "columnScores": [
+      -7,
+      -7,
+      -8,
+      -8,
+      -7,
+      null,
+      2
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "34162211522557146212361545",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      -2,
+      -4,
+      -5,
+      -2,
+      -5
+    ],
+    "bestColumns": [
+      2,
+      5
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "37311461445363113",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -12,
+      -12,
+      -12,
+      -12,
+      -1,
+      -12,
+      -12
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "35454445211431716343551",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -9,
+      4,
+      -9,
+      null,
+      -9,
+      -9,
+      -9
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "715121127344523776",
+    "discToMove": "Red",
+    "columnScores": [
+      -11,
+      -11,
+      -2,
+      -10,
+      -2,
+      -2,
+      -11
+    ],
+    "bestColumns": [
+      2,
+      4,
+      5
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "765653125533175463341",
+    "discToMove": "Yellow",
+    "columnScores": [
+      0,
+      -10,
+      -10,
+      -10,
+      -10,
+      -10,
+      -10
+    ],
+    "bestColumns": [
+      0
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "4135637366661267551771515512",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      -6,
+      2,
+      -7,
+      null,
+      null,
+      -6
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "2441725635216363355357275122",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      null,
+      -7,
+      -7,
+      null,
+      -7,
+      -7
+    ],
+    "bestColumns": [
+      0
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "7463661627441246",
+    "discToMove": "Red",
+    "columnScores": [
+      -13,
+      -13,
+      -13,
+      -13,
+      -13,
+      4,
+      -13
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "6651344713664721127711436",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -8,
+      -8,
+      -7,
+      -8,
+      -8,
+      -8
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -7,
+    "outcome": "Loss",
+    "expectedValue": -7,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "11233566724171221527127745",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      -8,
+      -8,
+      0,
+      -8,
+      -8
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "1122576542614456661624244351",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -4,
+      -7,
+      null,
+      2,
+      null,
+      -4
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "4675127745573225625157",
+    "discToMove": "Red",
+    "columnScores": [
+      -10,
+      -10,
+      -10,
+      -10,
+      null,
+      -10,
+      6
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 6,
+    "outcome": "Win",
+    "expectedValue": 6,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "477653366263777434761512",
+    "discToMove": "Red",
+    "columnScores": [
+      2,
+      5,
+      -8,
+      -8,
+      -8,
+      -8,
+      null
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 5,
+    "outcome": "Win",
+    "expectedValue": 5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "673442133113135",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -11,
+      -12,
+      -11,
+      2,
+      -11,
+      -11,
+      -10
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "6226625563361753",
+    "discToMove": "Red",
+    "columnScores": [
+      -3,
+      -3,
+      -3,
+      -1,
+      -3,
+      -3,
+      1
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "154744655614726",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -1,
+      -1,
+      2,
+      -2,
+      2,
+      -2
+    ],
+    "bestColumns": [
+      3,
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "165713352355467777",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      3,
+      0,
+      -3,
+      -4,
+      -3,
+      -4
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "341264564424372",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -12,
+      3,
+      4,
+      2,
+      13,
+      -2,
+      13
+    ],
+    "bestColumns": [
+      4,
+      6
+    ],
+    "value": 13,
+    "outcome": "Win",
+    "expectedValue": 13,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "15557772126633324576237761",
+    "discToMove": "Red",
+    "columnScores": [
+      -6,
+      -6,
+      0,
+      -8,
+      -6,
+      -6,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "3121656677155256652245727",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -6,
+      -6,
+      2,
+      8,
+      null,
+      -6,
+      -6
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 8,
+    "outcome": "Win",
+    "expectedValue": 8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "3543166713733245231117",
+    "discToMove": "Red",
+    "columnScores": [
+      -10,
+      -10,
+      null,
+      -4,
+      -10,
+      -10,
+      -10
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "7714772136634341",
+    "discToMove": "Red",
+    "columnScores": [
+      -3,
+      -12,
+      -4,
+      -1,
+      -9,
+      -8,
+      -9
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "132163523461151135474272234",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -7,
+      -7,
+      2,
+      -7,
+      -7,
+      -7
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "21133461363327566",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -12,
+      -12,
+      -12,
+      -10,
+      -12,
+      -12,
+      -12
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -10,
+    "outcome": "Loss",
+    "expectedValue": -10,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "166665441275564",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -13,
+      -13,
+      -13,
+      2,
+      -13,
+      -13,
+      -13
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "31543123471557267115613",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -8,
+      -8,
+      -4,
+      -8,
+      -9,
+      -8
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "351626363254655333225654761",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -7,
+      -7,
+      null,
+      1,
+      null,
+      null,
+      -7
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "527546732264211663334217",
+    "discToMove": "Red",
+    "columnScores": [
+      6,
+      0,
+      1,
+      7,
+      0,
+      1,
+      0
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 7,
+    "outcome": "Win",
+    "expectedValue": 7,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "4372241146517264744",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -11,
+      -11,
+      -11,
+      null,
+      -11,
+      -11,
+      4
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "77652136665472176617",
+    "discToMove": "Red",
+    "columnScores": [
+      2,
+      0,
+      0,
+      0,
+      2,
+      null,
+      0
+    ],
+    "bestColumns": [
+      0,
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "246322662725243733136777413",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -7,
+      null,
+      null,
+      0,
+      -7,
+      -7,
+      -7
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "66674351562312313766554",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -9,
+      -9,
+      -9,
+      -5,
+      -9,
+      null,
+      -9
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -5,
+    "outcome": "Loss",
+    "expectedValue": -5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "113342562111152564277",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      0,
+      -10,
+      -10,
+      -10,
+      -10,
+      -10
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "337167156657665165",
+    "discToMove": "Red",
+    "columnScores": [
+      3,
+      4,
+      3,
+      3,
+      3,
+      null,
+      3
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "173255714427275276324255754",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -7,
+      null,
+      -4,
+      -7,
+      null,
+      -7,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -4,
+    "outcome": "Loss",
+    "expectedValue": -4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "71774114113635165546",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      -11,
+      -11,
+      -11,
+      -11,
+      2,
+      -11
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "556131744533652311546",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -10,
+      -10,
+      -10,
+      -10,
+      -10,
+      1,
+      -10
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "333424141547325257",
+    "discToMove": "Red",
+    "columnScores": [
+      -12,
+      -12,
+      -12,
+      -12,
+      -12,
+      -2,
+      -12
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "44772346734124776534",
+    "discToMove": "Red",
+    "columnScores": [
+      9,
+      9,
+      8,
+      null,
+      10,
+      10,
+      8
+    ],
+    "bestColumns": [
+      4,
+      5
+    ],
+    "value": 10,
+    "outcome": "Win",
+    "expectedValue": 10,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "12151643562152353534775",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -9,
+      -9,
+      -8,
+      -9,
+      null,
+      -9,
+      -9
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -8,
+    "outcome": "Loss",
+    "expectedValue": -8,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "274651557566635524323",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      -8,
+      0,
+      -10,
+      null,
+      -2,
+      -1
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "2644214766644362774521721",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -3,
+      -2,
+      null,
+      -4,
+      -3,
+      -3
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "16633611716233262",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -3,
+      -3,
+      -12,
+      -3,
+      -3,
+      -3
+    ],
+    "bestColumns": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "456136555111216142573",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -10,
+      -10,
+      1,
+      -10,
+      -10,
+      -10
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R2.txt"
+  },
+  {
+    "position": "522734277617726235641",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -8,
+      -8,
+      -6,
+      -6,
+      -8,
+      -8,
+      -8
+    ],
+    "bestColumns": [
+      2,
+      3
+    ],
+    "value": -6,
+    "outcome": "Loss",
+    "expectedValue": -6,
+    "matchesExpected": true,
+    "sourceFile": "Test_L2_R1.txt"
+  },
+  {
+    "position": "517144566546152745415163633461332",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -1,
+      -4,
+      null,
+      null,
+      null,
+      -4
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "316775734112511514276652774525666433324",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -1,
+      -1,
+      0,
+      null,
+      null,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "274772611552657447213657616461254423153",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      null,
+      0,
+      null,
+      null,
+      null,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "64367224743145634451277323556277356",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -3,
+      null,
+      null,
+      -3,
+      1,
+      null
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "235242634742751114771151273327534",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      null,
+      -2,
+      -2,
+      -2,
+      -4,
+      null
+    ],
+    "bestColumns": [
+      2,
+      3,
+      4
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "116465766145465461441325333152253272",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      -2,
+      -2,
+      null,
+      null,
+      null,
+      -3
+    ],
+    "bestColumns": [
+      1,
+      2
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "162763511717327445577335341162225",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -4,
+      -4,
+      -1,
+      -4,
+      -4,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "21534522566211465727124114446673756757",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      0,
+      null,
+      null,
+      null,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "2171137266253775276112542471644",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      null,
+      -5,
+      -5,
+      2,
+      -5,
+      null
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "17137731537213173436652657221",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -6,
+      null,
+      -2,
+      -6,
+      -6,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -2,
+    "outcome": "Loss",
+    "expectedValue": -2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "1211215114267722765534572344645774",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      -4,
+      null,
+      -4,
+      0,
+      null
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "311725641613534242754551536426723717626",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      null,
+      -1,
+      0,
+      null,
+      null,
+      -1
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "4654424754216675341363625627233157",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -4,
+      -4,
+      null,
+      0,
+      null,
+      -4
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "3541732433215115744547214165573",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      3,
+      -5,
+      null,
+      null,
+      -5,
+      -5
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "32565573473441242365352352174111",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -2,
+      null,
+      -2,
+      null,
+      -5,
+      0
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "7757773257231346234144653122551152344",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      null,
+      null,
+      null,
+      null,
+      1,
+      null
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "5726711712611416576447554373226463",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      -4,
+      3,
+      -4,
+      -4,
+      null,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "6624634624356761732554377255343271754",
+    "discToMove": "Yellow",
+    "columnScores": [
+      0,
+      0,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "bestColumns": [
+      0,
+      1
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "1337647147472552274274253556416",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -5,
+      -5,
+      0,
+      null,
+      -5,
+      -5,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "5445136116243374514115245733727232562776",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      0,
+      null
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "77711664253165461775237646441451233",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      2,
+      -3,
+      null,
+      -3,
+      null,
+      null
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "211221747742137355511257752335",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      2,
+      -6,
+      null,
+      2,
+      null
+    ],
+    "bestColumns": [
+      2,
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "167221551477454364351673666121",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      -6,
+      -6,
+      -6,
+      -3,
+      null,
+      -6
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "2317341651666134413473525715426477",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      0,
+      -4,
+      null,
+      -4,
+      -4,
+      -4
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "6475543225752537774611345327424661",
+    "discToMove": "Red",
+    "columnScores": [
+      -4,
+      -4,
+      0,
+      null,
+      null,
+      -4,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "264476457622231265764732533575357614",
+    "discToMove": "Red",
+    "columnScores": [
+      -3,
+      null,
+      0,
+      -3,
+      null,
+      null,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "3515655547334632573462442436722717672611",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "bestColumns": [
+      0
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "62455157511415335477613441247632336",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      1,
+      null,
+      null,
+      null,
+      1,
+      1
+    ],
+    "bestColumns": [
+      1,
+      5,
+      6
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "434654212743744112732125672155335",
+    "discToMove": "Yellow",
+    "columnScores": [
+      0,
+      null,
+      0,
+      null,
+      0,
+      -4,
+      -3
+    ],
+    "bestColumns": [
+      0,
+      2,
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "66577462673631577552474343122465321124",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      null,
+      -2,
+      null,
+      0,
+      null,
+      null
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "217367375336313761566477521556415",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -4,
+      -4,
+      null,
+      4,
+      null,
+      null,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "21753636471436536632746137457",
+    "discToMove": "Yellow",
+    "columnScores": [
+      0,
+      0,
+      null,
+      0,
+      -6,
+      null,
+      0
+    ],
+    "bestColumns": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "62333544634137272131752556461465177257642",
+    "discToMove": "Yellow",
+    "columnScores": [
+      0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "bestColumns": [
+      0
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "162723724512664325154166235733653574477",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -1,
+      null,
+      null,
+      0,
+      null,
+      null,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "15365574116435554413162241336632",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      0,
+      null,
+      -5,
+      null,
+      -5,
+      -5
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "3146762114467714356347741621375222",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      -1,
+      -1,
+      null,
+      -1,
+      -1,
+      null
+    ],
+    "bestColumns": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "63255452343412414631452116137577",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      0,
+      0,
+      null,
+      0,
+      -1,
+      0
+    ],
+    "bestColumns": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "32337276337126575366547525764",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -6,
+      -6,
+      null,
+      6,
+      -6,
+      -6,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 6,
+    "outcome": "Win",
+    "expectedValue": 6,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "66423144714716237712674611622",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -6,
+      -6,
+      -6,
+      -3,
+      null,
+      -6
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "12514726155174536522772517671",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -6,
+      -6,
+      -3,
+      null,
+      -6,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "54532771754417521344214532651637672662133",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      0,
+      null
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "165271233511537244127774372321",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      -2,
+      0,
+      1,
+      -3,
+      null
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 1,
+    "outcome": "Win",
+    "expectedValue": 1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "635612533521556742126777167547612",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -3,
+      -3,
+      2,
+      -4,
+      null,
+      null,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "2376167454515726653225733272176",
+    "discToMove": "Yellow",
+    "columnScores": [
+      3,
+      null,
+      2,
+      1,
+      1,
+      2,
+      null
+    ],
+    "bestColumns": [
+      0
+    ],
+    "value": 3,
+    "outcome": "Win",
+    "expectedValue": 3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "62165625212252641146637555444711",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      1,
+      2,
+      null,
+      null,
+      -5
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "7265642744155757653661717564242213412331",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      0,
+      null,
+      null,
+      null,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "32374265746742266767547622145",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -6,
+      null,
+      -6,
+      -6,
+      2,
+      null,
+      null
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "41475323467164226325421231114336556",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      null,
+      null,
+      null,
+      -3,
+      -3,
+      0
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "7443141522453147662554756357122333767162",
+    "discToMove": "Red",
+    "columnScores": [
+      0,
+      null,
+      null,
+      null,
+      null,
+      -1,
+      null
+    ],
+    "bestColumns": [
+      0
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "56125261164477715376672514143622435472333",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      null,
+      null,
+      null,
+      0,
+      null,
+      null
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "1421135632134425715633123444226",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      null,
+      null,
+      null,
+      -1,
+      -5,
+      -5
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "127133176546663147642771335753645225",
+    "discToMove": "Red",
+    "columnScores": [
+      -2,
+      -1,
+      null,
+      -3,
+      -2,
+      null,
+      null
+    ],
+    "bestColumns": [
+      1
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "741114355544541236257762115664266332",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      -3,
+      0,
+      null,
+      null,
+      null,
+      -3
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "112471523663662675764743257544335112741",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      0,
+      0,
+      null,
+      0,
+      null,
+      null
+    ],
+    "bestColumns": [
+      1,
+      2,
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "33756525572635413225374473726476",
+    "discToMove": "Red",
+    "columnScores": [
+      1,
+      2,
+      null,
+      -5,
+      null,
+      2,
+      null
+    ],
+    "bestColumns": [
+      1,
+      5
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "211345241752711326713473225737",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      4,
+      5,
+      4,
+      5,
+      null
+    ],
+    "bestColumns": [
+      3,
+      5
+    ],
+    "value": 5,
+    "outcome": "Win",
+    "expectedValue": 5,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "4715231327333632224461742611174655557",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      null,
+      null,
+      0,
+      -2,
+      -2,
+      -2
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "42164731432714617152715657254374325",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -3,
+      -3,
+      null,
+      -3,
+      0,
+      null
+    ],
+    "bestColumns": [
+      5
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "7553417746463176176733326262112",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -5,
+      -5,
+      -5,
+      -3,
+      -5,
+      null,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "6245315676125735441136636227457325214137",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      null,
+      0,
+      null,
+      null,
+      -1
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "7767646623333216716523351477214452144",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      -2,
+      null,
+      null,
+      0,
+      null,
+      null
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "12313376231416627467311575477422324",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      null,
+      null,
+      -1,
+      -3,
+      -3,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "47715713331437527153255735112",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      -5,
+      null,
+      0,
+      null,
+      -1,
+      null
+    ],
+    "bestColumns": [
+      3
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "41712514716463745327537221413224",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      -3,
+      null,
+      4,
+      4,
+      -3
+    ],
+    "bestColumns": [
+      4,
+      5
+    ],
+    "value": 4,
+    "outcome": "Win",
+    "expectedValue": 4,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "653652263152124474354523167742336611451",
+    "discToMove": "Yellow",
+    "columnScores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      0
+    ],
+    "bestColumns": [
+      6
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "21431167543125267676544264221714765373",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      null,
+      -1,
+      null,
+      -2,
+      null,
+      null
+    ],
+    "bestColumns": [
+      2
+    ],
+    "value": -1,
+    "outcome": "Loss",
+    "expectedValue": -1,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "4664547423274211457613363372625321575",
+    "discToMove": "Yellow",
+    "columnScores": [
+      -2,
+      null,
+      null,
+      null,
+      0,
+      -2,
+      -2
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "24347224354721735325521134145367",
+    "discToMove": "Red",
+    "columnScores": [
+      -5,
+      null,
+      null,
+      null,
+      -3,
+      -5,
+      -5
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": -3,
+    "outcome": "Loss",
+    "expectedValue": -3,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "2316261177141456635241744767245562",
+    "discToMove": "Red",
+    "columnScores": [
+      null,
+      0,
+      0,
+      null,
+      0,
+      null,
+      0
+    ],
+    "bestColumns": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "value": 0,
+    "outcome": "Draw",
+    "expectedValue": 0,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  },
+  {
+    "position": "27573772361321663724362213661574",
+    "discToMove": "Red",
+    "columnScores": [
+      -5,
+      null,
+      null,
+      -5,
+      2,
+      null,
+      null
+    ],
+    "bestColumns": [
+      4
+    ],
+    "value": 2,
+    "outcome": "Win",
+    "expectedValue": 2,
+    "matchesExpected": true,
+    "sourceFile": "Test_L3_R1.txt"
+  }
+]

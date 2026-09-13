@@ -1,0 +1,138 @@
+{
+  "gamesPerPairing": 50,
+  "seed": 2891,
+  "pairings": [
+    {
+      "playerOne": "random",
+      "playerTwo": "minimax-d4-a-baseline",
+      "gamesPlayed": 50,
+      "playerOneWins": 0,
+      "playerTwoWins": 50,
+      "draws": 0
+    },
+    {
+      "playerOne": "random",
+      "playerTwo": "minimax-d4-c-defensive",
+      "gamesPlayed": 50,
+      "playerOneWins": 0,
+      "playerTwoWins": 50,
+      "draws": 0
+    },
+    {
+      "playerOne": "random",
+      "playerTwo": "mcts-5k-c1-41421356237",
+      "gamesPlayed": 50,
+      "playerOneWins": 0,
+      "playerTwoWins": 50,
+      "draws": 0
+    },
+    {
+      "playerOne": "random",
+      "playerTwo": "mcts-5k-c2-00",
+      "gamesPlayed": 50,
+      "playerOneWins": 0,
+      "playerTwoWins": 50,
+      "draws": 0
+    },
+    {
+      "playerOne": "minimax-d4-a-baseline",
+      "playerTwo": "minimax-d4-c-defensive",
+      "gamesPlayed": 50,
+      "playerOneWins": 32,
+      "playerTwoWins": 10,
+      "draws": 8
+    },
+    {
+      "playerOne": "minimax-d4-a-baseline",
+      "playerTwo": "mcts-5k-c1-41421356237",
+      "gamesPlayed": 50,
+      "playerOneWins": 15,
+      "playerTwoWins": 33,
+      "draws": 2
+    },
+    {
+      "playerOne": "minimax-d4-a-baseline",
+      "playerTwo": "mcts-5k-c2-00",
+      "gamesPlayed": 50,
+      "playerOneWins": 14,
+      "playerTwoWins": 32,
+      "draws": 4
+    },
+    {
+      "playerOne": "minimax-d4-c-defensive",
+      "playerTwo": "mcts-5k-c1-41421356237",
+      "gamesPlayed": 50,
+      "playerOneWins": 12,
+      "playerTwoWins": 37,
+      "draws": 1
+    },
+    {
+      "playerOne": "minimax-d4-c-defensive",
+      "playerTwo": "mcts-5k-c2-00",
+      "gamesPlayed": 50,
+      "playerOneWins": 11,
+      "playerTwoWins": 36,
+      "draws": 3
+    },
+    {
+      "playerOne": "mcts-5k-c1-41421356237",
+      "playerTwo": "mcts-5k-c2-00",
+      "gamesPlayed": 50,
+      "playerOneWins": 32,
+      "playerTwoWins": 18,
+      "draws": 0
+    }
+  ],
+  "standings": [
+    {
+      "name": "random",
+      "gamesPlayed": 200,
+      "wins": 0,
+      "losses": 200,
+      "draws": 0,
+      "winRate": 0,
+      "points": 0,
+      "meanDecisionMs": 0.0013406572769953046
+    },
+    {
+      "name": "minimax-d4-a-baseline",
+      "gamesPlayed": 200,
+      "wins": 111,
+      "losses": 75,
+      "draws": 14,
+      "winRate": 0.555,
+      "points": 118,
+      "meanDecisionMs": 3.4552064351378964
+    },
+    {
+      "name": "minimax-d4-c-defensive",
+      "gamesPlayed": 200,
+      "wins": 83,
+      "losses": 105,
+      "draws": 12,
+      "winRate": 0.415,
+      "points": 89,
+      "meanDecisionMs": 3.186472924187725
+    },
+    {
+      "name": "mcts-5k-c1-41421356237",
+      "gamesPlayed": 200,
+      "wins": 152,
+      "losses": 45,
+      "draws": 3,
+      "winRate": 0.76,
+      "points": 153.5,
+      "meanDecisionMs": 30.474792582929545
+    },
+    {
+      "name": "mcts-5k-c2-00",
+      "gamesPlayed": 200,
+      "wins": 136,
+      "losses": 57,
+      "draws": 7,
+      "winRate": 0.68,
+      "points": 139.5,
+      "meanDecisionMs": 30.326894185211767
+    }
+  ]
+}
